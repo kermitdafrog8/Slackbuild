@@ -1,0 +1,5 @@
+bddisasm is a fast, lightweight, x86/x64 instruction decoder. The
+project also features a fast, basic, x86/x64 instruction emulator,
+designed specifically to detect shellcode-like behavior.
+
+https://github.com/bitdefender/bddisasm
