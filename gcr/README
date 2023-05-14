@@ -1,3 +1,4 @@
 GCR is a library for displaying certificates and crypto UI, accessing
 key stores. It also provides the viewer for crypto files on the GNOME
 desktop.
+
