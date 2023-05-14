@@ -5,10 +5,10 @@ Collection of my Slackbuild scripts.
 
 [Cutter](https://github.com/kermitdafrog8/Slackbuild/tree/main/Cutter)
 Cutter is a free and open-source reverse engineering platform powered by
-rizin.[^2]
+rizin.<br>
 [ImHex](https://github.com/kermitdafrog8/Slackbuild/tree/main/ImHex)
 A Hex Editor for Reverse Engineers, Programmers and people who value their
-retinas when working at 3 AM.
+retinas when working at 3 AM.<br>
 [REDasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/REDasm)
 REDasm is a cross platform disassembler with a modern codebase useful 
 from the hobbyist to the professional reverse engineer.
