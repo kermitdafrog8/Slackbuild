@@ -18,7 +18,7 @@ language<br>
 [bddism](https://github.com/kermitdafrog8/Slackbuild/tree/main/bddism)
 bddisasm is a fast, lightweight, x86/x64 instruction decoder.<br>
 [class-doc](https://github.com/kermitdafrog8/Slackbuild/tree/main/class-doc)
-<br>
+Extract attributes docstrings defined in various ways<br>
 [gcr](https://github.com/kermitdafrog8/Slackbuild/tree/main/gcr)
 GCR is a library for displaying certificates and crypto UI, accessing
 key stores. It also provides the viewer for crypto files on the GNOME
