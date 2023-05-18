@@ -17,7 +17,7 @@ SASM - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
 language<br>
 [bddism](https://github.com/kermitdafrog8/Slackbuild/tree/main/bddism)
 bddisasm is a fast, lightweight, x86/x64 instruction decoder.<br>
-[class-doc]()
+[class-doc](https://github.com/kermitdafrog8/Slackbuild/tree/main/class-doc)
 <br>
 [gcr](https://github.com/kermitdafrog8/Slackbuild/tree/main/gcr)
 GCR is a library for displaying certificates and crypto UI, accessing
