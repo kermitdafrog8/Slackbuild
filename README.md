@@ -17,16 +17,18 @@ SASM - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
 language<br>
 [bddism](https://github.com/kermitdafrog8/Slackbuild/tree/main/bddism)
 bddisasm is a fast, lightweight, x86/x64 instruction decoder.<br>
+[class-doc]()
+<br>
 [gcr](https://github.com/kermitdafrog8/Slackbuild/tree/main/gcr)
 GCR is a library for displaying certificates and crypto UI, accessing
 key stores. It also provides the viewer for crypto files on the GNOME
 desktop.<br>
-[kddockwidgets](https://github.com/kermitdafrog8/Slackbuild/tree/main/kddockwidgets)
-KDDockWidgets is a Qt dock widget library written by KDAB, suitable for replacing
-QDockWidget and implementing advanced functionalities missing in Qt.<br>
 [jansson](https://github.com/kermitdafrog8/Slackbuild/tree/main/jansson)
 Jansson is a C library for encoding, decoding and manipulating
 JSON data.<br>
+[kddockwidgets](https://github.com/kermitdafrog8/Slackbuild/tree/main/kddockwidgets)
+KDDockWidgets is a Qt dock widget library written by KDAB, suitable for replacing
+QDockWidget and implementing advanced functionalities missing in Qt.<br>
 [mkpsxiso](https://github.com/kermitdafrog8/Slackbuild/tree/main/mkpsxiso)
 ISO disc image maker written specifically for PlayStation homebrew
 development<br>
