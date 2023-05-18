@@ -21,6 +21,8 @@ bddisasm is a fast, lightweight, x86/x64 instruction decoder.<br>
 GCR is a library for displaying certificates and crypto UI, accessing
 key stores. It also provides the viewer for crypto files on the GNOME
 desktop.<br>
+[kddockwidgets](https://github.com/kermitdafrog8/Slackbuild/tree/main/kddockwidgets)
+<br>
 [jansson](https://github.com/kermitdafrog8/Slackbuild/tree/main/jansson)
 Jansson is a C library for encoding, decoding and manipulating
 JSON data.<br>
