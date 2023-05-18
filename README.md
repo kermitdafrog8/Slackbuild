@@ -37,3 +37,9 @@ scrot (SCReenshOT)
 scrot - command line screen capture utility<br>
 [wxLua](https://github.com/kermitdafrog8/Slackbuild/tree/main/wxLua)
 wxLua is a Lua wrapper for the cross-platform wxWidgets GUI library.<br>
+[xpeviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xpeviewer)
+<br>
+[zipstream](https://github.com/kermitdafrog8/Slackbuild/tree/main/zipstream)
+<br>
+[zipstream-ng](https://github.com/kermitdafrog8/Slackbuild/tree/main/zipstream-ng)
+<br>
