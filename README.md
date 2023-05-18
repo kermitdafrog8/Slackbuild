@@ -22,7 +22,8 @@ GCR is a library for displaying certificates and crypto UI, accessing
 key stores. It also provides the viewer for crypto files on the GNOME
 desktop.<br>
 [kddockwidgets](https://github.com/kermitdafrog8/Slackbuild/tree/main/kddockwidgets)
-<br>
+KDDockWidgets is a Qt dock widget library written by KDAB, suitable for replacing
+QDockWidget and implementing advanced functionalities missing in Qt.<br>
 [jansson](https://github.com/kermitdafrog8/Slackbuild/tree/main/jansson)
 Jansson is a C library for encoding, decoding and manipulating
 JSON data.<br>
