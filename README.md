@@ -40,6 +40,7 @@ wxLua is a Lua wrapper for the cross-platform wxWidgets GUI library.<br>
 [xpeviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xpeviewer)
 PE file viewer/editor for for Windows, Linux and MacOS.<br>
 [zipstream](https://github.com/kermitdafrog8/Slackbuild/tree/main/zipstream)
-A modern and easy to use streamable zip file generator.<br>
+Like Python's ZipFile module, except it works as a generator that provides the
+file in many small chunks. <br>
 [zipstream-ng](https://github.com/kermitdafrog8/Slackbuild/tree/main/zipstream-ng)
-<br>
+A modern and easy to use streamable zip file generator.<br>
