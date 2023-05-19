@@ -81,7 +81,6 @@ find -L . \
 
 # For python2
 #python2 setup.py install --root=$PKG
-# Left for people who still want to use python2 instead of python3
 
 # For python3
 python3 setup.py install --root=$PKG
