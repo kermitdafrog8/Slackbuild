@@ -81,6 +81,7 @@ find -L . \
 
 # For python2
 #python2 setup.py install --root=$PKG
+# Left for people who still want to use python2 instead of python3
 
 # For python3
 python3 setup.py install --root=$PKG
@@ -95,7 +96,6 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
