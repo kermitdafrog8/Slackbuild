@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=gcr
-VERSION=${VERSION:-3.92.0}
+VERSION=${VERSION:-4.0.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -82,21 +82,18 @@ find -L . \
 
 mkdir build
 cd build
-  CFLAGS="$SLKCFLAGS"   CXXFLAGS="$SLKCFLAGS"   meson \
-  --buildtype=release \
-  --infodir=/usr/info \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --localstatedir=/var \
-  --mandir=/usr/man \
-  --prefix=/usr \
-  --sysconfdir=/etc \
-  -Dstrip=true \
-  ..
+  CFLAGS="$SLKCFLAGS"   CXXFLAGS="$SLKCFLAGS"   meson .. \
+	--buildtype=release \
+	--infodir=/usr/info \
+	--libdir=/usr/lib${LIBDIRSUFFIX} \
+	--localstatedir=/var \
+	--mandir=/usr/man \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	-Dstrip=true
   "${NINJA:=ninja}"
   DESTDIR=$PKG $NINJA install
 cd ..
-
-#rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.lacd ..
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
@@ -104,15 +101,8 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
 #find $PKG/usr/man -type f -exec gzip -9 {} \;
 #for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
-#rm -f $PKG/usr/info/dir
-#gzip -9 $PKG/usr/info/*.info*
-
-#find $PKG -name perllocal.pod \
-#  -o -name ".packlist"   -o -name "*.bs" \
-#  | xargs rm -f
-
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-#cp -a <documentation> $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a CONTRIBUTING.md COPYING NEWS README.md $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
