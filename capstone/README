@@ -6,4 +6,4 @@ SystemZ, XCore & X86 (including X86_64).
 
 Distributed under the open source BSD license.
 
-Changed to build libraries as shared.
+Changed to build libraries as shared and to work with the latest 5.0 version.
