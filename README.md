@@ -17,20 +17,21 @@ SASM - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
 language<br>
 [bddism](https://github.com/kermitdafrog8/Slackbuild/tree/main/bddism)
 bddisasm is a fast, lightweight, x86/x64 instruction decoder.<br>
-[capstone]()
-<br>
+[capstone](https://github.com/kermitdafrog8/Slackbuild/tree/main/capstone)
+Capstone is a lightweight multi-platform, multi-architecture disassembly
+framework<br>
 [class-doc](https://github.com/kermitdafrog8/Slackbuild/tree/main/class-doc)
 Extract attributes docstrings defined in various ways<br>
-[colored]()
-<br>
+[colored](https://github.com/kermitdafrog8/Slackbuild/tree/main/colored)
+Python library for color and formatting in terminal<br>
 [frozendict](https://github.com/kermitdafrog8/Slackbuild/tree/main/frozendict)
 A simple immutable dictionary for python<br>
 [gcr](https://github.com/kermitdafrog8/Slackbuild/tree/main/gcr)
 GCR is a library for displaying certificates and crypto UI, accessing
 key stores. It also provides the viewer for crypto files on the GNOME
 desktop.<br>
-[importlib2]()
-<br>
+[importlib2](https://github.com/kermitdafrog8/Slackbuild/tree/main/importlib2)
+A complete backport to 2.7 (and 3.x) of the ``importlib`` package from Python 3<br>
 [jansson](https://github.com/kermitdafrog8/Slackbuild/tree/main/jansson)
 Jansson is a C library for encoding, decoding and manipulating
 JSON data.<br>
@@ -48,15 +49,15 @@ Python interface for the SEGGER J-Link.<br>
 [scrot](https://github.com/kermitdafrog8/Slackbuild/tree/main/scrot)
 scrot (SCReenshOT)
 scrot - command line screen capture utility<br>
-[webassets]()
-<br>
+[webassets](https://github.com/kermitdafrog8/Slackbuild/tree/main/webassets)
+Asset management application for Python web development<br>
 [wxLua](https://github.com/kermitdafrog8/Slackbuild/tree/main/wxLua)
 wxLua is a Lua wrapper for the cross-platform wxWidgets GUI library.<br>
-[xelfviewer]()
-<br>
-[xmachoviewer]()
-<br>
-[xopcodecalc]()
+[xelfviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xelfviewer)
+ELF file viewer/editor for Windows, Linux, and MacOS<br>
+[xmachoviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xmachoviewer)
+MachO file viewer/editor for Windows, Linux, and macOS<br>
+[xopcodecalc](https://github.com/kermitdafrog8/Slackbuild/tree/main/xopcodecalc)
 <br>
 [xpeviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xpeviewer)
 PE file viewer/editor for for Windows, Linux and MacOS.<br>
