@@ -1,7 +1,7 @@
 # Slackbuild
 Slackbuild scripts
 
-Collection of my Slackbuild scripts.
+Collection of my Slackbuild scripts. Not tested on base 15 install.  Will be tested in the future.
 
 [Cutter](https://github.com/kermitdafrog8/Slackbuild/tree/main/Cutter)
 Cutter is a free and open-source reverse engineering platform powered by
