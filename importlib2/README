@@ -1,1 +1,3 @@
-
+A complete backport to 2.7 (and 3.x) of the ``importlib`` package
+from Python 3. Compatibility is intended to match only the latest
+public, non-deprecated importlib API.
