@@ -1,2 +1,4 @@
 Rizin is a fork of the radare2 reverse engineering framework with
 a focus on usability, working features and code cleanliness.
+
+Successful build on AARCH64 with lib's installed in LIB64
