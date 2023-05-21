@@ -1,1 +1,3 @@
 MachO file viewer/editor for Windows, Linux, and macOS
+
+Successful build on AARCH64 and X86_64 on my system.  Not tested with base systems.
