@@ -46,8 +46,6 @@ Open source Python librabry for programming and debugging
 ARM Cortex-M microcontrollers.<br>
 [pylink-square](https://github.com/kermitdafrog8/Slackbuild/tree/main/pylink-square)<br>
 Python interface for the SEGGER J-Link.<br>
-[rizin](https://github.com/kermitdafrog8/Slackbuild/tree/main/rizin)<br>
-Rizin is a fork of the radare2 reverse engineering framework (fixed for AARCH64 to install libs in lib64)<br>
 [scrot](https://github.com/kermitdafrog8/Slackbuild/tree/main/scrot)<br>
 scrot (SCReenshOT)
 scrot - command line screen capture utility<br>
