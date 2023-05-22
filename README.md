@@ -30,6 +30,8 @@ A simple immutable dictionary for python<br>
 GCR is a library for displaying certificates and crypto UI, accessing
 key stores. It also provides the viewer for crypto files on the GNOME
 desktop.<br>
+[glfw3](https://github.com/kermitdafrog8/Slackbuild/tree/main/glfw3)<br>
+GLFW is an Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan development on the desktop<br>
 [importlib2](https://github.com/kermitdafrog8/Slackbuild/tree/main/importlib2)<br>
 A complete backport to 2.7 (and 3.x) of the ``importlib`` package from Python 3<br>
 [jansson](https://github.com/kermitdafrog8/Slackbuild/tree/main/jansson)<br>
