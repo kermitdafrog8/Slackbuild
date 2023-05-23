@@ -2,6 +2,7 @@
 Slackbuild scripts
 
 Collection of my Slackbuild scripts. Not tested on base 15 install.  Will be tested in the future.
+Updated and tested to build on AARCH64. bddism will not compile in AARCH64.
 
 [Cutter](https://github.com/kermitdafrog8/Slackbuild/tree/main/Cutter)<br>
 Cutter is a free and open-source reverse engineering platform powered by
@@ -62,7 +63,7 @@ ELF file viewer/editor for Windows, Linux, and MacOS<br>
 [xmachoviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xmachoviewer)<br>
 MachO file viewer/editor for Windows, Linux, and macOS<br>
 [xopcodecalc](https://github.com/kermitdafrog8/Slackbuild/tree/main/xopcodecalc)<br>
-<br>
+Opcode calculator / ASM calculator<br>
 [xpeviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xpeviewer)<br>
 PE file viewer/editor for for Windows, Linux and MacOS.<br>
 [zipstream](https://github.com/kermitdafrog8/Slackbuild/tree/main/zipstream)<br>
