@@ -54,6 +54,8 @@ Rizin is a fork of the radare2 reverse engineering framework (fixed for AARCH64 
 [scrot](https://github.com/kermitdafrog8/Slackbuild/tree/main/scrot)<br>
 scrot (SCReenshOT)
 scrot - command line screen capture utility<br>
+[webassets](https://github.com/kermitdafrog8/Slackbuild/tree/main/webassets)<br>
+Asset management application for Python web development<br>
 [wxLua](https://github.com/kermitdafrog8/Slackbuild/tree/main/wxLua)<br>
 wxLua is a Lua wrapper for the cross-platform wxWidgets GUI library.<br>
 [xelfviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xelfviewer)<br>
