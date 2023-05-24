@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Slackware build script for ImHex
+# Slackware build script for sol2
 
-# Copyright 2023 Christopher Luck Orlando, FL
+# Copyright 2023
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,8 +24,8 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=ImHex
-VERSION=${VERSION:-1.29.0}
+PRGNAM=sol2
+VERSION=${VERSION:-3.3.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -47,7 +47,7 @@ if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
 fi
 
 TMP=${TMP:-/tmp/SBo}
-PKG=$TMP/package-$PRGNAM-$VERSION
+PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
 if [ "$ARCH" = "i586" ]; then
@@ -64,22 +64,14 @@ else
   LIBDIRSUFFIX=""
 fi
 
-# Check for offline build
-if [ "${OFFLINE:-}" = "yes" ];then
-    OFFLINE="-DIMHEX_OFFLINE_BUILD=ON"
-else
-    OFFLINE=""
-fi
-
-
 set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/Full.Sources.tar.gz
-cd ImHex
+tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -95,7 +87,6 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
-    $OFFLINE \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install DESTDIR=$PKG
@@ -103,15 +94,24 @@ cd ..
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
-find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
-  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+#find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+#  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+#find $PKG/usr/man -type f -exec gzip -9 {} \;
+#for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
+#rm -f $PKG/usr/info/dir
+#gzip -9 $PKG/usr/info/*.info*
+
+#find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a HACKING.md INSTALL.md README.md VERSION $PKG/usr/doc/$PRGNAM-$VERSION
+#cp -a  <documentation> $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

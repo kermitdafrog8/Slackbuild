@@ -23,8 +23,6 @@ Capstone is a lightweight multi-platform, multi-architecture disassembly
 framework<br>
 [class-doc](https://github.com/kermitdafrog8/Slackbuild/tree/main/class-doc)<br>
 Extract attributes docstrings defined in various ways<br>
-[colored](https://github.com/kermitdafrog8/Slackbuild/tree/main/colored)<br>
-Python library for color and formatting in terminal<br>
 [frozendict](https://github.com/kermitdafrog8/Slackbuild/tree/main/frozendict)<br>
 A simple immutable dictionary for python<br>
 [gcr](https://github.com/kermitdafrog8/Slackbuild/tree/main/gcr)<br>
@@ -44,8 +42,7 @@ QDockWidget and implementing advanced functionalities missing in Qt.<br>
 [mkpsxiso](https://github.com/kermitdafrog8/Slackbuild/tree/main/mkpsxiso)<br>
 ISO disc image maker written specifically for PlayStation homebrew
 development<br>
-[pyOCD](https://github.com/kermitdafrog8/Slackbuild/tree/main/pyOCD)<br>
-Open source Python librabry for programming and debugging
+[pyocd](https://github.com/kermitdafrog8/Slackbuild/tree/main/pyOCD)<br>
 ARM Cortex-M microcontrollers.<br>
 [pylink-square](https://github.com/kermitdafrog8/Slackbuild/tree/main/pylink-square)<br>
 Python interface for the SEGGER J-Link.<br>
