@@ -48,6 +48,8 @@ ARM Cortex-M microcontrollers.<br>
 Python interface for the SEGGER J-Link.<br>
 [rizin](https://github.com/kermitdafrog8/Slackbuild/tree/main/rizin)<br>
 Rizin is a fork of the radare2 reverse engineering framework (fixed for AARCH64 to install libs in lib64)<br>
+[rpi-imager](https://github.com/kermitdafrog8/Slackbuild/tree/main/rpi-imager)<br>
+Raspberry Pi Imaging Utility<br>
 [scrot](https://github.com/kermitdafrog8/Slackbuild/tree/main/scrot)<br>
 scrot (SCReenshOT)
 scrot - command line screen capture utility<br>
