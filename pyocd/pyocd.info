@@ -1,4 +1,4 @@
-PRGNAM="pyOCD"
+PRGNAM="pyocd"
 VERSION="0.35.1"
 HOMEPAGE="https://pyocd.io"
 DOWNLOAD="https://files.pythonhosted.org/packages/f4/30/f9d381eb634844c9f751af443c57cc624cb34f7434e1008267ef16d0ee02/pyocd-0.35.1.tar.gz"
