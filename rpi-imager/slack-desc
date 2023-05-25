@@ -5,15 +5,15 @@
 # You must make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-    |-----handy-ruler------------------------------------------------------|
-sol2: sol2 (Sol3 (A C++ <-> Lua API wrapper)
-sol2:
-sol2: sol2 is a C++ library binding to Lua
-sol2:
-sol2:
-sol2:
-sol2:
-sol2:
-sol2:
-sol2:
-sol2:
+          |-----handy-ruler------------------------------------------------------|
+rpi-imager: rpi-imager (Raspberry Pi Imaging Utility)
+rpi-imager:
+rpi-imager: Raspberry Pi Imaging Utility
+rpi-imager:
+rpi-imager:
+rpi-imager:
+rpi-imager:
+rpi-imager:
+rpi-imager:
+rpi-imager:
+rpi-imager:
