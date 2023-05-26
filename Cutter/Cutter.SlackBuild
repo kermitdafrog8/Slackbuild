@@ -96,7 +96,7 @@ cd build
   make 
   make install DESTDIR=$PKG
 
-if [ "${DOC:-}" = "yes" ]; then
+if [ "${man:-}" = "yes" ]; then
   cd ../docs
   make man
   cd build/man
@@ -113,6 +113,8 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+cd $TMP/$PRGNAM-$VERSION
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a CONTRIBUTING.md COPYING  README.md  SECURITY.md  $PKG/usr/doc/$PRGNAM-$VERSION
