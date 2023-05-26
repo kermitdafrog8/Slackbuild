@@ -93,7 +93,7 @@ cd build
     -DCUTTER_ENABLE_PYTHON=ON \
     -DPYTHON_EXECUTABLE=/usr/bin/python3 \
     -DCMAKE_BUILD_TYPE=Release ..
-  make 
+  make
   make install DESTDIR=$PKG
 
 if [ "${man:-}" = "yes" ]; then
