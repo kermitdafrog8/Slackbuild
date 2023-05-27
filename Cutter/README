@@ -4,5 +4,3 @@ platform while keeping the user experience in mind. Cutter is created by
 reverse engineers for reverse engineers.
 
 https://cutter.re/
-
-Use man=yes for optional man pages.  Requires Sphinx for man pages.

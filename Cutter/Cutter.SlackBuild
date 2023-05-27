@@ -95,26 +95,11 @@ cd build
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install DESTDIR=$PKG
-
-if [ "${man:-}" = "yes" ]; then
-  cd ../docs
-  make man
-  cd build/man
-  mkdir -p $PKG/usr/man/man1
-  cp -a cutter.1 $PKG/usr/man/man1
-  cd ../../..
-
-  find $PKG/usr/man -type f -exec gzip -9 {} \;
-  for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-
-fi
-
+cd ..
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
-
-cd $TMP/$PRGNAM-$VERSION
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a CONTRIBUTING.md COPYING  README.md  SECURITY.md  $PKG/usr/doc/$PRGNAM-$VERSION
