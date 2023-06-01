@@ -84,9 +84,8 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
   qmake
-  patch $TMP/$PRGNAM-$VERSION/Makefile $CWD/Makefile.patch
   make
-  make install DESTDIR=$PKG
+  make install INSTALL_ROOT=$PKG
 
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
