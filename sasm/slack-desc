@@ -6,14 +6,14 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
     |-----handy-ruler------------------------------------------------------|
-SASM: SASM (IDE for NASM,MASM, GAS, and FASM assembly)
-SASM: SASM - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
-SASM: language
-SASM:
-SASM:
-SASM:
-SASM:
-SASM:
-SASM:
-SASM:
-SASM:
+sasm: sasm (IDE for NASM,MASM, GAS, and FASM assembly)
+sasm: sasm - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
+sasm: language
+sasm:
+sasm:
+sasm:
+sasm:
+sasm:
+sasm:
+sasm:
+sasm:

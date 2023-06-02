@@ -24,7 +24,7 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=SASM
+PRGNAM=sasm
 VERSION=${VERSION:-3.14.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}

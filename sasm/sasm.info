@@ -1,4 +1,4 @@
-PRGNAM="SASM"
+PRGNAM="sasm"
 VERSION="3.14.0"
 HOMEPAGE="http://dman95.github.io/SASM/"
 DOWNLOAD="https://codeload.github.com/Dman95/SASM/tar.gz/v3.14.0"
