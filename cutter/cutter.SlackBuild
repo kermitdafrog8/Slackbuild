@@ -25,6 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=cutter
+SRCNAM=Cutter
 VERSION=${VERSION:-v2.2.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -72,12 +73,10 @@ set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
-#mkdir -p $TMP/$PRGNAME-$VERSION/rizin
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar zxf $CWD/$PRGNAM-$VERSION-src.tar.gz
-#tar -C $TMP/$PRGNAM-$VERSION/rizin --strip-components=1 -x -f $CWD/rizin-0.5.1.tar.gz
-cd $PRGNAM-$VERSION
+tar zxf $CWD/$SRCNAM-$VERSION-src.tar.gz
+cd $SRCNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -111,6 +110,7 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

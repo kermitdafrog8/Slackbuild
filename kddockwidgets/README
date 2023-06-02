@@ -6,6 +6,4 @@ born from the frustration he experienced from working with QDockWidget on projec
 that needed extensive customization. (Read his blog about it). Specific requests 
 increasingly made it clear that a better docking framework was needed.
 
-https://www.kdab.com/development-resources/qt-tools/kddockwidgets
-
 Successful build on AARCH64
