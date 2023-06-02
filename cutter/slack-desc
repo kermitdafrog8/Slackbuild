@@ -5,15 +5,15 @@
 # You must make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-     |-----handy-ruler------------------------------------------------------|
-wxLua: wxLua (Lua bindings for wxWidgets)
-wxLua:
-wxLua: wxlua: Lua bindings for wxWidgets cross-platform GUI toolkit; 
-wxLua: supports Lua 5.1, 5.2, 5.3, 5.4, LuaJIT and wxWidgets 3.x 
-wxLua:
-wxLua:
-wxLua:
-wxLua:
-wxLua:
-wxLua:
-wxLua:
+      |-----handy-ruler------------------------------------------------------|
+cutter: cutter (Free and Open Source Reverse Engineering Platform)
+cutter: Free and Open Source Reverse Engineering Platform powered by rizin
+cutter: https://cutter.re/
+cutter:
+cutter:
+cutter:
+cutter:
+cutter:
+cutter:
+cutter:
+cutter:
