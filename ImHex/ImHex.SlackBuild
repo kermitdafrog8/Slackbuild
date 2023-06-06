@@ -68,14 +68,6 @@ else
   LIBDIRSUFFIX=""
 fi
 
-# Check for offline build
-if [ "${OFFLINE:-}" = "yes" ];then
-    OFFLINE="-DIMHEX_OFFLINE_BUILD=ON"
-else
-    OFFLINE=""
-fi
-
-
 set -e
 
 rm -rf $PKG
@@ -101,7 +93,7 @@ cd build
     -DMAN_INSTALL_DIR=/usr/man \
     $OFFLINE \
     -DCMAKE_BUILD_TYPE=Release ..
-  make -j6
+  make 
   make install DESTDIR=$PKG
 cd ..
 
