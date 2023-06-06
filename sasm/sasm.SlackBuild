@@ -96,7 +96,9 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
 
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+mv $PKG/usr/share/doc/* $PKG/usr/doc/$PRGNAM-$VERSION
 rm -r $PKG/usr/share/doc
+
 cp -a COPYING COPYING_RUS README.txt help.html helpENG.html Linux/share/doc/* $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
