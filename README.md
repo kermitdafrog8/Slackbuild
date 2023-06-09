@@ -41,6 +41,8 @@ development<br>
 Python-interface for the SEGGER J-Link<br>
 [pyocd](https://github.com/kermitdafrog8/Slackbuild/tree/main/pyOCD) - 
 ARM Cortex-M microcontrollers.<br>
+[rehex](https://github.com/kermitdafrog8/Slackbuild/tree/main/rehex) -
+Reverse Engineers' Hex Editor<br>
 [rpi-imager](https://github.com/kermitdafrog8/Slackbuild/tree/main/rpi-imager) - 
 Raspberry Pi Imaging Utility<br>
 [xelfviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xelfviewer) - 
