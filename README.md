@@ -37,7 +37,7 @@ ISO disc image maker written specifically for PlayStation homebrew
 development<br>
 [pylink-square](https://github.com/kermitdafrog8/Slackbuild/tree/main/pylink-square) - 
 Python-interface for the SEGGER J-Link<br>
-[pyocd](https://github.com/kermitdafrog8/Slackbuild/tree/main/pyOCD) - 
+[pyocd](https://github.com/kermitdafrog8/Slackbuild/tree/main/pyocd) - 
 ARM Cortex-M microcontrollers.<br>
 [REDasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/REDasm) - 
 REDasm is a cross platform disassembler with a modern codebase useful 
