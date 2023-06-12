@@ -49,6 +49,8 @@ Raspberry Pi Imaging Utility<br>
 [sasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/sasm) - 
 SASM - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
 language<br>
+[SiriKali](https://github.com/kermitdafrog8/Slackbuild/tree/main/SiriKali) - 
+A Qt/C++ GUI front end to sshfs, ecryptfs-simple, cryfs, gocryptfs, securefs, fscrypt and encfs<br>
 [xelfviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xelfviewer) - 
 ELF file viewer/editor for Windows, Linux, and MacOS<br>
 [xmachoviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xmachoviewer) - 
