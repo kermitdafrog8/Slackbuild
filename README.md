@@ -10,11 +10,17 @@ bddisasm is a fast, lightweight, x86/x64 instruction decoder.<br>
 Binaryen is a compiler and toolchain infrastructure library for
 WebAssembly, written in C++. It aims to make compiling to WebAssembly
 easy, fast, and effective: <br>
+[c-blosc](https://github.com/kermitdafrog8/Slackbuild/tree/main/c-blosc) - 
+Blosc is a high performance compressor optimized for binary data<br>
 [class-doc](https://github.com/kermitdafrog8/Slackbuild/tree/main/class-doc) - 
 Extract attributes docstrings defined in various ways<br>
 [cutter](https://github.com/kermitdafrog8/Slackbuild/tree/main/cutter) - 
 Cutter is a free and open-source reverse engineering platform powered by
 rizin.<br>
+[distorm](https://github.com/kermitdafrog8/Slackbuild/tree/main/distorm) - 
+diStorm3 is really a decomposer, which means it takes an instruction
+and returns a binary structure which describes it rather than static
+text, which is great for advanced binary code analysis<br>
 [frozendict](https://github.com/kermitdafrog8/Slackbuild/tree/main/frozendict) - 
 A simple immutable dictionary for python<br>
 [gcr](https://github.com/kermitdafrog8/Slackbuild/tree/main/gcr) - 
