@@ -14,6 +14,9 @@ easy, fast, and effective: <br>
 Blosc is a high performance compressor optimized for binary data<br>
 [class-doc](https://github.com/kermitdafrog8/Slackbuild/tree/main/class-doc) - 
 Extract attributes docstrings defined in various ways<br>
+[codon](https://github.com/kermitdafrog8/Slackbuild/tree/main/codon) - 
+Codon is a high-performance Python implementation that compiles to
+native machine code without any runtime overhead<br>
 [cutter](https://github.com/kermitdafrog8/Slackbuild/tree/main/cutter) - 
 Cutter is a free and open-source reverse engineering platform powered by
 rizin.<br>
