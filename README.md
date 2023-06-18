@@ -44,10 +44,19 @@ QDockWidget and implementing advanced functionalities missing in Qt.<br>
 [mkpsxiso](https://github.com/kermitdafrog8/Slackbuild/tree/main/mkpsxiso) - 
 ISO disc image maker written specifically for PlayStation homebrew
 development<br>
+[notes](https://github.com/kermitdafrog8/Slackbuild/tree/main/notes) - 
+Notes manager, CLI and TUI, in TUI works like file manager
+(mc,nnn,fff,lf). Notes are plain text (txt,md,groff,...) files.
+Compatible with Nextcloud Notes, can be used with rclose, git,
+rsync, etc.<br>
 [pylink-square](https://github.com/kermitdafrog8/Slackbuild/tree/main/pylink-square) - 
 Python-interface for the SEGGER J-Link<br>
 [pyocd](https://github.com/kermitdafrog8/Slackbuild/tree/main/pyocd) - 
 ARM Cortex-M microcontrollers.<br>
+[qhull](https://github.com/kermitdafrog8/Slackbuild/tree/main/qhull) - 
+Qhull is a general dimension convex hull program that reads a set
+of points from stdin, and outputs the smallest convex set that
+contains the points to stdout<br>
 [REDasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/REDasm) - 
 REDasm is a cross platform disassembler with a modern codebase useful 
 from the hobbyist to the professional reverse engineer.<br>
@@ -60,6 +69,9 @@ SASM - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
 language<br>
 [SiriKali](https://github.com/kermitdafrog8/Slackbuild/tree/main/SiriKali) - 
 A Qt/C++ GUI front end to sshfs, ecryptfs-simple, cryfs, gocryptfs, securefs, fscrypt and encfs<br>
+[stormlib](https://github.com/kermitdafrog8/Slackbuild/tree/main/stormlib) - 
+StomLib library, an open-source project that can work with Blizzard
+MPQ archive
 [xelfviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xelfviewer) - 
 ELF file viewer/editor for Windows, Linux, and MacOS<br>
 [xmachoviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xmachoviewer) - 
