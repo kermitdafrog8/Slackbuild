@@ -53,10 +53,6 @@ rsync, etc.<br>
 Python-interface for the SEGGER J-Link<br>
 [pyocd](https://github.com/kermitdafrog8/Slackbuild/tree/main/pyocd) - 
 ARM Cortex-M microcontrollers.<br>
-[qhull](https://github.com/kermitdafrog8/Slackbuild/tree/main/qhull) - 
-Qhull is a general dimension convex hull program that reads a set
-of points from stdin, and outputs the smallest convex set that
-contains the points to stdout<br>
 [REDasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/REDasm) - 
 REDasm is a cross platform disassembler with a modern codebase useful 
 from the hobbyist to the professional reverse engineer.<br>
