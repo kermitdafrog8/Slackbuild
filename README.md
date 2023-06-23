@@ -51,6 +51,8 @@ Compatible with Nextcloud Notes, can be used with rclose, git,
 rsync, etc.<br>
 [pylink-square](https://github.com/kermitdafrog8/Slackbuild/tree/main/pylink-square) - 
 Python-interface for the SEGGER J-Link<br>
+[pynecone](https://github.com/kermitdafrog8/Slackbuild/tree/main/pynecone) - 
+Web apps in pure Python<br>
 [pyocd](https://github.com/kermitdafrog8/Slackbuild/tree/main/pyocd) - 
 ARM Cortex-M microcontrollers.<br>
 [REDasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/REDasm) - 
@@ -67,7 +69,10 @@ language<br>
 A Qt/C++ GUI front end to sshfs, ecryptfs-simple, cryfs, gocryptfs, securefs, fscrypt and encfs<br>
 [stormlib](https://github.com/kermitdafrog8/Slackbuild/tree/main/stormlib) - 
 StomLib library, an open-source project that can work with Blizzard
-MPQ archive
+MPQ archive<br>
+[wla-dx](https://github.com/kermitdafrog8/Slackbuild/tree/main/wla-dx) - 
+WLA DX - Yet Another GB-Z80/Z80 /6502/65C02/65CE02/65816/68000/6800/6801/6809/8008/8080/HUC6280/
+SPC-700/SuperFX Multi Platform Cross Assembler Package<br>
 [xelfviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xelfviewer) - 
 ELF file viewer/editor for Windows, Linux, and MacOS<br>
 [xmachoviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/xmachoviewer) - 

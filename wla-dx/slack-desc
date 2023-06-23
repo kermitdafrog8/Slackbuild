@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+      |-----handy-ruler------------------------------------------------------|
+wla-dx: wla-dx (Multi Platform Cross Assembler Package)
+wla-dx:
+wla-dx: WLA DX - Yet Another GB-Z80/Z80 /6502/65C02/65CE02/65816/68000/
+wla-dx: 6800/6801/6809/8008/8080/HUC6280/SPC-700/SuperFX Multi Platform
+wla-dx: Cross Assembler Package
+wla-dx:
+wla-dx:
+wla-dx:
+wla-dx:
+wla-dx:
+wla-dx:
