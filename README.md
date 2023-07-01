@@ -4,7 +4,7 @@ Slackbuild scripts
 Collection of my Slackbuild scripts. Not tested on base 15 install.  Will be tested in the future.
 Updated and tested to build on AARCH64. bddism will not compile in AARCH64.
 
-[bddism](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/bddism) - 
+[bddiasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/bddiasm) - 
 bddisasm is a fast, lightweight, x86/x64 instruction decoder.<br>
 [binaryen](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/binaryen) - 
 Binaryen is a compiler and toolchain infrastructure library for
