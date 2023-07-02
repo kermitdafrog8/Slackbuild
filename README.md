@@ -70,6 +70,9 @@ A Qt/C++ GUI front end to sshfs, ecryptfs-simple, cryfs, gocryptfs, securefs, fs
 [stormlib](https://github.com/kermitdafrog8/Slackbuild/tree/main/stormlib) - 
 StomLib library, an open-source project that can work with Blizzard
 MPQ archive<br>
+[wasmer](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wasmer) - 
+Wasmer is a fast and secure Web Assembly runtime that enables super lightweight containers to run
+anywhere: from Desktop to the Cloud, Edge, and IoT devices<br>
 [wla-dx](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wla-dx) - 
 WLA DX - Yet Another GB-Z80/Z80 /6502/65C02/65CE02/65816/68000/6800/6801/6809/8008/8080/HUC6280/
 SPC-700/SuperFX Multi Platform Cross Assembler Package<br>
