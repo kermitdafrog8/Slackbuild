@@ -1,8 +1,9 @@
 # Slackbuild
 Slackbuild scripts
 
-Collection of my Slackbuild scripts. Not tested on base 15 install.  Will be tested in the future.
-Updated and tested to build on AARCH64. bddism will not compile in AARCH64.
+Collection of my Slackbuild scripts.
+bddism will not compile in AARCH64.
+Rehex will not build on 15 but builds on current. Needs a newer version of GCC
 
 [bddisasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/bddisasm) - 
 bddisasm is a fast, lightweight, x86/x64 instruction decoder.<br>
