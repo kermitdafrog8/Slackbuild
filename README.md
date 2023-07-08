@@ -1,8 +1,8 @@
 # Slackbuild
 Slackbuild scripts
 
-Collection of my Slackbuild scripts.
-bddism will not compile in AARCH64.
+Collection of my Slackbuild scripts.<br>
+bddism will not compile in AARCH64.<br>
 Rehex will not build on 15 but builds on current. Needs a newer version of GCC
 
 [bddisasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/bddisasm) - 
