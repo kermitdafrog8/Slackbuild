@@ -93,7 +93,7 @@ cd build
     -DMAN_INSTALL_DIR=/usr/man \
     -DQT5=true \
     -DCMAKE_BUILD_TYPE=Release ..
-  make -j6
+  make
   make install DESTDIR=$PKG
 cd ..
 
