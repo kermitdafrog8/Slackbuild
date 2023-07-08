@@ -71,9 +71,6 @@ SASM - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
 language<br>
 [SiriKali](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/SiriKali) - 
 A Qt/C++ GUI front end to sshfs, ecryptfs-simple, cryfs, gocryptfs, securefs, fscrypt and encfs<br>
-[stormlib](https://github.com/kermitdafrog8/Slackbuild/tree/main/stormlib) - 
-StomLib library, an open-source project that can work with Blizzard
-MPQ archive<br>
 [wasmer](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wasmer) - 
 Wasmer is a fast and secure Web Assembly runtime that enables super lightweight containers to run
 anywhere: from Desktop to the Cloud, Edge, and IoT devices<br>
