@@ -20,6 +20,8 @@ native machine code without any runtime overhead<br>
 [cutter](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/cutter) - 
 Cutter is a free and open-source reverse engineering platform powered by
 rizin.<br>
+[Detect It Easy (die)](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/die) -
+Program for determining types of files for Windows, Linux and MacOS<br>
 [distorm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/distorm) - 
 diStorm3 is really a decomposer, which means it takes an instruction
 and returns a binary structure which describes it rather than static
@@ -30,6 +32,8 @@ A simple immutable dictionary for python<br>
 GCR is a library for displaying certificates and crypto UI, accessing
 key stores. It also provides the viewer for crypto files on the GNOME
 desktop.<br>
+[horizon](https://github.com/kermitdafrog8/Slackbuild/tree/main/academic/horizon) - 
+Horizon is a free EDA package<br>
 [ImHex](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/ImHex) - 
 A Hex Editor for Reverse Engineers, Programmers and people who value their
 retinas when working at 3 AM.<br>

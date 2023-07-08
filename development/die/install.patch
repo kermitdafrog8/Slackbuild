@@ -1,0 +1,34 @@
+10,14c10,14
+< mkdir -p  $X_PREFIX/lib/bin
+< mkdir -p  $X_PREFIX/lib/share/applications
+< mkdir -p  $X_PREFIX/lib/share/icons
+< mkdir -p  $X_PREFIX/lib/die
+< mkdir -p  $X_PREFIX/lib/die/signatures
+---
+> mkdir -p  $DESTDIR$X_PREFIX/bin
+> mkdir -p  $DESTDIR$X_PREFIX/share/applications
+> mkdir -p  $DESTDIR$X_PREFIX/share/icons
+> mkdir -p  $DESTDIR$X_PREFIX/share/die
+> mkdir -p  $DESTDIR$X_PREFIX/share/die/signatures
+16,25c16,25
+< cp -f $X_SOURCE_PATH/build/release/die                              $X_PREFIX/bin/
+< cp -f $X_SOURCE_PATH/build/release/diec                             $X_PREFIX/bin/
+< cp -f $X_SOURCE_PATH/build/release/diel                             $X_PREFIX/bin/
+< cp -f $X_SOURCE_PATH/LINUX/die.desktop                              $X_PREFIX/share/applications/
+< cp -Rf $X_SOURCE_PATH/LINUX/hicolor/                                $X_PREFIX/share/icons/
+< cp -Rf $X_SOURCE_PATH/XStyles/qss/                                  $X_PREFIX/lib/die/
+< cp -f $X_SOURCE_PATH/signatures/crypto.db                           $X_PREFIX/lib/die/signatures/
+< cp -Rf $X_SOURCE_PATH/XInfoDB/info/                                 $X_PREFIX/lib/die/
+< cp -Rf $X_SOURCE_PATH/Detect-It-Easy/db/                            $X_PREFIX/lib/die/
+< cp -Rf $X_SOURCE_PATH/images/                                       $X_PREFIX/lib/die/
+---
+> cp -f $X_SOURCE_PATH/build/release/die                              $DESTDIR$X_PREFIX/bin/
+> cp -f $X_SOURCE_PATH/build/release/diec                             $DESTDIR$X_PREFIX/bin/
+> cp -f $X_SOURCE_PATH/build/release/diel                             $DESTDIR$X_PREFIX/bin/
+> cp -f $X_SOURCE_PATH/LINUX/die.desktop                              $DESTDIR$X_PREFIX/share/applications/
+> cp -Rf $X_SOURCE_PATH/LINUX/hicolor/                                $DESTDIR$X_PREFIX/share/icons/
+> cp -Rf $X_SOURCE_PATH/XStyles/qss/                                  $DESTDIR$X_PREFIX/share/die/
+> cp -f $X_SOURCE_PATH/signatures/crypto.db                           $DESTDIR$X_PREFIX/share/die/signatures/
+> cp -Rf $X_SOURCE_PATH/XInfoDB/info/                                 $DESTDIR$X_PREFIX/share/die/
+> cp -Rf $X_SOURCE_PATH/Detect-It-Easy/db/                            $DESTDIR$X_PREFIX/share/die/
+> cp -Rf $X_SOURCE_PATH/images/                                       $DESTDIR$X_PREFIX/share/die/
