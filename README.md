@@ -46,6 +46,14 @@ JSON data.<br>
 [kddockwidgets](https://github.com/kermitdafrog8/Slackbuild/tree/main/libraries/kddockwidgets) - 
 KDDockWidgets is a Qt dock widget library written by KDAB, suitable for replacing
 QDockWidget and implementing advanced functionalities missing in Qt.<br>
+[miasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/miasm) - 
+Miasm is a free and open source (GPLv2) reverse engineering framework. Miasm aims to analyze / modify / generate binary programs. Here is a non exhaustive list of features:
+
+    Opening / modifying / generating PE / ELF 32 / 64 LE / BE
+    Assembling / Disassembling X86 / ARM / MIPS / SH4 / MSP430
+    Representing assembly semantic using intermediate language
+    Emulating using JIT (dynamic code analysis, unpacking, ...)
+    Expression simplification for automatic de-obfuscation<br>
 [mkpsxiso](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mkpsxiso) - 
 ISO disc image maker written specifically for PlayStation homebrew
 development<br>
@@ -56,13 +64,13 @@ Compatible with Nextcloud Notes, can be used with rclose, git,
 rsync, etc.<br>
 [pylink-square](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/pylink-square) - 
 Python-interface for the SEGGER J-Link<br>
-[pynecone](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/pynecone) - 
-Web apps in pure Python<br>
 [pyocd](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/pyocd) - 
 ARM Cortex-M microcontrollers.<br>
 [REDasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/REDasm) - 
 REDasm is a cross platform disassembler with a modern codebase useful 
 from the hobbyist to the professional reverse engineer.<br>
+[reflex](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/reflex) - 
+Web apps in pure Python (formally known as pynecone)<br>
 [rehex](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/rehex) -
 Reverse Engineers' Hex Editor<br>
 [rpi-imager](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/rpi-imager) - 
