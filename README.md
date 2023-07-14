@@ -53,7 +53,7 @@ Miasm is a free and open source (GPLv2) reverse engineering framework. Miasm aim
     Assembling / Disassembling X86 / ARM / MIPS / SH4 / MSP430
     Representing assembly semantic using intermediate language
     Emulating using JIT (dynamic code analysis, unpacking, ...)
-    Expression simplification for automatic de-obfuscation<br>
+    Expression simplification for automatic de-obfuscation
 [mkpsxiso](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mkpsxiso) - 
 ISO disc image maker written specifically for PlayStation homebrew
 development<br>
