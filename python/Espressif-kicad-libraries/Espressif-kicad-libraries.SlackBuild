@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for pynecone
+# Slackware build script for Espressif-kicad-libraries
 
 # Copyright 2023 Christopher Luck Orlando, FL
 # All rights reserved.
@@ -24,8 +24,8 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=reflex
-VERSION=${VERSION:-0.2.2}
+PRGNAM=Espressif-kicad-libraries
+VERSION=${VERSION:-2.0.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -72,9 +72,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
+rm -rf kicad-libraries-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-cd $PRGNAM-$VERSION
+cd kicad-libraries-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -82,15 +82,16 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-## If your application only has a pyproject.toml:
-python3 -m build --wheel --no-isolation
-python3 -m installer --destdir "$PKG" dist/*.whl
+mkdir -p $PKG/usr/share/kicad/footprints
+mkdir -p $PKG/usr/share/kicad/symbols
+mkdir -p $PKG/usr/share/kicad/3dmodels
 
-find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
-  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+cp -a 3dmodels/ $PKG/usr/share/kicad
+cp -a symbols/ $PKG/usr/share/kicad
+cp -a footprints/ $PKG/usr/share/kicad
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE README.md SECURITY.md $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a LICENSE.md README.md $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install

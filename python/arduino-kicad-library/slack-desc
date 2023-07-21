@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                     |-----handy-ruler------------------------------------------------------|
+arduino-kicad-library: arduino-kicad-library (Arduino symbols and footprint for Kicad)
+arduino-kicad-library:
+arduino-kicad-library: KiCad Symbol & Footprint Library for Arduino Modules (Shields,
+arduino-kicad-library: Sockets and Tiles)
+arduino-kicad-library:
+arduino-kicad-library:
+arduino-kicad-library:
+arduino-kicad-library:
+arduino-kicad-library:
+arduino-kicad-library:
+arduino-kicad-library:
