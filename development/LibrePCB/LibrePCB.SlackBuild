@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for pynecone
+# Slackware build script for LibrePCB
 
 # Copyright 2023 Christopher Luck Orlando, FL
 # All rights reserved.
@@ -24,8 +24,9 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=reflex
-VERSION=${VERSION:-0.2.1}
+PRGNAM=LibrePCB
+SRCNAM=librepcb
+VERSION=${VERSION:-0.1.7}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -67,14 +68,14 @@ else
   LIBDIRSUFFIX=""
 fi
 
-set -e
+set -e # Exit on most errors
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-cd $PRGNAM-$VERSION
+rm -rf $SRCNAM-$VERSION
+unzip $CWD/$SRCNAM-$VERSION-source.zip
+cd $SRCNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -82,19 +83,41 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-## If your application only has a pyproject.toml:
-python3 -m build --wheel --no-isolation
-python3 -m installer --destdir "$PKG" dist/*.whl
+mkdir -p build
+cd build
+  cmake \
+    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
+    -DMAN_INSTALL_DIR=/usr/man \
+    -DBUILD_TESTS=OFF \
+    -DCMAKE_BUILD_TYPE=Release ..
+  make
+  make install/strip DESTDIR=$PKG
+cd ..
+
+# Don't ship .la files:
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+#find $PKG/usr/man -type f -exec gzip -9 {} \;
+#for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
+# Compress info pages and remove the package's dir file
+# If no info pages are installed by the software, don't leave this in the script
+#rm -f $PKG/usr/info/dir
+#gzip -9 $PKG/usr/info/*.info*
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE README.md SECURITY.md $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS.md CONTRIBUTING.md LICENSE.txt README.md $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

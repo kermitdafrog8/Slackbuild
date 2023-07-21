@@ -46,6 +46,9 @@ JSON data.<br>
 [kddockwidgets](https://github.com/kermitdafrog8/Slackbuild/tree/main/libraries/kddockwidgets) - 
 KDDockWidgets is a Qt dock widget library written by KDAB, suitable for replacing
 QDockWidget and implementing advanced functionalities missing in Qt.<br>
+[LibrePCB](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/LibrePCB) - 
+LibrePCB is a free EDA suite to develop printed circuit boards on
+Windows, Linux and MacOS<br>
 [miasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/miasm) - 
 Miasm is a free and open source (GPLv2) reverse engineering framework. Miasm aims to analyze / modify / generate binary programs. Here is a non exhaustive list of features:
 
