@@ -5,6 +5,8 @@ Collection of my Slackbuild scripts.<br>
 bddism will not compile in AARCH64.<br>
 Rehex will not build on 15 but builds on current. Needs a newer version of GCC
 
+[arduino-kicad-library](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/arduino-kicad-library) - 
+KiCad Symbol & Footprint Library for Arduino Modules (Shields, Sockets and Tiles)<br>
 [bddisasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/bddisasm) - 
 bddisasm is a fast, lightweight, x86/x64 instruction decoder.<br>
 [binaryen](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/binaryen) - 
@@ -23,10 +25,14 @@ Cutter is a free and open-source reverse engineering platform powered by
 rizin.<br>
 [Detect It Easy (die)](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/die) -
 Program for determining types of files for Windows, Linux and MacOS<br>
+[Digi-Key-kicad-libraries](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/Digi-Key-kicad-libraries) - 
+An atomic parts library for KiCard for Digi-Key products<br>
 [distorm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/distorm) - 
 diStorm3 is really a decomposer, which means it takes an instruction
 and returns a binary structure which describes it rather than static
 text, which is great for advanced binary code analysis<br>
+[Espressif-kicad-libraries](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/Espressif-kicad-libraries) - 
+Kicad symbols, footprint, and 3D Models for the Espressif SoC and Modules family<br>
 [frozendict](https://github.com/kermitdafrog8/Slackbuild/tree/main/libraries/frozendict) - 
 A simple immutable dictionary for python<br>
 [gcr](https://github.com/kermitdafrog8/Slackbuild/tree/main/libraries/gcr) - 
