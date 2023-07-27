@@ -84,6 +84,9 @@ Web apps in pure Python (formally known as pynecone)<br>
 Reverse Engineers' Hex Editor<br>
 [rpi-imager](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/rpi-imager) - 
 Raspberry Pi Imaging Utility<br>
+[rz-ghidra](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/rz-ghidra) - 
+This is an integration of the Ghidra decompiler and Sleigh
+Disassembler for rizin.<br>
 [sasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/sasm) - 
 SASM - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
 language<br>
