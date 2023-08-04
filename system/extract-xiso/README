@@ -1,0 +1,5 @@
+A command line utility created by in to allow the creation,
+modification, and extraction of XISOs
+Notice: 64-bit builds can work but have been known to create faulty
+images. Until this is fixed, use 32b builds.
+
