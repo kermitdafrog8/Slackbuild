@@ -47,6 +47,9 @@ A simple immutable dictionary for python<br>
 GCR is a library for displaying certificates and crypto UI, accessing
 key stores. It also provides the viewer for crypto files on the GNOME
 desktop.<br>
+[gradle](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/gradle) - 
+Gradle is a build tool with a focus on build automation and support
+for multi-language development<br>
 [horizon](https://github.com/kermitdafrog8/Slackbuild/tree/main/academic/horizon) - 
 Horizon is a free EDA package<br>
 [ImHex](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/ImHex) - 
