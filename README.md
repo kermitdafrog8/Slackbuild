@@ -33,9 +33,6 @@ and returns a binary structure which describes it rather than static
 text, which is great for advanced binary code analysis<br>
 [Espressif-kicad-libraries](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/Espressif-kicad-libraries) - 
 Kicad symbols, footprint, and 3D Models for the Espressif SoC and Modules family<br>
-[exaile](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/exail) - 
-Exaile is a music player with a simple interface and powerful music
-management capabilities.<br>
 [extract-xiso](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/extract-xiso) -
 A command line utility created by in to allow the creation,
 modification, and extraction of XISOs
