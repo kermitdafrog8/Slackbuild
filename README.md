@@ -57,6 +57,8 @@ JSON data.<br>
 [kddockwidgets](https://github.com/kermitdafrog8/Slackbuild/tree/main/libraries/kddockwidgets) - 
 KDDockWidgets is a Qt dock widget library written by KDAB, suitable for replacing
 QDockWidget and implementing advanced functionalities missing in Qt.<br>
+[LIEF](https://github.com/kermitdafrog8/Slackbuild/tree/main/libraries/LIEF) - 
+The purpose of this project is to provide a cross platform library which can parse, modify and abstract ELF, PE and MachO formats.<br>
 [LibrePCB](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/LibrePCB) - 
 LibrePCB is a free EDA suite to develop printed circuit boards on
 Windows, Linux and MacOS<br>
