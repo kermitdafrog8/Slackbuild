@@ -83,7 +83,9 @@ Pawn is a tool to extract the BIOS firmware from Intel-based workstations and la
 [pylink-square](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/pylink-square) - 
 Python-interface for the SEGGER J-Link<br>
 [pyocd](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/pyocd) - 
-ARM Cortex-M microcontrollers.<br>
+Open source Python librabry for programming and debugging
+ARM Cortex-M microcontrollers.
+<br>
 [REDasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/REDasm) - 
 REDasm is a cross platform disassembler with a modern codebase useful 
 from the hobbyist to the professional reverse engineer.<br>
