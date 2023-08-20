@@ -78,6 +78,8 @@ Notes manager, CLI and TUI, in TUI works like file manager
 (mc,nnn,fff,lf). Notes are plain text (txt,md,groff,...) files.
 Compatible with Nextcloud Notes, can be used with rclose, git,
 rsync, etc.<br>
+[pawn](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/pawn) - 
+Pawn is a tool to extract the BIOS firmware from Intel-based workstations and laptops<br>
 [pylink-square](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/pylink-square) - 
 Python-interface for the SEGGER J-Link<br>
 [pyocd](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/pyocd) - 
