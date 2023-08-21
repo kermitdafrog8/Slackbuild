@@ -73,6 +73,8 @@ Miasm is a free and open source (GPLv2) reverse engineering framework. Miasm aim
 [mkpsxiso](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mkpsxiso) - 
 ISO disc image maker written specifically for PlayStation homebrew
 development<br>
+[nesfab](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/nesfab) - 
+Programming language that targets the Nintendo Entertainment System<br>
 [notes](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/notes) - 
 Notes manager, CLI and TUI, in TUI works like file manager
 (mc,nnn,fff,lf). Notes are plain text (txt,md,groff,...) files.
