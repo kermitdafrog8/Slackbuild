@@ -102,12 +102,29 @@ cd build
   DESTDIR=$PKG $NINJA install
 
 mkdir -p $PKG/usr/sbin
+mkdir -p $PKG/usr/share/applications
+mkdir -p $PKG/usr/share/icons/hicolor/16x16
+mkdir -p $PKG/usr/share/icons/hicolor/32x32
+mkdir -p $PKG/usr/share/icons/hicolor/48x48
+mkdir -p $PKG/usr/share/icons/hicolor/64x64
+mkdir -p $PKG/usr/share/icons/hicolor/128x128
+mkdir -p $PKG/usr/share/icons/hicolor/256x256
+mkdir -p $PKG/usr/share/icons/hicolor/512x512
+
  cd ..
  cd UEFITool
   
   qmake
   make
   cp -a UEFITool $PKG/usr/sbin
+  cp -a $CWD/uefitool.desktop $PKG/usr/share/applications
+  cp -a icons/uefitool_16x16.png $PKG/usr/share/icons/hicolor/16x16
+  cp -a icons/uefitool_32x32.png $PKG/usr/share/icons/hicolor/32x32
+  cp -a icons/uefitool_48x48.png $PKG/usr/share/icons/hicolor/48x48
+  cp -a icons/uefitool_64x64.png $PKG/usr/share/icons/hicolor/64x64
+  cp -a icons/uefitool_128x128.png $PKG/usr/share/icons/hicolor/128x128
+  cp -a icons/uefitool_256x256.png $PKG/usr/share/icons/hicolor/256x256
+  cp -a icons/uefitool_512x512.png $PKG/usr/share/icons/hicolor/512x512
   mv $PKG/usr/bin/* $PKG/usr/sbin
   rm -r $PKG/usr/bin
 
@@ -122,6 +139,7 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
