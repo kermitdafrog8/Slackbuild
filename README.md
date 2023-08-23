@@ -100,6 +100,8 @@ Raspberry Pi Imaging Utility<br>
 [rz-ghidra](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/rz-ghidra) - 
 This is an integration of the Ghidra decompiler and Sleigh
 Disassembler for rizin.<br>
+[sbctl](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/sbctl) - 
+sbctl intends to be a user-friendly secure boot key manager capable of setting up secure boot, offer key management capabilities, and keep track of files that needs to be signed in the boot chain
 [sasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/sasm) - 
 SASM - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
 language<br>
