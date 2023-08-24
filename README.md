@@ -27,7 +27,7 @@ rizin.<br>
 Program for determining types of files for Windows, Linux and MacOS<br>
 [Digi-Key-kicad-libraries](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/Digi-Key-kicad-libraries) - 
 An atomic parts library for KiCard for Digi-Key products<br>
-[distorm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/distorm) - 
+[distorm](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/distorm) - 
 diStorm3 is really a decomposer, which means it takes an instruction
 and returns a binary structure which describes it rather than static
 text, which is great for advanced binary code analysis<br>
