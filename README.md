@@ -13,6 +13,10 @@ bddisasm is a fast, lightweight, x86/x64 instruction decoder.<br>
 Binaryen is a compiler and toolchain infrastructure library for
 WebAssembly, written in C++. It aims to make compiling to WebAssembly
 easy, fast, and effective: <br>
+[bochs](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/bochs) - 
+Bochs is a portable IA-32 (x86) PC emulator written in C++, that
+runs on most popular platforms. It includes emulation of the Intel
+x86 CPU, common I/O devices, and a custom BIOS.<br>
 [c-blosc](https://github.com/kermitdafrog8/Slackbuild/tree/main/libraries/c-blosc) - 
 Blosc is a high performance compressor optimized for binary data<br>
 [class-doc](https://github.com/kermitdafrog8/Slackbuild/tree/main/libraries/class-doc) - 
@@ -70,6 +74,8 @@ Miasm is a free and open source (GPLv2) reverse engineering framework. Miasm aim
     Representing assembly semantic using intermediate language
     Emulating using JIT (dynamic code analysis, unpacking, ...)
     Expression simplification for automatic de-obfuscation
+[mokutil](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mokutil) - 
+The utility to manipulate machines owner keys which managed in shim<br>
 [mkpsxiso](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mkpsxiso) - 
 ISO disc image maker written specifically for PlayStation homebrew
 development<br>
