@@ -42,6 +42,11 @@ A command line utility created by in to allow the creation,
 modification, and extraction of XISOs
 Notice: 64-bit builds can work but have been known to create faulty
 images. Until this is fixed, use 32b builds.<br>
+[FATX](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/FATX) - 
+Complete FATX filesystem support for Linux<br>
+[fatx](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/fatx) - 
+Original Xbox FATX Filesystem Library, Python bindings, FUSE driver,
+and GUI explorer<br>
 [frozendict](https://github.com/kermitdafrog8/Slackbuild/tree/main/libraries/frozendict) - 
 A simple immutable dictionary for python<br>
 [gcr](https://github.com/kermitdafrog8/Slackbuild/tree/main/libraries/gcr) - 
