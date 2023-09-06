@@ -81,6 +81,8 @@ Miasm is a free and open source (GPLv2) reverse engineering framework. Miasm aim
     Expression simplification for automatic de-obfuscation
 [mokutil](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mokutil) - 
 The utility to manipulate machines owner keys which managed in shim<br>
+[mklfs](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mklfs) - 
+<br>
 [mkpsxiso](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mkpsxiso) - 
 ISO disc image maker written specifically for PlayStation homebrew
 development<br>
