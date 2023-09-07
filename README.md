@@ -82,7 +82,7 @@ Miasm is a free and open source (GPLv2) reverse engineering framework. Miasm aim
 [mokutil](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mokutil) - 
 The utility to manipulate machines owner keys which managed in shim<br>
 [mklfs](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mklfs) - 
-<br>
+A tool to make a LFS file system image<br>
 [mkpsxiso](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mkpsxiso) - 
 ISO disc image maker written specifically for PlayStation homebrew
 development<br>
@@ -122,6 +122,8 @@ language<br>
 A Qt/C++ GUI front end to sshfs, ecryptfs-simple, cryfs, gocryptfs, securefs, fscrypt and encfs<br>
 [UEFITool](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/UEFITool) - 
 UEFI firmware image viewer and editor<br>
+[wabt](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wabt) - 
+WABT (we pronounce it "wabbit") is a suite of tools for WebAssembly<br>
 [wasmer](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wasmer) - 
 Wasmer is a fast and secure Web Assembly runtime that enables super lightweight containers to run
 anywhere: from Desktop to the Cloud, Edge, and IoT devices<br>
