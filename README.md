@@ -29,6 +29,8 @@ Cutter is a free and open-source reverse engineering platform powered by
 rizin.<br>
 [Detect It Easy (die)](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/die) -
 Program for determining types of files for Windows, Linux and MacOS<br>
+[DiscImageCreator](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/DiscImageCreator) - 
+This is the disc (CD, GD, DVD, HD-DVD, BD, GC/Wii, XBOX, XBOX 360) and disk (Floppy, MO, USB etc) image creation tool<br>
 [Digi-Key-kicad-libraries](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/Digi-Key-kicad-libraries) - 
 An atomic parts library for KiCard for Digi-Key products<br>
 [distorm](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/distorm) - 

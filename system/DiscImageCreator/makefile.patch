@@ -1,0 +1,4 @@
+101c101
+<     PREFIX := /usr/local
+---
+>     PREFIX := /usr
