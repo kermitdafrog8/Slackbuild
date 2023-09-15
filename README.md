@@ -129,6 +129,8 @@ WABT (we pronounce it "wabbit") is a suite of tools for WebAssembly<br>
 [wasmer](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wasmer) - 
 Wasmer is a fast and secure Web Assembly runtime that enables super lightweight containers to run
 anywhere: from Desktop to the Cloud, Edge, and IoT devices<br>
+[wasmtime](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wasmtime) - 
+A fast and secure runtime for WebAssembly<br>
 [waterbear](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/waterbear) - 
 Waterbear is an assembler for the Dreamcast VMU. It can be used either as a library or as a command-line program.<br>
 [wla-dx](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wla-dx) - 
