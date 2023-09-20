@@ -1,13 +1,13 @@
 PRGNAM="mkpsxiso"
-VERSION="2.03"
+VERSION="2.04"
 HOMEPAGE="https://github.com/Lameguy64/mkpsxiso"
-DOWNLOAD="https://github.com/Lameguy64/mkpsxiso/archive/v2.03/mkpsxiso-2.03.tar.gz
+DOWNLOAD="https://github.com/Lameguy64/mkpsxiso/archive/v2.04/mkpsxiso-2.04.tar.gz
           https://github.com/progschj/ThreadPool/archive/9a42ec1329f259a5f4881a291db1dcb8f2ad9040/ThreadPool-9a42ec1329f259a5f4881a291db1dcb8f2ad9040.tar.gz
           https://github.com/xiph/flac/archive/be1df4085aec5ea44008013600c315ffb20358b1/flac-be1df4085aec5ea44008013600c315ffb20358b1.tar.gz
           https://github.com/gulrak/filesystem/archive/f437344e7945e343d86fcf97c84e815b03c6851f/filesystem-f437344e7945e343d86fcf97c84e815b03c6851f.tar.gz
           https://github.com/mackron/miniaudio/archive/8686f52e6625e562f4756b946696692c016324ab/miniaudio-8686f52e6625e562f4756b946696692c016324ab.tar.gz
           https://github.com/leethomason/tinyxml2/archive/a9773976845b19e89020c1215781e71116477ef1/tinyxml2-a9773976845b19e89020c1215781e71116477ef1.tar.gz"
-MD5SUM="f970bb12772ff3d385ba00dfb67650ce
+MD5SUM="87269dd9f258c1593089c409933907c6
         802ce55645620bc0c771e544531952c2
         7aabbf9ff894fa3b917bf0fa0fa7f6df
         e55250fd6e9004697b21a47cb95d01ec
