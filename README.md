@@ -122,8 +122,18 @@ SASM - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
 language<br>
 [SiriKali](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/SiriKali) - 
 A Qt/C++ GUI front end to sshfs, ecryptfs-simple, cryfs, gocryptfs, securefs, fscrypt and encfs<br>
+[tio](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/tio) - 
+tio is a simple serial device tool which features a straightforward command-line and configuration file interface to easily connect to serial TTY devices for basic I/O operations<br>
 [UEFITool](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/UEFITool) - 
 UEFI firmware image viewer and editor<br>
+[usbmon](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/usbmon) - 
+A tool to enumerate, list and monitor USB devices connected to a Linux host.
+
+    * Print a list of connected devices with USB path, properties and speed
+    * Monitor udev events such as connect or disconnect and print them with a timestamp
+    * Collectd plugin mode
+    * JSON stream mode
+<br>
 [wabt](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wabt) - 
 WABT (we pronounce it "wabbit") is a suite of tools for WebAssembly<br>
 [wasmer](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wasmer) - 
