@@ -83,6 +83,7 @@ Miasm is a free and open source (GPLv2) reverse engineering framework. Miasm aim
     Representing assembly semantic using intermediate language
     Emulating using JIT (dynamic code analysis, unpacking, ...)
     Expression simplification for automatic de-obfuscation
+
 [mokutil](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mokutil) - 
 The utility to manipulate machines owner keys which managed in shim<br>
 [mklfs](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mklfs) - 
@@ -135,7 +136,7 @@ A tool to enumerate, list and monitor USB devices connected to a Linux host.
     * Monitor udev events such as connect or disconnect and print them with a timestamp
     * Collectd plugin mode
     * JSON stream mode
-<br>
+
 [wabt](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wabt) - 
 WABT (we pronounce it "wabbit") is a suite of tools for WebAssembly<br>
 [wasmer](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/wasmer) - 
