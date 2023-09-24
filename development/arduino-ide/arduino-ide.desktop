@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.5
+Type=Application
+Name=Arduino IDE
+Comment=Arduino IDE 2.x 
+TryExec=
+Exec=/opt/arduino-ide/arduino-ide
+Icon=/opt/arduino-ide/arduino-ide
+Terminal=false
+Categories=Development;
+MimeType=application/octet-stream;

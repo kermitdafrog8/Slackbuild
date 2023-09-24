@@ -5,6 +5,8 @@ Collection of my Slackbuild scripts.<br>
 bddism will not compile in AARCH64.<br>
 Rehex will not build on 15 but builds on current. Needs a newer version of GCC
 
+[arduino-ide](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/arduino-ide) - 
+Arduino IDE 2.x branch<br>
 [arduino-kicad-library](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/arduino-kicad-library) - 
 KiCad Symbol & Footprint Library for Arduino Modules (Shields, Sockets and Tiles)<br>
 [bddisasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/bddisasm) - 
@@ -70,7 +72,7 @@ KDDockWidgets is a Qt dock widget library written by KDAB, suitable for replacin
 QDockWidget and implementing advanced functionalities missing in Qt.<br>
 [LIEF](https://github.com/kermitdafrog8/Slackbuild/tree/main/libraries/LIEF) - 
 The purpose of this project is to provide a cross platform library which can parse, modify and abstract ELF, PE and MachO formats.<br>
-[LibrePCB](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/LibrePCB) - 
+[LibrePCB](https://github.com/kermitdafrog8/Slackbuild/tree/main/academic/LibrePCB) - 
 LibrePCB is a free EDA suite to develop printed circuit boards on
 Windows, Linux and MacOS<br>
 [miasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/miasm) - 
