@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=ImHex
-VERSION=${VERSION:-1.30.1}
+VERSION=${VERSION:-1.31.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -103,8 +103,10 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a HACKING.md INSTALL.md README.md VERSION $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a README.md VERSION $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+chmod a+x $PKG/usr/lib64/libnethost.so
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
