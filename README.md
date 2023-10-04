@@ -91,6 +91,8 @@ A tool to make a LFS file system image<br>
 [mkpsxiso](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mkpsxiso) - 
 ISO disc image maker written specifically for PlayStation homebrew
 development<br>
+[nemu](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/nemu) - 
+Ncurses UI for QEMU<br>
 [nesfab](https://github.com/kermitdafrog8/Slackbuild/tree/main/development/nesfab) - 
 Programming language that targets the Nintendo Entertainment System<br>
 [notes](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/notes) - 
