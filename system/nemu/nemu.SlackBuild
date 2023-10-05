@@ -90,6 +90,10 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
+    -DNM_WITH_NETWORK_MAP=ON \
+    -DNM_WITH_DBUS=ON \
+    -DNM_WITH_REMOTE=ON \
+    -DNM_WITH_USB=ON \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install/strip DESTDIR=$PKG
