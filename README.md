@@ -84,6 +84,8 @@ Miasm is a free and open source (GPLv2) reverse engineering framework. Miasm aim
     Emulating using JIT (dynamic code analysis, unpacking, ...)
     Expression simplification for automatic de-obfuscation
 
+[mkdcdisc](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mkdcdisc) - 
+Command line tool for generating CDI images designed for the SEGA Dreamcast<br>
 [mokutil](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mokutil) - 
 The utility to manipulate machines owner keys which managed in shim<br>
 [mklfs](https://github.com/kermitdafrog8/Slackbuild/tree/main/system/mklfs) - 
