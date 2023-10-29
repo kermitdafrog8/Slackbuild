@@ -37,6 +37,8 @@ Program for determining types of files for Windows, Linux and MacOS<br>
 This is the disc (CD, GD, DVD, HD-DVD, BD, GC/Wii, XBOX, XBOX 360) and disk (Floppy, MO, USB etc) image creation tool<br>
 [Digi-Key-kicad-libraries](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/Digi-Key-kicad-libraries) - 
 An atomic parts library for KiCard for Digi-Key products<br>
+[direwolf](https://github.com/kermitdafrog8/Slackbuild/tree/main/ham/direwolf) - 
+Dire Wolf is a software "soundcard" AX.25 packet modem/TNC and APRS encoder/decoder. It can be used stand-alone to observe APRS traffic, as a tracker, digipeater, APRStt gateway, or Internet Gateway (IGate).<br>
 [distorm](https://github.com/kermitdafrog8/Slackbuild/tree/main/python/distorm) - 
 diStorm3 is really a decomposer, which means it takes an instruction
 and returns a binary structure which describes it rather than static
