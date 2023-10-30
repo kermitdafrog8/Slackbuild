@@ -70,7 +70,7 @@ fi
 
 set -e
 
-OFFLINE="IMHEX_OFFLINE_BUILD=ON" # Set as an optional variable later on
+OFFLINE="-DIMHEX_OFFLINE_BUILD=ON" # Set as an optional variable later on
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
