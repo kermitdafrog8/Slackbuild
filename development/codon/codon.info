@@ -1,7 +1,7 @@
 PRGNAM="codon"
 VERSION="0.16.1"
 HOMEPAGE="https://github.com/exaloop/codon/"
-DOWNLOAD="https://github.com/exaloop/codon/archive/refs/tags/v0.16.1.tar.gz
+DOWNLOAD="https://github.com/exaloop/codon/archive/v0.16.1/codon-0.16.1.tar.gz
           https://github.com/exaloop/llvm-project/archive/refs/tags/llvmorg-15.0.1.tar.gz"
 MD5SUM="bb0326b6887bb33adbbb308ea990701c
         e00dc2f4df8d3205026bce83cf4947c7"
