@@ -6,14 +6,14 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
                         |-----handy-ruler------------------------------------------------------|
-digikey-kicad-libraries: digikey-kicad-libraries (An atomic parts library for Ki-Cad)
-digikey-kicad-libraries:
-digikey-kicad-libraries: An atomic parts library for Ki-Cad
-digikey-kicad-libraries:
-digikey-kicad-libraries:
-digikey-kicad-libraries:
-digikey-kicad-libraries:
-digikey-kicad-libraries:
-digikey-kicad-libraries:
-digikey-kicad-libraries:
-digikey-kicad-libraries:
+digikey-kicad-library: digikey-kicad-library (An atomic parts library for Ki-Cad)
+digikey-kicad-library:
+digikey-kicad-library: An atomic parts library for Ki-Cad
+digikey-kicad-library:
+digikey-kicad-library:
+digikey-kicad-library:
+digikey-kicad-library:
+digikey-kicad-library:
+digikey-kicad-library:
+digikey-kicad-library:
+digikey-kicad-library:

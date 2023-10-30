@@ -29,14 +29,7 @@ VERSION=${VERSION:-1.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
-
-if [ -z "$ARCH" ]; then
-  case "$( uname -m )" in
-    i?86) ARCH=i586 ;;
-    arm*) ARCH=arm ;;
-       *) ARCH=$( uname -m ) ;;
-  esac
-fi
+ARCH=noarch
 
 # If the variable PRINT_PACKAGE_NAME is set, then this script will report what
 # the name of the created package would be, and then exit. This information
@@ -85,11 +78,11 @@ find -L . \
 mkdir -p $PKG/usr/share/kicad/footprints
 mkdir -p $PKG/usr/share/kicad/symbols
 
-cp -a symbols/ $PKG/usr/share/kicad
-cp -a footprints/ $PKG/usr/share/kicad
+cp -a digikey-symbols/ $PKG/usr/share/kicad/symbols
+cp -a digikey-footprints.pretty/ $PKG/usr/share/kicad/footprints
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a LICENSE.txt README.md $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a LICENSE.md README.md $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install

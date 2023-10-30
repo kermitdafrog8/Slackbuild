@@ -1,4 +1,4 @@
-PRGNAM="digikey-kicad-libraries"
+PRGNAM="digikey-kicad-library"
 VERSION="1.2"
 HOMEPAGE="https://github.com/Digi-Key/digikey-kicad-library"
 DOWNLOAD="https://github.com/Digi-Key/digikey-kicad-library/archive/v1.2/digikey-kicad-library-1.2.tar.gz"
