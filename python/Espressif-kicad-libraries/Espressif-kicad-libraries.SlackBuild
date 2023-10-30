@@ -73,7 +73,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf kicad-libraries-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+tar xvf $CWD/kicad-libraries-$VERSION.tar.gz
 cd kicad-libraries-$VERSION
 chown -R root:root .
 find -L . \
