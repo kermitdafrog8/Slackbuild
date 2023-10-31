@@ -1,2 +1,4 @@
 This is an integration of the Ghidra decompiler and Sleigh
 Disassembler for rizin.
+
+Compiles with Rizin 0.5.2.  Currently fails on newer Rizin releases.
