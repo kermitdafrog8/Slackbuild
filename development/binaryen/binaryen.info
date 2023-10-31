@@ -1,7 +1,7 @@
 PRGNAM="binaryen"
 VERSION="116"
 HOMEPAGE="https://github.com/WebAssembly/binaryen"
-DOWNLOAD="https://github.com/WebAssembly/binaryen/archive/version_116/binaryen-116.tar.gz"
+DOWNLOAD="https://github.com/WebAssembly/binaryen/archive/version_116/binaryen-version_116.tar.gz"
 MD5SUM="4999c714ac9ec6da28856017753ee33b"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
