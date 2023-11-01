@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+          |-----handy-ruler------------------------------------------------------|
+aqtinstall: aqtinstall (Another (unofficial) Qt CLI Installer)
+aqtinstall:
+aqtinstall: This is a utility alternative to the official graphical Qt installer,
+aqtinstall: for using in CI environment where an interactive UI is not
+aqtinstall: usable, or just on command line.
+aqtinstall:
+aqtinstall:
+aqtinstall:
+aqtinstall:
+aqtinstall:
+aqtinstall:

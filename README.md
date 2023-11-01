@@ -7,6 +7,12 @@ Rehex will not build on 15 but builds on current. Needs a newer version of GCC<b
 All scripts built using sbo-create (https://dslackw.gitlab.io/sbo-create) and I do not care if
 someone decides to rip these scripts and submit to the SBo site as maintainer.
 
+[aqtinstall](https://github.com/kermitdafrog8/Slackbuild/tree/main/Python/aqtinstall) -
+This is a utility alternative to the official graphical Qt installer, for using in CI environment where 
+an interactive UI is not usable, or just on command line.
+
+It can automatically download prebuilt Qt binaries, documents and sources for target specified, when the
+versions are on Qt download mirror sites.<br>
 [arduino-ide](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/arduino-ide) - 
 Arduino IDE 2.x branch<br>
 [arduino-kicad-library](https://github.com/kermitdafrog8/Slackbuild/tree/main/Python/arduino-kicad-library) - 

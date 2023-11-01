@@ -1,0 +1,4 @@
+This is a utility alternative to the official graphical Qt installer,
+for using in CI environment where an interactive UI is not
+usable, or just on command line.
+
