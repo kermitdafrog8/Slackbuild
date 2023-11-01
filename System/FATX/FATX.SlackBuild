@@ -103,19 +103,7 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/man/man8
-cp -a $PKG/usr/share/man/man8/*.8 $PKG/usr/man/man8
-find $PKG/usr/man -type f -exec gzip -9 {} \;
-for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-
-# Compress info pages and remove the package's dir file
-# If no info pages are installed by the software, don't leave this in the script
-#rm -f $PKG/usr/info/dir
-#gzip -9 $PKG/usr/info/*.info*
-
-# Remove perllocal.pod and other special files that don't need to be installed,
-# as they will overwrite what's already on the system.  If this is not needed,
-# remove it from the script.
-#find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
+cp -a $PKG/usr/share/man/man8/*.gz $PKG/usr/man/man8
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a AUTHORS BUGS COPYING README TODO $PKG/usr/doc/$PRGNAM-$VERSION
@@ -127,7 +115,6 @@ rm -r $PKG/usr/share
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
