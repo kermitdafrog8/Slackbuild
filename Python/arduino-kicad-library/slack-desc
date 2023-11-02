@@ -6,14 +6,14 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
                      |-----handy-ruler------------------------------------------------------|
-arduino-kicad-libraries: arduino-kicad-libraries (Arduino symbols and footprint for Kicad)
-arduino-kicad-libraries:
-arduino-kicad-libraries: KiCad Symbol & Footprint Library for Arduino Modules (Shields,
-arduino-kicad-libraries: Sockets and Tiles)
-arduino-kicad-libraries:
-arduino-kicad-libraries:
-arduino-kicad-libraries:
-arduino-kicad-libraries:
-arduino-kicad-libraries:
-arduino-kicad-libraries:
-arduino-kicad-libraries:
+arduino-kicad-library: arduino-kicad-library (Arduino symbols and footprint for Kicad)
+arduino-kicad-library:
+arduino-kicad-library: KiCad Symbol & Footprint Library for Arduino Modules (Shields,
+arduino-kicad-library: Sockets and Tiles)
+arduino-kicad-library:
+arduino-kicad-library:
+arduino-kicad-library:
+arduino-kicad-library:
+arduino-kicad-library:
+arduino-kicad-library:
+arduino-kicad-library:
