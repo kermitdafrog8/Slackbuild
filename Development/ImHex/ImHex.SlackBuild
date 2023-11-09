@@ -68,9 +68,9 @@ else
   LIBDIRSUFFIX=""
 fi
 
-set -e
+OFFLINE="-DIMHEX_OFFLINE_BUILD=ON" # Need to set this up as a user choice
 
-OFFLINE="-DIMHEX_OFFLINE_BUILD=ON" # Set as an optional variable later on
+set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
@@ -91,6 +91,9 @@ cd build
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
+    -DUSE_SYSTEM_FMT=ON \
+    -DIMHEX_ENABLE_LTO=ON \
+    -DIMHEX_USE_GTK_FILE_PICKER=ON \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
     $OFFLINE \
