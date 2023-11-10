@@ -121,6 +121,12 @@ Python-interface for the SEGGER J-Link<br>
 Open source Python librabry for programming and debugging
 ARM Cortex-M microcontrollers.
 <br>
+[quickemu](https://github.com/kermitdafrog8/Slackbuild/tree/main/System/quickemu) -
+Quickly create and run highly optimised desktop virtual machines for Linux, macOS and Windows; with just two commands. You decide what operating system you want to run and Quickemu will figure out the best way to do it for you. For example:
+
+quickget ubuntu-mate 22.04
+quickemu --vm ubuntu-mate-22.04.conf
+<br>
 [REDasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/REDasm) - 
 REDasm is a cross platform disassembler with a modern codebase useful 
 from the hobbyist to the professional reverse engineer.<br>
