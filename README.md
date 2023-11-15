@@ -171,6 +171,9 @@ Waterbear is an assembler for the Dreamcast VMU. It can be used either as a libr
 [wla-dx](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/wla-dx) - 
 WLA DX - Yet Another GB-Z80/Z80 /6502/65C02/65CE02/65816/68000/6800/6801/6809/8008/8080/HUC6280/
 SPC-700/SuperFX Multi Platform Cross Assembler Package<br>
+[wxMEdit](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/wxMEdit) - 
+wxMEdit is a cross-platform Text/Hex Editor written in C++ & wxWidgets.
+wxMEdit is an improved version of MadEdit which has been discontinued.<br>
 [xelfviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/xelfviewer) - 
 ELF file viewer/editor for Windows, Linux, and MacOS<br>
 [xmachoviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/xmachoviewer) - 
