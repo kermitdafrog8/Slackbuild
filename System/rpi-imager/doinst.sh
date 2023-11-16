@@ -1,4 +1,3 @@
-
 if [ -x /usr/bin/update-desktop-database ]; then
   /usr/bin/update-desktop-database -q usr/share/applications >/dev/null 2>&1
 fi
@@ -19,11 +18,3 @@ if [ -e usr/share/glib-2.0/schemas ]; then
     /usr/bin/glib-compile-schemas usr/share/glib-2.0/schemas >/dev/null 2>&1
   fi
 fi
-
-# If needed -- be sure to sed @LIBDIR@ inside the build script
-chroot . /usr/bin/gio-querymodules @LIBDIR@/gio/modules/ 1> /dev/null 2> /dev/null
-
-if [ -x /usr/bin/install-info ]; then
-  chroot . /usr/bin/install-info --info-dir=/usr/info /usr/info/blah.gz 2> /dev/null
-fi
-
