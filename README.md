@@ -69,6 +69,10 @@ key stores. It also provides the viewer for crypto files on the GNOME
 desktop.<br>
 [horizon](https://github.com/kermitdafrog8/Slackbuild/tree/main/Academic/horizon) - 
 Horizon is a free EDA package<br>
+[http-parser](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/http-parser) - 
+http-parser for HTTP messages written in C. It parses both requests
+and responses. The parser is designed to be used in performance HTTP
+applications.<br>
 [ImHex](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/ImHex) - 
 A Hex Editor for Reverse Engineers, Programmers and people who value their
 retinas when working at 3 AM.<br>
@@ -128,6 +132,8 @@ Quickly create and run highly optimised desktop virtual machines for Linux, macO
 quickget ubuntu-mate 22.04
 quickemu --vm ubuntu-mate-22.04.conf
 <br>
+[rapidjson](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/rapidjson) -
+
 [REDasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/REDasm) - 
 REDasm is a cross platform disassembler with a modern codebase useful 
 from the hobbyist to the professional reverse engineer.<br>
@@ -135,6 +141,16 @@ from the hobbyist to the professional reverse engineer.<br>
 Web apps in pure Python (formally known as pynecone)<br>
 [rehex](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/rehex) -
 Reverse Engineers' Hex Editor<br>
+[rizin](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/rizin) - 
+A free and open-source Reverse Engineering framework, providing a
+complete binary analysis experience with features like Disassembler,
+Hexadecimal editor, Emulation, Binary inspection, Debugger, and more.
+
+Rizin takes a unique, Unix-friendly approach on reverse engineering. By
+default, it can be used in a shell-like environment tailored
+specifically to analyzing binaries directly from the command line
+without unnecessary weight. However, if you do want more, it provides a
+perfect basis for GUI and scripting.<br>
 [rpi-imager](https://github.com/kermitdafrog8/Slackbuild/tree/main/System/rpi-imager) - 
 Raspberry Pi Imaging Utility<br>
 [rz-ghidra](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/rz-ghidra) - 
@@ -147,6 +163,20 @@ SASM - simple crossplatform IDE for NASM, MASM, GAS and FASM assembly
 language<br>
 [SiriKali](https://github.com/kermitdafrog8/Slackbuild/tree/main/System/SiriKali) - 
 A Qt/C++ GUI front end to sshfs, ecryptfs-simple, cryfs, gocryptfs, securefs, fscrypt and encfs<br>
+[spdlog](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/spdlog) - 
+Very fast, header-only/compiled, C++ logging library.
+
+fmt is an optional dependency and will be autodetected if installed.
+
+This scripts builds both 32bit and 64bit libraries by autodetecting
+multilib. If you are on a multilib system and only wish to build the
+64bit library, pass COMPAT32=no to the build script.<br>
+[Sphinx](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development) - 
+Sphinx is a tool that translates a set of reStructuredText
+source files into various output formats, including HTML, ePub,
+LaTeX and plain text. Sphinx was originally created for the Python
+documentation, but it has excellent facilities for the documentation
+of software projects in a range of languages.<br>
 [tio](https://github.com/kermitdafrog8/Slackbuild/tree/main/System/tio) - 
 tio is a simple serial device tool which features a straightforward command-line and configuration file interface to easily connect to serial TTY devices for basic I/O operations<br>
 [UEFITool](https://github.com/kermitdafrog8/Slackbuild/tree/main/System/UEFITool) - 
@@ -174,6 +204,11 @@ SPC-700/SuperFX Multi Platform Cross Assembler Package<br>
 [wxMEdit](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/wxMEdit) - 
 wxMEdit is a cross-platform Text/Hex Editor written in C++ & wxWidgets.
 wxMEdit is an improved version of MadEdit which has been discontinued.<br>
+[wxLua](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/wxLua) -
+wxLua is a Lua wrapper for the cross-platform wxWidgets GUI library. It allows developers to create applications
+for Windows, macOS, and Linux using Lua and supports Lua 5.1, 5.2, 5.3, 5.4, and LuaJIT. Unlike other cross-platform
+toolkits, wxWidgets (and by extension wxlua) gives applications a native look and feel as it uses the platform's
+native API rather than emulating the GUI.<br>
 [xelfviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/xelfviewer) - 
 ELF file viewer/editor for Windows, Linux, and MacOS<br>
 [xmachoviewer](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/xmachoviewer) - 

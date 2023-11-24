@@ -2,5 +2,3 @@ wxLua is a Lua wrapper for the cross-platform wxWidgets GUI library. It allows d
 for Windows, macOS, and Linux using Lua and supports Lua 5.1, 5.2, 5.3, 5.4, and LuaJIT. Unlike other cross-platform 
 toolkits, wxWidgets (and by extension wxlua) gives applications a native look and feel as it uses the platform's 
 native API rather than emulating the GUI.
-
-https://github.com/pkulchenko/wxlua
