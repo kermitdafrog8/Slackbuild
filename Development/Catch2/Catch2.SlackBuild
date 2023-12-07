@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Slackware build script for KDDockWidgets
+# Slackware build script for Catch2
 
-# Copyright 2023 Christopher Luck Orlando, FL
+# Copyright 2023 Steven Voges <Oregon, USA>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,8 +24,10 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=kddockwidgets
-VERSION=${VERSION:-2.0.0}
+PRGNAM=Catch2
+VERSION=${VERSION:-3.4.0}
+DOCS=${DOCS:-OFF}
+EXTRAS=${EXTRAS:-ON}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -38,9 +40,6 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-# If the variable PRINT_PACKAGE_NAME is set, then this script will report what
-# the name of the created package would be, and then exit. This information
-# could be useful to other scripts.
 if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
   echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
   exit 0
@@ -82,23 +81,28 @@ find -L . \
 mkdir -p build
 cd build
   cmake \
-    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCATCH_INSTALL_DOCS=$DOCS \
+    -DCATCH_INSTALL_EXTRAS=$EXTRAS \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install/strip DESTDIR=$PKG
 cd ..
 
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
-
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a CONTRIBUTORS.txt Changelog LICENSE.GPL.txt LICENSE.txt LICENSES README-QtQuick.md README-troubleshooting README.md docs/KDDockWidgets-CopyrightAssignmentForm.pdf $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a \
+  docs/* *.md LICENSE.txt \
+  $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
-rm -r $PKG/usr/share
+
+if [ "$DOCS" = "ON" ]; then
+  mv $PKG/usr/share/doc/$PRGNAM/* $PKG/usr/doc/$PRGNAM-$VERSION
+  rm -rf $PKG/usr/share/doc
+fi
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
