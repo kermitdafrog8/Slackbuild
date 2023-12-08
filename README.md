@@ -12,4 +12,4 @@ someone decides to rip these scripts and submit to the SBo site as maintainer.
 [Libraries](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/README.md) \
 [Network](https://github.com/kermitdafrog8/Slackbuild/tree/main/Network/README.md) \
 [Python](https://github.com/kermitdafrog8/Slackbuild/tree/main/Python/README.md) \
-[System](https://github.com/kermitdafrog8/Slackbuild/tree/main/System/README.md) \
+[System](https://github.com/kermitdafrog8/Slackbuild/tree/main/System/README.md)
