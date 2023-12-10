@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for wasmer
+# Slackware build script for libdragon
 
 # Copyright 2023 Christopher Luck Orlando, FL
 # All rights reserved.
@@ -24,8 +24,8 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=wasmer
-VERSION=${VERSION:-4.2.4}
+PRGNAM=libdragon
+VERSION=${VERSION:-13.2.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -67,14 +67,14 @@ else
   LIBDIRSUFFIX=""
 fi
 
-set -e
+set -e # Exit on most errors
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-cd $PRGNAM-$VERSION
+rm -rf $PRGNAM-toolchain-coninuous-prerelease
+tar xvf $CWD/libdragon-toolchain-continuous-prerelease.tar.gz
+cd $PRGNAM-toolchain-continuous-prerelease
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -82,33 +82,36 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
-
-WASMER_DIR=/usr make 
-make package
-mkdir -p $PKG/usr/bin
-mkdir -p $PKG/usr/lib64
-mkdir -p $PKG/usr/include
-
-cp -a package/bin/wasmer $PKG/usr/bin
-cp -a package/include/wasm* $PKG/usr/include
-cp -a package/lib/lib* $PKG/usr/lib64
-mv $PKG/usr/lib64/libwasmer.so $PKG/usr/lib64/libwasmer.so.$VERSION
-mv $PKG/usr/lib64/libwasmer-headless.so $PKG/usr/lib64/libwasmer-headless.so.$VERSION
+export N64_INST=$PKG/opt/libdragon
+cd tools && ./build-toolchain.sh
+cd .. && ./build.sh
 
 # Don't ship .la files:
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
+rm -f $PKG/opt/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+find $PKG/opt/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/opt/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
+# Compress info pages and remove the package's dir file
+# If no info pages are installed by the software, don't leave this in the script
+#rm -f $PKG/usr/info/dir
+#gzip -9 $PKG/usr/info/*.info*
+
+# Remove perllocal.pod and other special files that don't need to be installed,
+# as they will overwrite what's already on the system.  If this is not needed,
+# remove it from the script.
+#find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a ATTRIBUTIONS.md CHANGELOG.md CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE PACKAGING.md README.md SECURITY.md $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a <documentation> $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
