@@ -27,6 +27,9 @@ Program for determining types of files for Windows, Linux and MacOS<br>
 [ImHex](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/ImHex) - 
 A Hex Editor for Reverse Engineers, Programmers and people who value their
 retinas when working at 3 AM.<br>
+[libdragon](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/libdragon) - 
+Libdragon is an open-source SDK for Nintendo 64. It aims for a complete N64 programming experience 
+while providing programmers with modern approach to programming and debugging.<br>
 [nesfab](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/nesfab) - 
 Programming language that targets the Nintendo Entertainment System<br>
 [REDasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/REDasm) - 
