@@ -73,7 +73,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-toolchain-coninuous-prerelease
-tar xvf $CWD/libdragon-toolchain-continuous-prerelease.tar.gz
+tar xvf $CWD/$PRGNAM-toolchain-continuous-prerelease.tar.gz
 cd $PRGNAM-toolchain-continuous-prerelease
 chown -R root:root .
 find -L . \
@@ -85,28 +85,29 @@ find -L . \
 export N64_INST=$PKG/opt/libdragon
 cd tools && ./build-toolchain.sh
 cd .. && ./build.sh
+mkdir -p $PKG/usr/man
+cp -R $PKG/opt/libdragon/share/man $PKG/usr/man
+rm -r $PKG/opt/libdragon/share/man
+mkdir -p $PKG/usr/info
+cp -R $PKG/opt/libdragon/share/info $PKG/usr/info
+rm -r $PKG/opt/libdragon/share/info
 
 # Don't ship .la files:
-rm -f $PKG/opt/{,usr/}lib${LIBDIRSUFFIX}/*.la
+rm -f $PKG/opt/libdragon/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-find $PKG/opt/usr/man -type f -exec gzip -9 {} \;
-for i in $( find $PKG/opt/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 # Compress info pages and remove the package's dir file
 # If no info pages are installed by the software, don't leave this in the script
-#rm -f $PKG/usr/info/dir
-#gzip -9 $PKG/usr/info/*.info*
-
-# Remove perllocal.pod and other special files that don't need to be installed,
-# as they will overwrite what's already on the system.  If this is not needed,
-# remove it from the script.
-#find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
+rm -f $PKG/usr/info/dir
+gzip -9 $PKG/usr/info/*.info*
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a <documentation> $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a LICENSE.md README.md $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install

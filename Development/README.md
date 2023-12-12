@@ -10,6 +10,9 @@ someone decides to rip these scripts and submit to the SBo site as maintainer.
 
 [arduino-ide](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/arduino-ide) - 
 Arduino IDE 2.x branch<br>
+[bass](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/bass) - 
+bass is a table-based, multi-architecture and cross-platform, macro assembler developed by Near up until version 17.
+It is targeted at developers and hackers interested in legacy video game consoles such as the NES, SNES, MegaDrive and others.<br>
 [bddisasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/bddisasm) - 
 bddisasm is a fast, lightweight, x86/x64 instruction decoder.<br>
 [binaryen](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/binaryen) - 
@@ -30,6 +33,8 @@ retinas when working at 3 AM.<br>
 [libdragon](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/libdragon) - 
 Libdragon is an open-source SDK for Nintendo 64. It aims for a complete N64 programming experience 
 while providing programmers with modern approach to programming and debugging.<br>
+[llvm-mos-sdk](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/llvm-mos-sdk) - 
+The LLVM-MOS compiler toolchain and platform libraries. 6502 architecture<br>
 [nesfab](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/nesfab) - 
 Programming language that targets the Nintendo Entertainment System<br>
 [REDasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/REDasm) - 
