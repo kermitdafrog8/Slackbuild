@@ -1,0 +1,4 @@
+1c1
+< CMD_DESTDIR ?= /usr/local
+---
+> CMD_DESTDIR ?= /usr

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for wla-dx
+# Slackware build script for absiel
 
 # Copyright 2023 Christopher Luck Orlando, FL
 # All rights reserved.
@@ -24,8 +24,8 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=wla-dx
-VERSION=${VERSION:-10.6}
+PRGNAM=abseil-cpp
+VERSION=${VERSION:-20230802.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -87,7 +87,7 @@ cd build
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/opt \
+    -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
     -DCMAKE_BUILD_TYPE=Release ..
@@ -101,19 +101,26 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-mkdir -p $PKG/usr/
-mv $PKG/opt/man $PKG/usr/man
-find $PKG/usr/man -type f -exec gzip -9 {} \;
-for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+#find $PKG/usr/man -type f -exec gzip -9 {} \;
+#for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
+# Compress info pages and remove the package's dir file
+# If no info pages are installed by the software, don't leave this in the script
+#rm -f $PKG/usr/info/dir
+#gzip -9 $PKG/usr/info/*.info*
+
+# Remove perllocal.pod and other special files that don't need to be installed,
+# as they will overwrite what's already on the system.  If this is not needed,
+# remove it from the script.
+#find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a CHANGELOG CONTRIBUTING.md FILE_FORMATS LICENSE README.md *.yml $PKG/usr/doc/$PRGNAM-$VERSION
-mv $PKG/opt/share/doc/wla-dx/* $PKG/usr/doc/$PRGNAM-$VERSION
-rm -r $PKG/opt/share
+cp -a ABSEIL_ISSUE_TEMPLATE.md AUTHORS CONTRIBUTING.md FAQ.md LICENSE README.md UPGRADES.md $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

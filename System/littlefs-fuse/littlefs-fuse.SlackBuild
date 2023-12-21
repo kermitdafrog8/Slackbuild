@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for wla-dx
+# Slackware build script for littlefs-fuse
 
 # Copyright 2023 Christopher Luck Orlando, FL
 # All rights reserved.
@@ -24,8 +24,8 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=wla-dx
-VERSION=${VERSION:-10.6}
+PRGNAM=littlefs-fuse
+VERSION=${VERSION:-2.7.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -82,38 +82,39 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-mkdir -p build
-cd build
-  cmake \
-    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/opt \
-    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
-    -DMAN_INSTALL_DIR=/usr/man \
-    -DCMAKE_BUILD_TYPE=Release ..
   make
-  make install/strip DESTDIR=$PKG
-cd ..
-
+  mkdir -p $PKG/usr/bin
+  install -D -m 755 lfs $PKG/usr/bin
+  mkdir -p $PKG/usr/include/littlefs
+  install -D -m 644 *.h $PKG/usr/include/littlefs
+  install -D -m 644 littlefs/*.h $PKG/usr/include/littlefs
+  
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-mkdir -p $PKG/usr/
-mv $PKG/opt/man $PKG/usr/man
-find $PKG/usr/man -type f -exec gzip -9 {} \;
-for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+#find $PKG/usr/man -type f -exec gzip -9 {} \;
+#for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
+# Compress info pages and remove the package's dir file
+# If no info pages are installed by the software, don't leave this in the script
+#rm -f $PKG/usr/info/dir
+#gzip -9 $PKG/usr/info/*.info*
+
+# Remove perllocal.pod and other special files that don't need to be installed,
+# as they will overwrite what's already on the system.  If this is not needed,
+# remove it from the script.
+#find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a CHANGELOG CONTRIBUTING.md FILE_FORMATS LICENSE README.md *.yml $PKG/usr/doc/$PRGNAM-$VERSION
-mv $PKG/opt/share/doc/wla-dx/* $PKG/usr/doc/$PRGNAM-$VERSION
-rm -r $PKG/opt/share
+cp -a LICENSE.md README.md littlefs/DESIGN.md littlefs/SPEC.md $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

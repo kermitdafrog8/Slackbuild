@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=PE-bear
+GenericName=Portable Executable reversing tool
+Categories=Development;
+Comment=Portable Executable reversing tool with a friendly GUI
+Icon=net.hasherezade.pe-bear
+Exec=PE-bear %F
+Terminal=false
+MimeType=application/octet-stream;application/x-msdownload;
+

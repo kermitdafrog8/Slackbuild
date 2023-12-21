@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for wla-dx
+# Slackware build script for wasi-sdk
 
 # Copyright 2023 Christopher Luck Orlando, FL
 # All rights reserved.
@@ -24,8 +24,9 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=wla-dx
-VERSION=${VERSION:-10.6}
+PRGNAM=wasi-sdk
+EXTBITS=linux
+VERSION=${VERSION:-21.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -72,8 +73,8 @@ set -e # Exit on most errors
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+rm -rf $PRGNAM-$VERSION-$EXTBITS
+tar xvf $CWD/$PRGNAM-$VERSION-$EXTBITS.tar.gz
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
@@ -82,18 +83,10 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-mkdir -p build
-cd build
-  cmake \
-    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/opt \
-    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
-    -DMAN_INSTALL_DIR=/usr/man \
-    -DCMAKE_BUILD_TYPE=Release ..
-  make
-  make install/strip DESTDIR=$PKG
-cd ..
+mkdir -p $PKG/opt/$PRGNAM-$VERSION
+cp -Ra lib/ $PKG/opt/$PRGNAM-$VERSION
+cp -Ra bin/ $PKG/opt/$PRGNAM-$VERSION
+cp -Ra share/ $PKG/opt/$PRGNAM-$VERSION
 
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
@@ -101,19 +94,12 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-mkdir -p $PKG/usr/
-mv $PKG/opt/man $PKG/usr/man
-find $PKG/usr/man -type f -exec gzip -9 {} \;
-for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a CHANGELOG CONTRIBUTING.md FILE_FORMATS LICENSE README.md *.yml $PKG/usr/doc/$PRGNAM-$VERSION
-mv $PKG/opt/share/doc/wla-dx/* $PKG/usr/doc/$PRGNAM-$VERSION
-rm -r $PKG/opt/share
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

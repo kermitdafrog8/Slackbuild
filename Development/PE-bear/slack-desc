@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+       |-----handy-ruler------------------------------------------------------|
+PE-bear: PE-bear (Portable Executable reversing tool with a friendly GUI)
+PE-bear:
+PE-bear: PE-bear is a multiplatform reversing tool for PE files. Its objective
+PE-bear: is to deliver fast and flexible “first view” formalware analysts,
+PE-bear: stable and capable to handle malformed PE files
+PE-bear:
+PE-bear:
+PE-bear:
+PE-bear:
+PE-bear:
+PE-bear:
