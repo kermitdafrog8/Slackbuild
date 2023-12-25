@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+         |-----handy-ruler------------------------------------------------------|
+gbdk: gbdk (cross-platform development kit for sm83, z80 and 6502)
+gbdk:
+gbdk: GBDK is a cross-platform development kit for sm83, z80 and 6502
+gbdk: based gaming consoles. It includes libraries, toolchain utilities
+gbdk: and the SDCC C compiler suite.
+gbdk:
+gbdk:
+gbdk:
+gbdk:
+gbdk:
+gbdk:
