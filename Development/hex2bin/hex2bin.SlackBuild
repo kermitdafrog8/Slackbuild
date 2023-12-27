@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for pe-bear
+# Slackware build script for hex2bin
 
 # Copyright 2023 Christopher Luck Orlando, FL
 # All rights reserved.
@@ -24,8 +24,8 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=PE-bear
-VERSION=${VERSION:-0.6.6}
+PRGNAM=hex2bin
+VERSION=${VERSION:-1.10}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -84,26 +84,18 @@ find -L . \
 
 mkdir -p build
 cd build
-  cmake \
+  cmake -GNinja \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DBUILD_SHARED_LIBS=ON \
-    -DCAPSTONE_M680X_SUPPORT=ON \
-    -DCAPSTONE_M68K_SUPPORT=ON \
-    -DCAPSTONE_MIPS_SUPPORT=ON \
-    -DCAPSTONE_MOS65XX_SUPPORT=ON \
-    -DCAPSTONE_PPC_SUPPORT=ON \
-    -DCAPSTONE_RISCV_SUPPORT=ON \
-    -DCAPSTONE_SPARC_SUPPORT=ON \
-    -DCAPSTONE_WASM_SUPPORT=ON \
-    -DCAPSTONE_X86_ATT_DISABLE=ON \
-    -DCAPSTONE_X86_SUPPORT=ON \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
+    -DDISTRIBUTION=Release \
     -DCMAKE_BUILD_TYPE=Release ..
-  make
-  make install/strip DESTDIR=$PKG
+  
+  DESTDIR=$PKG ninja install/strip
+  mkdir -p $PKG/usr/bin
+  cp ../bin/* $PKG/usr/bin
 cd ..
 
 # Don't ship .la files:
@@ -112,15 +104,26 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+#find $PKG/usr/man -type f -exec gzip -9 {} \;
+#for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
+# Compress info pages and remove the package's dir file
+# If no info pages are installed by the software, don't leave this in the script
+#rm -f $PKG/usr/info/dir
+#gzip -9 $PKG/usr/info/*.info*
+
+# Remove perllocal.pod and other special files that don't need to be installed,
+# as they will overwrite what's already on the system.  If this is not needed,
+# remove it from the script.
+#find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a LICENSE README.md $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a README.md license.txt $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
-
-install -D -m 644 $CWD/net.hasherezade.pe-bear.desktop $PKG/usr/share/applications
+#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
