@@ -69,7 +69,7 @@ fi
 #COMPATTMP="$( mktemp -d $TMP/compat32-test-XXXXXX )"
 #echo "int main(void) {; return(0); }" > "$COMPATTMP/test.c"
 #gcc -m32 "$COMPATTMP/test.c" -o /dev/null >/dev/null 2>&1 \
-  && COMPAT32=${COMPAT32:-yes}
+#  && COMPAT32=${COMPAT32:-yes}
 #rm -rf "$COMPATTMP"
 
 set -e
