@@ -64,7 +64,8 @@ Libdragon is an open-source SDK for Nintendo 64. It aims for a complete N64 prog
 while providing programmers with modern approach to programming and debugging.<br>
 
 [llvm-mos](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/llvm-mos) - 
-
+LLVM-MOS is a LLVM fork supporting the MOS 65xx series of
+microprocessors.<br>
 
 [llvm-mos-sdk](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/llvm-mos-sdk) - 
 The LLVM-MOS compiler toolchain and platform libraries. 6502 architecture<br>
@@ -83,6 +84,10 @@ from the hobbyist to the professional reverse engineer.<br>
 
 [rehex](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/rehex) -
 Reverse Engineers' Hex Editor<br>
+
+[rgbds](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/rgbds) - 
+RGBDS (Rednex Game Boy Development System) is a free assembler/linker
+package for the Game Boy and Game Boy Color.<br>
 
 [rizin](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/rizin) - 
 A free and open-source Reverse Engineering framework, providing a
