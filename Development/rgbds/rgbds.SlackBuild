@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for ImHex
+# Slackware build script for rgbds
 
 # Copyright 2023 Christopher Luck Orlando, FL
 # All rights reserved.
@@ -24,8 +24,8 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=ImHex
-VERSION=${VERSION:-1.32.0}
+PRGNAM=rgbds
+VERSION=${VERSION:-0.7.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -34,7 +34,6 @@ if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
     i?86) ARCH=i586 ;;
     arm*) ARCH=arm ;;
-    aarch64) ARCH=aarch64 ;;
        *) ARCH=$( uname -m ) ;;
   esac
 fi
@@ -68,16 +67,14 @@ else
   LIBDIRSUFFIX=""
 fi
 
-OFFLINE="-DIMHEX_OFFLINE_BUILD=ON" # Need to set this up as a user choice
-
-set -e
+set -e # Exit on most errors
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PKG
-tar xvf $CWD/Full.Sources.tar.gz
-cd ImHex
+rm -rf $PRGNAM
+tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+cd $PRGNAM
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -91,32 +88,32 @@ cd build
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DUSE_SYSTEM_FMT=OFF \
-    -DUSE_SYSTEM_YARA=OFF \
-    -DUSE_SYSTEM_NLOHMANN_JSON=OFF \
-    -DUSE_SYSTEM_CAPSTONE=OFF \
-    -DIMHEX_ENABLE_LTO=ON \
-    -DIMHEX_USE_GTK_FILE_PICKER=ON \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
-    $OFFLINE \
     -DCMAKE_BUILD_TYPE=Release ..
-  make 
-  make install DESTDIR=$PKG
+  make
+  make install/strip DESTDIR=$PKG
 cd ..
 
+# Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+cp -Ra $PKG/usr/share/man $PKG/usr
+rm -R $PKG/usr/share
+
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a README.md VERSION $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a CONTRIBUTING.rst CONTRIBUTORS.rst LICENSE README.rst RELEASE.rst $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
+#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
