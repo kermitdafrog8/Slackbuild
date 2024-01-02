@@ -90,13 +90,13 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
-    -DINSTALL_GTEST=OFF \
-    -DDISTRIBUTION=Release \
+    -DDISTRIBUTION=release \
     -DCMAKE_BUILD_TYPE=Release ..
   
-  DESTDIR=$PKG ninja install/strip
+  ninja
   mkdir -p $PKG/usr/bin
-  cp ../bin/* $PKG/usr/bin
+  cd ../bin
+  install -D -m 0755 hex2bin $PKG/usr/bin
 cd ..
 
 # Don't ship .la files:
