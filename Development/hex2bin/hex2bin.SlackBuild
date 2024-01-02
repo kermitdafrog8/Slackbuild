@@ -90,6 +90,7 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
+    -DINSTALL_GTEST=OFF \
     -DDISTRIBUTION=Release \
     -DCMAKE_BUILD_TYPE=Release ..
   
