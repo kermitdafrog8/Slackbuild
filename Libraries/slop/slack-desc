@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+    |-----handy-ruler------------------------------------------------------|
+slop: slop (SeLect OPeration)
+slop:
+slop: slop (Select Operation) is an application that queries for a
+slop: selection from the user and prints the region to stdout
+slop:
+slop:
+slop:
+slop:
+slop:
+slop:
+slop:
