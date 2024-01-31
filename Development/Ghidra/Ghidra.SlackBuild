@@ -25,7 +25,8 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=Ghidra
-VERSION=${VERSION:-11.0}
+VERSION=${VERSION:-11.0.1}
+EXTBIT=20240130
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -73,7 +74,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG/opt $OUTPUT
 cd $TMP
 
-unzip $CWD/ghidra_11.0_PUBLIC_20231222.zip -d $PKG/opt
+unzip $CWD/ghidra_${VERSION}_PUBLIC_$EXTBIT.zip -d $PKG/opt
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
