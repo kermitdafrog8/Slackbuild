@@ -131,6 +131,9 @@ of software projects in a range of languages.<br>
 [wabt](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/wabt) - 
 WABT (we pronounce it "wabbit") is a suite of tools for WebAssembly<br>
 
+[wamr](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/wamr) - 
+WebAssembly Micro Runtime (WAMR) is a lightweight standalone WebAssembly (Wasm) runtime with small footprint, high performance and highly configurable features for applications cross from embedded, IoT, edge to Trusted Execution Environment (TEE), smart contract, cloud native and so on.<br>
+
 [wasi-sdk](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/wasi-sdk) - 
 WASI-enabled WebAssembly C/C++ toolchain.
 
