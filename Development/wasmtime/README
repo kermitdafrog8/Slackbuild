@@ -1,2 +1,3 @@
 A standalone runtime for WebAssembly
 
+Requires rust 1.73 or newer to compile

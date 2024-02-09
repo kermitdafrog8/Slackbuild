@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wasmtime
-VERSION=${VERSION:-v15.0.1}
+VERSION=${VERSION:-v17.0.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -83,8 +83,8 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 cargo build --release
-mkdir -p $PKG/usr/bin
-cp -a target/release/wasmtime $PKG/usr/bin
+mkdir -p $PKG/opt/$PRGNAM-$VERSION/
+cp -a target/release/wasmtime $PKG/opt/$PRGNAM-$VERSION/bin
 
 
 # Don't ship .la files:
@@ -106,7 +106,6 @@ chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/docs/rust_wasi_markdown_parser
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
