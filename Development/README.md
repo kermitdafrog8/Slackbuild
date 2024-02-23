@@ -11,9 +11,13 @@ someone decides to rip these scripts and submit to the SBo site as maintainer.
 [arduino-ide](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/arduino-ide) - 
 Arduino IDE 2.x branch<br>
 
-[arduino-kicad-library](https://github.com/kermitdafrog8/Slackbuild/tree/main/Python/arduino-kicad-library) - 
+[arduino-kicad-library](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/arduino-kicad-library) - 
 KiCad Symbol & Footprint Library for Arduino Modules (Shields, Sockets and Tiles)<br>
-[Digi-Key-kicad-library](https://github.com/kermitdafrog8/Slackbuild/tree/main/Python/Digi-Key-kicad-library) - 
+
+[asar](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/asar) - 
+Asar is an SNES assembler designed for applying patches to existing ROM images, or creating new ROM images from scratch. It supports 65c816, SPC700, and Super FX architectures. It was originally created by Alcaro, modelled after xkas v0.06 by byuu.
+
+[Digi-Key-kicad-library](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/Digi-Key-kicad-library) - 
 An atomic parts library for KiCard for Digi-Key products<br>
 
 [bass](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/bass) - 
@@ -51,7 +55,7 @@ rizin.<br>
 [Detect It Easy (die)](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/die) -
 Program for determining types of files for Windows, Linux and MacOS<br>
 
-[Espressif-kicad-libraries](https://github.com/kermitdafrog8/Slackbuild/tree/main/Python/Espressif-kicad-libraries) - 
+[Espressif-kicad-libraries](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/Espressif-kicad-libraries) - 
 Kicad symbols, footprint, and 3D Models for the Espressif SoC and Modules family<br>
 
 [gbdk](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/gbdk) - 
