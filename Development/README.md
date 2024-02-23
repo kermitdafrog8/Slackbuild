@@ -91,7 +91,8 @@ REDasm is a cross platform disassembler with a modern codebase useful
 from the hobbyist to the professional reverse engineer.<br>
 
 [rehex](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/rehex) -
-Reverse Engineers' Hex Editor<br>
+Reverse Engineers' Hex Editor
+Built with webkit2gtk4.1 with version 2.43.4<br>
 
 [rgbds](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/rgbds) - 
 RGBDS (Rednex Game Boy Development System) is a free assembler/linker
