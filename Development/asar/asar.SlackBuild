@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=asar
-VERSION=${VERSION:-1.90}
+VERSION=${VERSION:-1.91}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -100,11 +100,6 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
-
-mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}
-mv $PKG/usr/lib/*.so $PKG/usr/lib${LIBDIRSUFFIX}/
-mv $PKG/usr/lib/*.a $PKG/usr/lib${LIBDIRSUFFIX}/
-rm -r $PKG/usr/lib
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a LICENSE README.md license-lgpl.txt license-wtfpl.txt $PKG/usr/doc/$PRGNAM-$VERSION
