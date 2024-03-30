@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+           |-----handy-ruler------------------------------------------------------|
+PrusaSlicer: PrusaSlicer (G-code generator for 3D printers)
+PrusaSlicer:
+PrusaSlicer: PrusaSlicer takes 3D models (STL, OBJ, AMF) and converts them into
+PrusaSlicer: G-code instructions for FFF printers or PNG layers for mSLA 3D
+PrusaSlicer: printers
+PrusaSlicer:
+PrusaSlicer:
+PrusaSlicer:
+PrusaSlicer:
+PrusaSlicer:
+PrusaSlicer:
