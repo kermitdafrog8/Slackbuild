@@ -77,7 +77,7 @@ tar xvf $CWD/$PRGNAM-linux64.tar.gz
 
 cp -Ra $PRGNAM/* $PKG/opt/$PRGNAM-$VERSION
 
-chown -R root:root $PRGNAM
+chown -R root:root $PKG/opt/$PRGNAM-$VERSION
 
 #find -L . \
 # \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
