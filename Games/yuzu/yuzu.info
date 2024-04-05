@@ -5,6 +5,6 @@ DOWNLOAD="https://github.com/kermitdafrog8/Slackbuild/releases/download/Source/y
 MD5SUM="c7ed928a5e355e181a0b73362eaa66ae"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="nlohmann_json"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
