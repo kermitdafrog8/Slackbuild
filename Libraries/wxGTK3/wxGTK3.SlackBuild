@@ -35,7 +35,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wxGTK3
-VERSION=${VERSION:-3.0.5}
+VERSION=${VERSION:-3.2.4}
 BUILD=${BUILD:-4}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -81,7 +81,7 @@ else
 fi
 
 # Check for WebKit
-webkit=`pkg-config --exists webkit2gtk-4.0`
+webkit=`pkg-config --exists webkit2gtk-4.1`
 if [ "$?" -eq 0 ]; then
   wk="--enable-webkit"
 else
