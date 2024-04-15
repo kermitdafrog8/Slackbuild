@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Slackware build script for nlohmann_json
+# Slackware build script for gspell
 
-# Copyright 2022 Steven Voges <svoges.sbo@gmail.com>
+# Copyright 2021 Igor Alexandrov <igor.alexandrov@outlook.com>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -22,23 +22,23 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+# 20220422 bkw: Modified by SlackBuilds.org, BUILD=3:
+# - fix PRINT_PACKAGE_NAME (PKGTYPE wasn't set).
+# - remove useless ABOUT-NLS and INSTALL from doc dir.
+
 cd $(dirname $0) ; CWD=$(pwd)
 
-SRCNAM=json
-PRGNAM=nlohmann_json
-VERSION=${VERSION:-3.11.2}
+PRGNAM=gspell
+VERSION=${VERSION:-1.12.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
-TMP=${TMP:-/tmp/SBo}
-PKG=$TMP/package-$PRGNAM
-OUTPUT=${OUTPUT:-/tmp}
 
 if [ -z "$ARCH" ]; then
-  case "$( uname -m )" in
+  case "$(uname -m)" in
     i?86) ARCH=i586 ;;
     arm*) ARCH=arm ;;
-       *) ARCH=$( uname -m ) ;;
+       *) ARCH=$(uname -m) ;;
   esac
 fi
 
@@ -46,6 +46,10 @@ if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
   echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
   exit 0
 fi
+
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
 
 if [ "$ARCH" = "i586" ]; then
   SLKCFLAGS="-O2 -march=i586 -mtune=i686"
@@ -61,14 +65,14 @@ else
   LIBDIRSUFFIX=""
 fi
 
-set -e
+set -eu
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $SRCNAM-$VERSION
-tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
-cd $SRCNAM-$VERSION
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION.tar.?z*
+cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -76,29 +80,33 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-mkdir -p build
-cd build
-  cmake \
-    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DBUILD_TESTING=OFF \
-    -DCMAKE_BUILD_TYPE=Release ..
-  make
-  make install/strip DESTDIR=$PKG
-cd ..
-
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+./configure \
+  --prefix=/usr \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --sysconfdir=/etc \
+  --localstatedir=/var \
+  --mandir=/usr/man \
+  --infodir=/usr/info \
+  --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --disable-debug \
+  --disable-static \
+  --enable-gtk-doc \
+  --build=$ARCH-slackware-linux
+make
+make install DESTDIR=$PKG
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
+find $PKG -name '*.la' -delete
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a \
-  *.md LICENSE.MIT \
-  $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS COPYING ChangeLog HACKING NEWS README $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+rm -f $PKG/usr/lib*/*.la
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
