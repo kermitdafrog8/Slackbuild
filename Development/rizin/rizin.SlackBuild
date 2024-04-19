@@ -92,7 +92,7 @@ cd build
     --infodir=/usr/info \
     -Duse_sys_libzip=enabled \
     -Duse_sys_openssl=enabled \
-    -Duse_sys_capstone=disabled \
+    -Duse_sys_capstone=enabled \
     -Duse_capstone_version=v5
   "${NINJA:=ninja}"
   DESTDIR=$PKG $NINJA install
