@@ -6,14 +6,14 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
       |-----handy-ruler------------------------------------------------------|
-wxGTK3: wxGTK3 (cross-platform GUI toolkit)
-wxGTK3:
-wxGTK3: wxGTK3 is part of wxWidgets, a cross-platform API for writing GUI
-wxGTK3: applications on multiple platforms that still utilize the native
-wxGTK3: platform's controls and utilities.
-wxGTK3:
-wxGTK3: http://wxwidgets.org
-wxGTK3:
-wxGTK3:
-wxGTK3:
-wxGTK3:
+wxGTK4: wxGTK4 (cross-platform GUI toolkit)
+wxGTK4:
+wxGTK4: wxGTK4 is part of wxWidgets, a cross-platform API for writing GUI
+wxGTK4: applications on multiple platforms that still utilize the native
+wxGTK4: platform's controls and utilities.
+wxGTK4:
+wxGTK4: http://wxwidgets.org
+wxGTK4:
+wxGTK4:
+wxGTK4:
+wxGTK4:
