@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+        |-----handy-ruler------------------------------------------------------|
+libspnav: libspnav (Library for communicating with spacenavd)
+libspnav:
+libspnav: Libspnav is a C library for receiving input from 6 degrees-of-freedom
+libspnav: (6dof) input devices, also known as spacemice, spaceballs, etc.
+libspnav:
+libspnav:
+libspnav:
+libspnav:
+libspnav:
+libspnav:
+libspnav:

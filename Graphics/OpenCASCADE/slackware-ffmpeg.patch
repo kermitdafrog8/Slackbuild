@@ -1,0 +1,11 @@
+--- opencascade/CMakeLists.txt	2022-11-12 01:36:01.000000000 +0200
++++ CMakeLists.txt	2023-04-26 21:15:46.420570172 +0300
+@@ -666,7 +666,7 @@
+ 
+ if (CAN_USE_FFMPEG)
+   if (USE_FFMPEG)
+-    add_definitions (-DHAVE_FFMPEG)
++    add_definitions (-DUSE_FFMPEG)
+     OCCT_INCLUDE_CMAKE_FILE ("adm/cmake/ffmpeg")
+   else()
+     OCCT_CHECK_AND_UNSET_GROUP ("3RDPARTY_FFMPEG")
