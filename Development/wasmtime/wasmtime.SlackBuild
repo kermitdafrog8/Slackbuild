@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wasmtime
-VERSION=${VERSION:-v19.0.0}
+VERSION=${VERSION:-v20.0.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -101,7 +101,7 @@ chmod a-x $PKG/usr/doc/$PRGNAM-$VERSION/docs/assets/*.png
 chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/docs/assemblyscript-hello-world
 chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/docs/assemblyscript_demo
 chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/docs/assets
-chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/docs/rust_wasi_markdown_parser
+#chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/docs/rust_wasi_markdown_parser
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
