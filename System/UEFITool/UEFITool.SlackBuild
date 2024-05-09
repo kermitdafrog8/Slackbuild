@@ -113,11 +113,18 @@ mkdir -p $PKG/usr/share/icons/hicolor/512x512
 
  cd ..
  cd UEFITool
+
+if [[ -e /usr/bin/qmake6 ]]; then
+        qmake6
+elif [[ -e /usr/bin/qmake-qt5 ]]; then
+	qmake-qt5
+else	
+  	qmake
+fi
   
-  qmake
   make
   cp -a UEFITool $PKG/usr/sbin
-  cp -a $CWD/uefitool.desktop $PKG/usr/share/applications
+  install -m 0644 $CWD/uefitool.desktop $PKG/usr/share/applications
   cp -a icons/uefitool_16x16.png $PKG/usr/share/icons/hicolor/16x16
   cp -a icons/uefitool_32x32.png $PKG/usr/share/icons/hicolor/32x32
   cp -a icons/uefitool_48x48.png $PKG/usr/share/icons/hicolor/48x48
