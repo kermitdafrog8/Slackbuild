@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=quickemu
-VERSION=${VERSION:-4.9.2}
+VERSION=${VERSION:-4.9.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -84,7 +84,7 @@ find -L . \
 
 mkdir -p $PKG/usr/bin
 mkdir -p $PKG/usr/man/man1
-install -m 755 -o root -g root macrecovery $PKG/usr/bin
+#install -m 755 -o root -g root macrecovery $PKG/usr/bin
 install -m 755 -o root -g root quickemu $PKG/usr/bin
 install -m 755 -o root -g root quickget $PKG/usr/bin
 install -m 755 -o root -g root windowskey $PKG/usr/bin
