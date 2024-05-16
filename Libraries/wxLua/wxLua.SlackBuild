@@ -97,7 +97,11 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
+if [ "$LIBDIRSUFFIX" = "64" ]; then
+    mkdir -p $PKG/usr/lib64
+    mv $PKG/usr/lib $PKG/usr/lib64
+    rm -r $PKG/usr/lib
+fi
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a README.md $PKG/usr/doc/$PRGNAM-$VERSION
