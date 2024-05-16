@@ -62,11 +62,11 @@ else
 fi
 
 # Check for STL
-if [ "${STL:-no}" = "yes" ]; then
+#if [ "${STL:-no}" = "yes" ]; then
   stl="ON"
-else
-  stl="OFF"
-fi
+#else
+#  stl="OFF"
+#fi
 
 # Check for WebKit
 webkit=`pkg-config --exists webkit2gtk-4.0`
