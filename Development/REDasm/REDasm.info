@@ -9,6 +9,6 @@ MD5SUM="ed42efb27eecac56397dcc25d6398b17
         c23a33f04786d85c29fda8d16b5f0efd"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="spdlog"
+REQUIRES="spdlog fmt"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
