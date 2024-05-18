@@ -27,7 +27,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=spdlog
-VERSION=${VERSION:-1.12.0}
+VERSION=${VERSION:-1.14.1}
 BUILD=${BUILD:-1}
 FMT=${FMT:-ON}
 TAG=${TAG:-_SBo}
