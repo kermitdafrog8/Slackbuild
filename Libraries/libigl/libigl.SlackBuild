@@ -90,10 +90,12 @@ cd build
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
+    -DBUILD_SHARED_LIBS=ON \
+    -DBUILD_EXECUTABLE=ON \
     -DMAN_INSTALL_DIR=/usr/man \
-    -DLIBIGL_BUILD_TEST=NO \
+    -DBUILD_TESTING=OFF \
     -DCMAKE_BUILD_TYPE=Release ..
-  make
+  make -j6
   make install/strip DESTDIR=$PKG
 cd ..
 
@@ -103,26 +105,23 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-#find $PKG/usr/man -type f -exec gzip -9 {} \;
-#for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+mkdir -p $PKG/usr/man
+cp -R $PKG/usr/share/man/man3 $PKG/usr/man
+rm -R $PKG/usr/share/man
 
-# Compress info pages and remove the package's dir file
-# If no info pages are installed by the software, don't leave this in the script
-#rm -f $PKG/usr/info/dir
-#gzip -9 $PKG/usr/info/*.info*
-
-# Remove perllocal.pod and other special files that don't need to be installed,
-# as they will overwrite what's already on the system.  If this is not needed,
-# remove it from the script.
-#find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-#cp -a <documentation> $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a LICENSE.GPL LICENSE.MPL2 README.md $PKG/usr/doc/$PRGNAM-$VERSION
+cp -aR docs/* $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a $PKG/usr/share/doc/libigl/* $PKG/usr/doc/$PRGNAM-$VERSION
+rm -r $PKG/usr/share/doc
+
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
