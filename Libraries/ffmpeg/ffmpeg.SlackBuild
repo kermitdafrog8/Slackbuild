@@ -29,7 +29,8 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PKGNAM=ffmpeg
-VERSION=${VERSION:-$(echo $PKGNAM-*.tar.xz | rev | cut -f 3- -d . | cut -f 1 -d - | rev)}
+SRCNAM=FFmpeg
+VERSION=${VERSION:-$(echo $PKGNAM-*.tar.gz | rev | cut -f 3- -d . | cut -f 1 -d - | rev)}
 BUILD=${BUILD:-2}
 
 if [ -z "$ARCH" ]; then
@@ -193,9 +194,9 @@ aac=""        ; [ "${AAC:-no}" = "no" ]           && aac="--disable-encoder=aac"
 rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
-rm -rf $PKGNAM-$VERSION
-tar xf $CWD/$PKGNAM-$VERSION.tar.xz || exit 1
-cd $PKGNAM-$VERSION || exit 1
+rm -rf $SRCNAM-"n"$VERSION
+tar xf $CWD/$PKGNAM-$VERSION.tar.gz || exit 1
+cd $SRCNAM-"n"$VERSION || exit 1
 
 chown -R root:root .
 find -L . \
@@ -205,16 +206,16 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \+
 
 # Restore missing function needed by Chromium and qt-webengine:
-zcat $CWD/add-av_stream_get_first_dts-for-chromium.patch.gz | patch -p1 --verbose || exit 1
+#zcat $CWD/add-av_stream_get_first_dts-for-chromium.patch.gz | patch -p1 --verbose || exit 1
 
 # Build against recent Vulkan:
-zcat $CWD/ffmpeg.vulkan.diff.gz | patch -p1 --verbose || exit 1
+#zcat $CWD/ffmpeg.vulkan.diff.gz | patch -p1 --verbose || exit 1
 
 # Fix ctx memory leak:
-zcat $CWD/250471ea1745fc703eb346a2a662304536a311b1.patch | patch -p1 --verbose || exit 1
+#zcat $CWD/250471ea1745fc703eb346a2a662304536a311b1.patch | patch -p1 --verbose || exit 1
 
 # Patch for recent nv-codec-headers:
-zcat $CWD/0004-support-nv-codec-headers-12.2.patch.gz | patch -p1 --verbose || exit 1
+#zcat $CWD/0004-support-nv-codec-headers-12.2.patch.gz | patch -p1 --verbose || exit 1
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -286,7 +287,6 @@ CXXFLAGS="$SLKCFLAGS" \
   $liblensfun \
   $libxml2 \
   $librsvg \
-  $vulkan \
   $libjack \
   $libglslang \
   $libdrm \
@@ -324,7 +324,7 @@ find $PKG/usr/man -type f -exec gzip -9 {} \+
 
 mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION/txt
 cp -a \
-  Changelog COPYING* CREDITS INSTALL* LICENSE* MAINTAINERS README* \
+  Changelog COPYING* CREDITS LICENSE* MAINTAINERS README* \
   RELEASE VERSION \
   $PKG/usr/doc/$PKGNAM-$VERSION
 cp -a doc/*.txt $PKG/usr/doc/$PKGNAM-$VERSION/txt/
