@@ -1,10 +1,8 @@
 PRGNAM="dblatex"
-VERSION="0.3.10"
+VERSION="0.3.12"
 HOMEPAGE="http://dblatex.sourceforge.net/"
-DOWNLOAD="https://downloads.sourceforge.net/dblatex/dblatex-0.3.10.tar.bz2 \
-          https://mirrors.ctan.org/install/macros/latex/contrib/bookmark.tds.zip"
-MD5SUM="437513c07101cefe5be3cbe83f313878 \
-        c47d7e393fe4129df5bb7217abcc4676"
+DOWNLOAD="https://downloads.sourceforge.net/project/dblatex/dblatex/dblatex-0.3.11/dblatex-0.3.11py3.tar.bz2"
+MD5SUM="52226e83164afd7e21c6aafdbe5f0bbe"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""

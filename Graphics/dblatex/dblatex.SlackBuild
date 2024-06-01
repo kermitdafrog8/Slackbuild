@@ -7,7 +7,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=dblatex
-VERSION=${VERSION:-0.3.10}
+VERSION=${VERSION:-0.3.11}
 BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -51,9 +51,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.*z?
-cd $PRGNAM-$VERSION
+rm -rf $PRGNAM-$VERSION"py3"
+tar xvf $CWD/$PRGNAM-$VERSION"py3".tar.*z?
+cd $PRGNAM-$VERSION"py3"
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -62,11 +62,7 @@ find -L . \
  -exec chmod 644 {} \;
 
 # Fix build
-patch -p0 -i $CWD/dblatex-0.3.4-build-fix.patch
-
-# latex in slackware 14.2 doesn't have this package
-unzip "$CWD/bookmark.tds.zip"
-cp -pav "./tex/latex/bookmark/" "./latex/"
+#patch -p0 -i $CWD/dblatex-0.3.4-build-fix.patch
 
 python setup.py build
 python setup.py install --root=$PKG
