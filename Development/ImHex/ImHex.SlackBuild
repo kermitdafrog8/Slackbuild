@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=ImHex
-VERSION=${VERSION:-1.33.0}
+VERSION=${VERSION:-1.34.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -102,7 +102,7 @@ cd build
     -DMAN_INSTALL_DIR=/usr/man \
     $OFFLINE \
     -DCMAKE_BUILD_TYPE=Release ..
-  make 
+  make -j7
   make install DESTDIR=$PKG
 cd ..
 
