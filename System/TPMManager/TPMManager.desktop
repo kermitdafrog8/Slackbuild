@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+NoDisplay=false
+Terminal=false
+Exec=tpmmanager
+Icon=
+Name=TPMManager
+Comment=
+Categories=System;
