@@ -6,14 +6,14 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
                     |-----handy-ruler------------------------------------------------------|
-desktop-file-creator: desktop-file-creator (Simple app for creating .desktop files)
-desktop-file-creator:
-desktop-file-creator: Simple app for creating .desktop files on GNU/Linux
-desktop-file-creator:
-desktop-file-creator:
-desktop-file-creator:
-desktop-file-creator:
-desktop-file-creator:
-desktop-file-creator:
-desktop-file-creator:
-desktop-file-creator:
+desktop-files-creator: desktop-files-creator (Simple app for creating .desktop files)
+desktop-files-creator:
+desktop-files-creator: Simple app for creating .desktop files on GNU/Linux
+desktop-files-creator:
+desktop-files-creator:
+desktop-files-creator:
+desktop-files-creator:
+desktop-files-creator:
+desktop-files-creator:
+desktop-files-creator:
+desktop-files-creator:
