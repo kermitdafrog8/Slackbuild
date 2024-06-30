@@ -120,12 +120,15 @@ cd build
     -DUSE_TBB=ON \
     -DUSE_VTK=ON \
     -D3RDPARTY_VTK_INCLUDE_DIR=/usr/include/vtk-9.3 \
-    -D3RDPARTY_VTK_LIBRARY_DIR=/usr/lib${LIBDIRSUFFIX} \
-    -DCMAKE_BUILD_TYPE=Release ..
+    -D3RDPARTY_VTK_LIBRARY_DIR=/usr/lib${LIBDIRSUFFIX} ..
 
-  make -j6
+  make -j8
   make install DESTDIR=$PKG
 cd ..
+
+# fix cmake files
+echo "update cmake files"
+tar xvf $CWD/occ_cmake.tar.gz -C $PKG/usr/lib64/cmake/OpenCascade
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
