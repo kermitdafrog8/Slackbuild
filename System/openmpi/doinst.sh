@@ -15,3 +15,6 @@ config etc/pmix-mca-params.conf.new
 config etc/openmpi-default-hostfile.new
 config etc/openmpi-mca-params.conf.new
 config etc/openmpi-totalview.tcl.new
+if [ -x /usr/bin/update-desktop-database ]; then
+  /usr/bin/update-desktop-database -q usr/share/applications >/dev/null 2>&1
+fi
