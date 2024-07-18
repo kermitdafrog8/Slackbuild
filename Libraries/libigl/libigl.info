@@ -7,6 +7,6 @@ MD5SUM="a8bc60de0936ffd9fc308084311ea6a1
         132dde48fe2b563211675626d29f1707"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="OpenBLAS"
+REQUIRES="OpenBLAS eigen"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
