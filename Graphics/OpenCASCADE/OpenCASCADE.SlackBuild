@@ -110,7 +110,7 @@ cd build
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DINSTALL_DIR_LIB=lib${LIBDIRSUFFIX} \
-    -DINSTALL_DIR_CMAKE=lib${LIBDIRSUFFIX}/cmake/OpenCascade \
+    -DINSTALL_DIR_CMAKE=lib${LIBDIRSUFFIX}/cmake/opencascade \
     -DINSTALL_DIR_DOC=/usr/doc/$PRGNAM-$VERSION \
     -DINSTALL_DIR_BIN=bin \
     -DUSE_GLES2=ON \
@@ -122,13 +122,13 @@ cd build
     -D3RDPARTY_VTK_INCLUDE_DIR=/usr/include/vtk-9.3 \
     -D3RDPARTY_VTK_LIBRARY_DIR=/usr/lib${LIBDIRSUFFIX} ..
 
-  make -j8
+  make -j10
   make install DESTDIR=$PKG
 cd ..
 
 # fix cmake files
 echo "update cmake files"
-tar xvf $CWD/occ_cmake.tar.gz -C $PKG/usr/lib64/cmake/OpenCascade
+tar xvf $CWD/occ_cmake.tar.gz -C $PKG/usr/lib64/cmake/opencascade
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
