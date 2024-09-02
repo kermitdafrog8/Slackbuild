@@ -122,7 +122,7 @@ cd build
     -D3RDPARTY_VTK_INCLUDE_DIR=/usr/include/vtk-9.3 \
     -D3RDPARTY_VTK_LIBRARY_DIR=/usr/lib${LIBDIRSUFFIX} ..
 
-  make -j10
+  make -j1
   make install DESTDIR=$PKG
 cd ..
 

@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wasm-tools
-VERSION=${VERSION:-1.211.1}
+VERSION=${VERSION:-1.216.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -107,7 +107,7 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
 #find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE ORG_CODE_OF_CONDUCT.md README.md SECURITY.md $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE* ORG_CODE_OF_CONDUCT.md README.md SECURITY.md $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
