@@ -11,6 +11,9 @@ Bochs is a portable IA-32 (x86) PC emulator written in C++, that
 runs on most popular platforms. It includes emulation of the Intel
 x86 CPU, common I/O devices, and a custom BIOS.<br>
 
+[bluetui](https://github.com/kermitdafrog8/Slackbuild/tree/main/System/bluetui) - 
+TUI for managing bluetooth on Linux.<br> 
+
 [container2wasm](https://github.com/kermitdafrog8/Slackbuild/tree/main/System/container2wasm) - 
 container2wasm is a container-to-wasm image converter that enables
 to run the container on WASM.<br>
