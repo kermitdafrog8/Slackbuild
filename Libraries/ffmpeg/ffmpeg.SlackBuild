@@ -29,8 +29,8 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PKGNAM=ffmpeg
-SRCNAM=ffmpeg
-VERSION=7.0.2
+SRCNAM=FFmpeg
+VERSION=7.2
 BUILD=${BUILD:-2}
 
 if [ -z "$ARCH" ]; then
@@ -194,9 +194,9 @@ aac=""        ; [ "${AAC:-no}" = "no" ]           && aac="--disable-encoder=aac"
 rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
-rm -rf $SRCNAM-$VERSION
-tar xf $CWD/$SRCNAM-$VERSION.tar.gz || exit 1
-cd $SRCNAM-$VERSION || exit 1
+rm -rf $SRCNAM-"n"$VERSION-dev
+tar xf $CWD/$SRCNAM-$VERSION-dev.tar.gz || exit 1
+cd $SRCNAM-"n"$VERSION-dev || exit 1
 
 chown -R root:root .
 find -L . \
