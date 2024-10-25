@@ -4,7 +4,8 @@
 Collection of my Slackbuild scripts.
 
 All scripts built using sbo-create (https://dslackw.gitlab.io/sbo-create) and I do not care if
-someone decides to rip these scripts and submit to the SBo site as maintainer.
+someone decides to rip these scripts and submit to the SBo site as maintainer. If you feel like
+I deserve some credit you can leave my name in as the original creator and give credit to sbo-create
 
 [Academic](https://github.com/kermitdafrog8/Slackbuild/tree/main/Academic/README.md) \
 [Development](https://github.com/kermitdafrog8/Slackbuild/tree/main/Development/README.md) \
