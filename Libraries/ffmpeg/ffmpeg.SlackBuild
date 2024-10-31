@@ -195,7 +195,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
 rm -rf $SRCNAM-"n"$VERSION-dev
-tar xf $CWD/$SRCNAM-$VERSION-dev.tar.gz || exit 1
+tar xf $CWD/$SRCNAM-"n"$VERSION-dev.tar.gz || exit 1
 cd $SRCNAM-"n"$VERSION-dev || exit 1
 
 chown -R root:root .
