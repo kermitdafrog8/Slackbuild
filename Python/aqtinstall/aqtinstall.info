@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/d7/fd/2689b4297335dc91f60a4008
 MD5SUM="396e7eab0a2bcc42d6278e80c23da0f7"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-build python3-wheel python3-tomli_w python3-setuptools-opt setuptools-scm setuptools-scm-opt"
+REQUIRES="python3-build python3-wheel python3-tomli_w python3-setuptools-opt python3-setuptools-scm python3-setuptools-scm-opt"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
