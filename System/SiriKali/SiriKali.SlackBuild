@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Slackware build script for SiriKali
 
 # Copyright 2023 Christopher Luck Orlando, FL
@@ -25,7 +26,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=SiriKali
-VERSION=${VERSION:-1.6.0}
+VERSION=${VERSION:-1.7.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -91,7 +92,6 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
-    -DQT5=true \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install DESTDIR=$PKG
