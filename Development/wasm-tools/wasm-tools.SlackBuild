@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wasm-tools
-VERSION=${VERSION:-1.216.0}
+VERSION=${VERSION:-1.219.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -74,6 +74,7 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+tar xvf $CWD/wasm-tools-vendored-sources-$VERSION-.tar.xz -C $CWD
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
@@ -84,7 +85,7 @@ find -L . \
 
 cargo build --release
 mkdir -p $PKG/usr/bin
-install target/release/wasm-tools $PKG/usr/bin
+install -m 0755 target/release/wasm-tools $PKG/usr/bin
 
 
 # Don't ship .la files:
