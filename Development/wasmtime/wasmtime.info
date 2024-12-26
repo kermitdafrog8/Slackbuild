@@ -1,10 +1,10 @@
 PRGNAM="wasmtime"
-VERSION="v25.0.3"
+VERSION="v28.0.0"
 HOMEPAGE="https://wasmtime.dev/"
-DOWNLOAD="https://github.com/bytecodealliance/wasmtime/releases/download/v25.0.3/wasmtime-v25.0.3-src.tar.gz
-          https://github.com/kermitdafrog8/Slackbuild/releases/download/Source/wasmtime-vendored-sources-v25.0.3.tar.gz"
-MD5SUM="a5026d2645e09269a1c4fad74ec7db72
-        70fed87be0c8780e533aeaac78b37a10"
+DOWNLOAD="https://github.com/bytecodealliance/wasmtime/releases/download/v28.0.0/wasmtime-v28.0.0-src.tar.gz
+          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/wasmtime-vendored-sources-v28.0.0.tar.gz"
+MD5SUM="2d4b3365422205fd3d2537adbd9a4535
+        c636bcd6e8eee52eb6f9dfefd5046ec7"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""

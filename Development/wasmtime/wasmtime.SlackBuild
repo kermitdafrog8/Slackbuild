@@ -75,7 +75,7 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION-src
 tar xvf $CWD/$PRGNAM-$VERSION-src.tar.gz
-tar xvf $CWD/wasmtime-vendored-sources-v25.0.3.tar.gz -C $CWD
+tar xvf $CWD/wasmtime-vendored-sources-$VERSION.tar.gz -C $CWD
 cd $PRGNAM-$VERSION-src
 
 # build offline
