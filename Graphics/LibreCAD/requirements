@@ -1,0 +1,16 @@
+Required libraries
+
+    cairo
+    Pango
+    Qt 5
+    git
+    Google test
+    Eigen 3
+    Lua >= 5.3 and <= 5.3.5
+    Curl
+    Boost 1.74
+    LibDxfRW (Branch LibreCAD_3; building instructions follow)
+    rapidjson
+    libglfw3
+    libglm
+
