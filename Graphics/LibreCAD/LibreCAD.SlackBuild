@@ -91,7 +91,6 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DWITH_UNITTESTS=OFF \
-    -DLIBDXFRW_INCLUDE_DIR=/usr/include/libdxfrw \
     -DWITH_DOCUMENTATION=ON \
     -DMAN_INSTALL_DIR=/usr/man \
     -DCMAKE_BUILD_TYPE=Release ..
