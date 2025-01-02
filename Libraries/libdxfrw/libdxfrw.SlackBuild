@@ -99,6 +99,12 @@ cd ..
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
+if [ -d $PKG/$PRGNAM ]; then
+	mkdir -p $PKG/usr/include/$PRGNAM
+        mv $PKG/$PRGNAM/* $PKG/usr/include/$PRGNAM
+	rm -r $PKG/$PRGNAM
+fi
+
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
