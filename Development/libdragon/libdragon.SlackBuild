@@ -103,8 +103,8 @@ for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; r
 
 # Compress info pages and remove the package's dir file
 # If no info pages are installed by the software, don't leave this in the script
-rm -f $PKG/usr/info/dir
-gzip -9 $PKG/usr/info/*.info*
+#rm -f $PKG/usr/info/dir
+#gzip -9 $PKG/usr/info/*.info*
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a LICENSE.md README.md $PKG/usr/doc/$PRGNAM-$VERSION

@@ -4,7 +4,7 @@
 
 # Copyright 2013,2014 Youjie Zhou <jmpopush@gmail.com>
 # All rights reserved.
-# Copyright 2016-2023 Christoph Willing,  Brisbane Australia
+# Copyright 2016-2024 Christoph Willing,  Sydney Australia
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -28,9 +28,8 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=VTK
-SRCNAM=vtk
-VERSION=${VERSION:-9.3.1}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-9.4.0}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
@@ -98,7 +97,7 @@ tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM-$VERSION
 
 patch -p1 < $CWD/include_limits.patch
-#patch -p0 < $CWD/cstdint-for-gcc13.diff
+patch -p0 < $CWD/cstdint-for-gcc13.diff
 
 chown -R root:root .
 find -L . \
