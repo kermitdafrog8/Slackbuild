@@ -72,7 +72,7 @@ set -e # Exit on most errors
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-toolchain-coninuous-prerelease
+rm -rf $TMP/$PRGNAM-toolchain-coninuous-prerelease
 tar xvf $CWD/$PRGNAM-toolchain-continuous-prerelease.tar.gz
 cd $PRGNAM-toolchain-continuous-prerelease
 chown -R root:root .
@@ -82,15 +82,20 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-export N64_INST=$PKG/opt/libdragon
-cd tools && ./build-toolchain.sh
+export N64_INST=/opt/libdragon
+cp -a $CWD/binutils-2.39.tar.gz tools/toolchain
+cd tools && make
 cd .. && ./build.sh
-mkdir -p $PKG/usr/man
-cp -R $PKG/opt/libdragon/share/man $PKG/usr/man
-rm -r $PKG/opt/libdragon/share/man
-mkdir -p $PKG/usr/info
-cp -R $PKG/opt/libdragon/share/info $PKG/usr/info
-rm -r $PKG/opt/libdragon/share/info
+mkdir -p $PKG/usr
+mkdir -p $PKG/opt
+cp -Ra /opt/libdragon/share/man $PKG/usr
+rm -r /opt/libdragon/share/man
+cp -Ra /opt/libdragon/share/info $PKG/usr
+rm -r /opt/libdragon/share/info
+rm -r /opt/libdragon/mips64-elf/include/rpc
+rm -r /opt/libdragon/mips64-elf/include/bits
+cp -Ra /opt/libdragon $PKG/opt
+
 
 # Don't ship .la files:
 rm -f $PKG/opt/libdragon/{,usr/}lib${LIBDIRSUFFIX}/*.la
@@ -103,8 +108,10 @@ for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; r
 
 # Compress info pages and remove the package's dir file
 # If no info pages are installed by the software, don't leave this in the script
-#rm -f $PKG/usr/info/dir
-#gzip -9 $PKG/usr/info/*.info*
+cp -R $PKG/usr/info/info $PKG/usr/info
+rm -r $PKG/usr/info/info
+rm -f $PKG/usr/info/dir
+gzip -9 $PKG/usr/info/*.info*
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a LICENSE.md README.md $PKG/usr/doc/$PRGNAM-$VERSION
