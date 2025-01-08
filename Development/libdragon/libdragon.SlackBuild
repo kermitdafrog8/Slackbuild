@@ -87,14 +87,14 @@ export N64_INST=$PKG/opt/libdragon
 cd tools && sh build-toolchain.sh
 cd .. && ./build.sh
 mkdir -p $PKG/usr
-mkdir -p $PKG/opt
+#mkdir -p $PKG/opt
 cp -Ra $PKG/opt/libdragon/share/man $PKG/usr
 rm -r $PKG/opt/libdragon/share/man
 cp -Ra $PKG/opt/libdragon/share/info $PKG/usr
 rm -r $PKG/opt/libdragon/share/info
 rm -r $PKG/opt/libdragon/mips64-elf/include/rpc
 rm -r $PKG/opt/libdragon/mips64-elf/include/bits
-cp -Ra $PKG/opt/libdragon $PKG/opt
+#cp -Ra $PKG/opt/libdragon $PKG/opt
 
 
 # Don't ship .la files:
