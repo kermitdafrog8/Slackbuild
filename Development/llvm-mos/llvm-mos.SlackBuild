@@ -75,7 +75,7 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 
 rm -rf $PRGNAM-$EXTBITS
-tar xvf $CWD/$PRGNAM-$EXTBITS.tar.gz
+tar xvf $CWD/$PRGNAM-$EXTBITS.tar.xz
 cd $PRGNAM-$EXTBITS
 
 chown -R root:root .
