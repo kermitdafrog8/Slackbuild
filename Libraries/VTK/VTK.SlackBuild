@@ -96,8 +96,8 @@ rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM-$VERSION
 
-patch -p1 < $CWD/include_limits.patch
-patch -p0 < $CWD/cstdint-for-gcc13.diff
+#patch -p1 < $CWD/include_limits.patch
+#patch -p0 < $CWD/cstdint-for-gcc13.diff
 
 chown -R root:root .
 find -L . \
