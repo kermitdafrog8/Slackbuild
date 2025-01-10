@@ -112,7 +112,7 @@ cd build
     -DINSTALL_DIR_LIB=lib${LIBDIRSUFFIX} \
     -DINSTALL_DIR_CMAKE=lib${LIBDIRSUFFIX}/cmake/opencascade \
     -DINSTALL_DIR_DOC=/usr/doc/$PRGNAM-$VERSION \
-    -DINSTALL_DIR_INCLUDE=include/opencascade \
+    -DINSTALL_DIR_INCLUDE=lib${LIBDIRSUFFIX}/include/opencascade \
     -DINSTALL_DIR_BIN=bin \
     -DUSE_GLES2=ON \
     -DUSE_FFMPEG=ON \
