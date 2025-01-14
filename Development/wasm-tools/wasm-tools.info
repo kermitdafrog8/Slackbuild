@@ -4,7 +4,7 @@ HOMEPAGE="https://github.com/bytecodealliance/wasm-tools"
 DOWNLOAD="https://github.com/bytecodealliance/wasm-tools/archive/v1.223.0/wasm-tools-1.223.0.tar.gz
           https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/wasm-tools-vendored-sources-1.223.0.tar.xz"
 MD5SUM="01ad7b9ba86bb89b82588c923e5e2483
-        8356e4a6e7c5e4d5976d018b0566b307"
+        fb8ea4a4df62ea54c6231253e9ac250b"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""
