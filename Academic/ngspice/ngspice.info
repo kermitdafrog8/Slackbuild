@@ -1,10 +1,12 @@
 PRGNAM="ngspice"
-VERSION="42"
+VERSION="44.2"
 HOMEPAGE="http://ngspice.sourceforge.net/"
-DOWNLOAD="https://sourceforge.net/projects/ngspice/files/ng-spice-rework/42/ngspice-42.tar.gz \
-          https://sourceforge.net/projects/ngspice/files/ng-spice-rework/42/ngspice-42-manual.pdf"
-MD5SUM="84ab9e67127f9732639195dd63b98a5e \
-        f1b1bf8a0bd18af216cbe0ccdbacb47f"
+DOWNLOAD="https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/ngspice-44.2.tar.gz
+          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/ngspice-doc-44.tar.gz
+          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/ngspice-44-manual.pdf"
+MD5SUM="2f22f83c759afb5c8526fc029fdf891a
+        0dcd13d9015904176af9d1c4809c11ef
+        b0a5edacf40fb59dcebc0b48924b75fb"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""
