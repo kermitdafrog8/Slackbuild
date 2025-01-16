@@ -118,7 +118,7 @@ cp -a \
   $PKG/usr/doc/$PRGNAM-$VERSION/
 
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
-cat $CWD/$PRGNAM-$VERSION-manual.pdf \
+cat $CWD/$PRGNAM-44-manual.pdf \
   > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM-$VERSION-manual.pdf
 
 # The shared library enabled by "--with-ngshared"
