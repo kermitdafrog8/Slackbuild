@@ -14,7 +14,7 @@ MD5SUM="87269dd9f258c1593089c409933907c6
         48f7146709f3b06365463f76b8dca614
         8dc865f9c282028202560032121431f5"
 DOWNLOAD_x86_64=""
-MD5SUM_x86_64="f970bb12772ff3d385ba00dfb67650ce"
-REQUIRES="ghc_filesystem tinyxml2 flac miniaudio"
+MD5SUM_x86_64=""
+REQUIRES=""
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
