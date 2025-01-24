@@ -1,0 +1,4 @@
+LibreCAD 3 is a next generation 2D CAD application written to be
+modular, with a core independent from GUI toolkits.
+Scripting is possible with Lua.
+

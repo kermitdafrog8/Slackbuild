@@ -123,8 +123,8 @@ else
 fi
   
   make
-  cp -a UEFITool $PKG/usr/sbin
-  install -m 0644 $CWD/uefitool.desktop $PKG/usr/share/applications
+  install -Dm 0755 UEFITool $PKG/usr/sbin
+  install -Dm 0644 $CWD/uefitool.desktop $PKG/usr/share/applications
   cp -a icons/uefitool_16x16.png $PKG/usr/share/icons/hicolor/16x16
   cp -a icons/uefitool_32x32.png $PKG/usr/share/icons/hicolor/32x32
   cp -a icons/uefitool_48x48.png $PKG/usr/share/icons/hicolor/48x48
