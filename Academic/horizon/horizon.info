@@ -5,6 +5,6 @@ DOWNLOAD="https://github.com/horizon-eda/horizon/archive/v2.6.0/horizon-2.6.0.ta
 MD5SUM="c3cb02b454226067bce298b15c2c03ba"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="http-parser glm OpenCASCADE cppzmq podofo libgit2 libspnav"
+REQUIRES="http-parser glm OpenCASCADE cppzmq podofo libgit2 libspnav zeromq"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
