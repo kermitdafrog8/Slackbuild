@@ -128,8 +128,8 @@ cd build
 cd ..
 
 # fix cmake files
-#echo "update cmake files"
-#tar xvf $CWD/occ_cmake.tar.gz -C $PKG/usr/lib64/cmake/opencascade
+echo "update cmake files"
+tar xvf $CWD/occ_cmake.tar.gz -C $PKG/usr/lib64/cmake/opencascade
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
