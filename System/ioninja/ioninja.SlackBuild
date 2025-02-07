@@ -91,7 +91,7 @@ mkdir -p $PKG/usr/lib64
 cp -r share/icons $PKG/usr/share/icons
 cp -a share/applications/ioninja.desktop $PKG/usr/share/applications
 cp -a bin/* $PKG/usr/bin
-cp -a lib/* $PKG/usr/lib64
+cp -a lib/* $PKG/usr/lib${LIBDIRSUFFIX}
 cp -r etc/ioninja/ $PKG/etc
 cp -r share/ioninja $PKG/usr/share
 

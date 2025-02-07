@@ -32,8 +32,8 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=OpenCASCADE
 SRCNAM=OCCT
-VERSION=${VERSION:-7.8.1}
-SRCV=7_8_1
+VERSION=${VERSION:-7.7.2}
+SRCV=7_7_2
 BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -112,6 +112,7 @@ cd build
     -DINSTALL_DIR_LIB=lib${LIBDIRSUFFIX} \
     -DINSTALL_DIR_CMAKE=lib${LIBDIRSUFFIX}/cmake/opencascade \
     -DINSTALL_DIR_DOC=/usr/doc/$PRGNAM-$VERSION \
+    -DINSTALL_DIR_INCLUDE=lib${LIBDIRSUFFIX}/include/opencascade \
     -DINSTALL_DIR_BIN=bin \
     -DUSE_GLES2=ON \
     -DUSE_FFMPEG=ON \
@@ -119,7 +120,7 @@ cd build
     -DUSE_GL2PS=ON \
     -DUSE_TBB=ON \
     -DUSE_VTK=ON \
-    -D3RDPARTY_VTK_INCLUDE_DIR=/usr/include/vtk-9.3 \
+    -D3RDPARTY_VTK_INCLUDE_DIR=/usr/include/vtk-9.4 \
     -D3RDPARTY_VTK_LIBRARY_DIR=/usr/lib${LIBDIRSUFFIX} ..
 
   make -j1

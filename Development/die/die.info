@@ -5,6 +5,6 @@ DOWNLOAD="https://github.com/horsicq/DIE-engine/releases/download/3.10/die_sourc
 MD5SUM="c3cf9d3939a45029847b376d107c29ac"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="yara"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"

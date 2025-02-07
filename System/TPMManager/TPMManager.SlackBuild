@@ -96,6 +96,7 @@ fi
 make
 mkdir -p $PKG/usr/bin
 mkdir -p $PKG/usr/share/applications
+
 install -Dm 0755 bin/tpmmanager $PKG/usr/bin
 install -Dm 0644 $CWD/TPMManager.desktop $PKG/usr/share/applications
 
