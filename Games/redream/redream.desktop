@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=redream
+Comment=SEGA Dreamcast Emulator
+Exec=/opt/redream/redream
+Icon=
+Terminal=false
+Type=Application
+Categories=Game
+GenericName=
