@@ -86,6 +86,7 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 mkdir build
+patch meson.build $CWD/meson.build.patch
 cd build
   CFLAGS="$SLKCFLAGS" \
   CXXFLAGS="$SLKCFLAGS" \
