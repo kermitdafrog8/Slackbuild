@@ -106,8 +106,8 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
 #rm -r $PKG/usr/share/
 
 
-cp -R $PKG/tmp/SBo/ctune-1.3.2/external $PKG/usr/lib64/ctune/
-rm -R $PKG/tmp
+#cp -R $PKG/tmp/SBo/ctune-1.3.2/external $PKG/usr/lib64/ctune/
+#rm -R $PKG/tmp
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a *.md LICENSE $PKG/usr/doc/$PRGNAM-$VERSION
