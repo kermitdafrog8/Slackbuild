@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=Ryujinx
-VERSION=${VERSION:-1.2.81}
+VERSION=${VERSION:-1.2.82}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -89,8 +89,8 @@ mkdir -p $PKG/usr/share/applications
 mkdir -p $PKG/usr/share/icons
 
 cp -a src/Ryujinx/bin/Debug/net9.0/* $PKG/opt/Ryujinx/bin
-cp -a $CWD/Ryujinx.desktop $PKG/usr/share/applications
-cp -a src/Ryujinx/Ryujinx.ico $PKG/opt/Ryujinx/bin
+install -Dm 0644  $CWD/Ryujinx.desktop $PKG/usr/share/applications
+cp -a src/Ryujinx/Ryujinx.ico $PKG/usr/share/icons
 
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
