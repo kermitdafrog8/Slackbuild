@@ -134,5 +134,4 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n --prepend $TMP/pango-$VERSION-$ARCH-$BUILD.txz
-
+/sbin/makepkg -l y -c n --prepend $TMP/pango-$VERSION-$ARCH-$BUILD_kmt.txz
