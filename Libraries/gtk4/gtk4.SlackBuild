@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# Copyright 2008, 2009, 2010, 2011, 2013, 2018, 2020, 2021, 2022, 2023  Patrick J. Volkerding, Sebeka, MN, USA
+# Slackware build script for gtk4
+
+# Copyright 2025 Christopher Luck Orlando, FL
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -9,7 +11,7 @@
 # 1. Redistributions of this script must retain the above copyright
 #    notice, this list of conditions and the following disclaimer.
 #
-#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED
 #  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 #  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
 #  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
@@ -22,19 +24,17 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PKGNAM=gtk4
-VERSION=${VERSION:-$(echo gtk-*.tar.?z | rev | cut -f 3- -d . | cut -f 1 -d - | rev)}
+PRGNAM=gtk4
+VERSION=${VERSION:-4.7.2}
 BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+PKGTYPE=${PKGTYPE:-tgz}
 
-NUMJOBS=${NUMJOBS:-" -j$(expr $(nproc) + 1) "}
-
-# Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
-    i?86) export ARCH=i686 ;;
-    arm*) export ARCH=arm ;;
-    # Unless $ARCH is already set, use uname -m for all other archs:
-       *) export ARCH=$( uname -m ) ;;
+    i?86) ARCH=i586 ;;
+    arm*) ARCH=arm ;;
+       *) ARCH=$( uname -m ) ;;
   esac
 fi
 
@@ -42,122 +42,98 @@ fi
 # the name of the created package would be, and then exit. This information
 # could be useful to other scripts.
 if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
-  echo "$PKGNAM-$VERSION-$ARCH-$BUILD.txz"
+  echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
   exit 0
 fi
 
-TMP=${TMP:-/tmp}
-PKG=$TMP/package-gtk4
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
 
-if [ "$ARCH" = "i686" ]; then
-  SLKCFLAGS="-O2 -march=pentium4 -mtune=generic -Wno-error=int-conversion"
+if [ "$ARCH" = "i586" ]; then
+  SLKCFLAGS="-O2 -march=i586 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "i686" ]; then
+  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
   LIBDIRSUFFIX=""
 elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2 -march=x86-64 -mtune=generic -fPIC"
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+elif [ "$ARCH" = "aarch64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
 else
   SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
 fi
 
+set -e
+# If you prefer to do selective error checking with
+#   command || exit 1
+# then that's also acceptable.
+
 rm -rf $PKG
-mkdir -p $TMP $PKG/usr
+mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf gtk-$VERSION
-echo "Extracting $CWD/gtk-$VERSION.tar.?z..."
-tar xf $CWD/gtk-$VERSION.tar.?z || exit 1
-cd gtk-$VERSION || exit 1
-
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION.tar.?z*
+cd $PRGNAM-$VERSION
 chown -R root:root .
-find . \
-  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-  -exec chmod 755 {} \+ -o \
-  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-  -exec chmod 644 {} \+
+find -L . \
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-# Configure, build, and install:
-export CFLAGS="$SLKCFLAGS -DG_ENABLE_DEBUG"
-export CXXFLAGS="$SLKCFLAGS -DG_ENABLE_DEBUG"
-mkdir meson-build
-cd meson-build
-unshare -n meson setup \
-  --prefix=/usr \
-  --libdir=lib${LIBDIRSUFFIX} \
-  --libexecdir=/usr/libexec \
-  --bindir=/usr/bin \
-  --sbindir=/usr/sbin \
-  --includedir=/usr/include \
-  --datadir=/usr/share \
-  --mandir=/usr/man \
-  --sysconfdir=/etc \
-  --localstatedir=/var \
-  --buildtype=release \
-  -Dman-pages=true \
-  -Dbuild-demos=true \
-  -Ddocumentation=false \
-  -Dbroadway-backend=true \
-  -Dbuild-examples=false \
-  -Dbuild-tests=false \
-  -Dwayland-backend=true \
-  -Dintrospection=enabled \
-  .. || exit 1
-  "${NINJA:=ninja}" $NUMJOBS || exit 1
-  DESTDIR=$PKG $NINJA install || exit 1
+mkdir build
+cd build
+  CFLAGS="$SLKCFLAGS" \
+  CXXFLAGS="$SLKCFLAGS" \
+  meson .. \
+    --buildtype=release \
+    --infodir=/usr/info \
+    --libdir=/usr/lib${LIBDIRSUFFIX} \
+    --localstatedir=/var \
+    --mandir=/usr/man \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --bindir=/usr/bin \
+    --sbindir=/usr/sbin \
+    --includedir=/usr/include \
+    --datadir=/usr/share \
+    --libexecdir=/usr/libexec \
+    -Dman-page=true \
+    -Dbuild-demos=true \
+    -Ddocumentation=true \
+    -Dbroadway-backend=true \
+    -Dbuild-examples=false \
+    -Dbuild-tests=false \
+    -Dwayland-backend=true \
+    -Dintrospection=enabled \
+    -Dstrip=true
+  "${NINJA:=ninja}"
+  DESTDIR=$PKG $NINJA install
 cd ..
 
-# The following four things don't seem to be used by gtk4. But if something
-# similar ends up being required, let me know.
+rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
-# Don't clobber im-multipress.conf
-#mv $PKG/etc/gtk-4.0/im-multipress.conf $PKG/etc/gtk-4.0/im-multipress.conf.new
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-# Install a "starter" gtkrc
-#echo 'gtk-theme-name="Adwaita"' > $PKG/etc/gtk-4.0/gtkrc.new
+# It seems that --mandir is ignored
+mv $PKG/usr/share/man $PKG/usr/
+rm -rf $PKG/usr/share/man
 
-# We need to have separate 32-bit and 64-bit binaries for places where we have
-# two copies of the GTK package installed (we might have x86_64 and i586
-# packages on the same system, for example.)
-#if [ "$LIBDIRSUFFIX" = "64" ]; then
-#  mv $PKG/usr/bin/gtk-query-immodules-4.0{,-64}
-#  ( cd $PKG/usr/bin
-#    ln -sf gtk-query-immodules-4.0-64 gtk-query-immodules-4.0
-#  )
-#else
-#  mv $PKG/usr/bin/gtk-query-immodules-4.0{,-32}
-#  ( cd $PKG/usr/bin
-#    ln -sf gtk-query-immodules-4.0-32 gtk-query-immodules-4.0
-#  )
-#fi
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
-# Install wrappers for the binaries:
-#cp $CWD/update-gtk-immodules-4.0 $PKG/usr/bin/update-gtk-immodules-4.0
-#chmod 0755 $PKG/usr/bin/update-*
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS COPYING NEWS README $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
-# Strip binaries:
-find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-
-# It seems that --mandir is ignored:
-rsync -lprvt $PKG/usr/share/man/ $PKG/usr/man/
-rm -rf $PKG/usr/share/man/
-
-# Compress manual pages:
-find $PKG/usr/man -type f -exec gzip -9 {} \+
-for i in $( find $PKG/usr/man -type l ) ; do
-  ln -s $( readlink $i ).gz $i.gz
-  rm $i
-done
-
-# Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/gtk4-$VERSION
-cp -a \
-  AUTHORS COPYING NEWS README \
-  $PKG/usr/doc/gtk4-$VERSION
-find $PKG/usr/doc/gtk4-$VERSION/ -type f -exec chmod 644 {} \+
-chown -R root:root $PKG/usr/doc/gtk4-$VERSION
-
-mkdir -p $PKG/install 
-zcat $CWD/doinst.sh > $PKG/install/doinst.sh
+mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -p -l y -c n $TMP/gtk4-$ARCH-$VERSION-$BUILD_SBo.txz
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
