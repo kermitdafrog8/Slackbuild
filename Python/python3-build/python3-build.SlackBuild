@@ -31,7 +31,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=python3-build
 SRCNAM=${PRGNAM#python3-*}
-VERSION=${VERSION:-1.2.1}
+VERSION=${VERSION:-1.2.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -59,7 +59,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM-$VERSION
-tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
+tar xvf $CWD/$SRCNAM-$VERSION.post1.tar.gz
 cd $SRCNAM-$VERSION
 chown -R root:root .
 find -L . \
