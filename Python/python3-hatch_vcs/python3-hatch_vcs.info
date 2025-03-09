@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/source/h/hatch_vcs/hatch_vcs-0
 MD5SUM="d801fe7c3e5955307748f2790bbb3488"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-hatchling"
+REQUIRES=""
 MAINTAINER="fourtysixandtwo"
 EMAIL="fourtysixandtwo@sliderr.net"
