@@ -72,9 +72,9 @@ fi
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PKGNAM-$PKGNAM-$VERSION
+rm -rf $PKGNAM-$VERSION
 tar xvf $CWD/$PKGNAM-$VERSION.tar.gz
-cd $PKGNAM-$PKGNAM-$VERSION
+cd $PKGNAM-$VERSION
 
 chown -R root:root .
 find -L . \
