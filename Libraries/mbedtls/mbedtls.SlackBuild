@@ -73,7 +73,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PKGNAM-$PKGNAM-$VERSION
-tar xvf $CWD/$PKGNAM-$PKGNAM-$VERSION.tar.gz
+tar xvf $CWD/$PKGNAM-$VERSION.tar.gz
 cd $PKGNAM-$PKGNAM-$VERSION
 
 chown -R root:root .
