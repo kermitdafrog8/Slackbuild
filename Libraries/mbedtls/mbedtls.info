@@ -1,5 +1,5 @@
 PRGNAM="mbedtls"
-VERSION="3.6.2"
+VERSION="4.0.0"
 HOMEPAGE="https://tls.mbed.org/"
 DOWNLOAD="https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/mbedtls-4.0.0.tar.gz"
 MD5SUM="eb38ea0ba4c6749840fbcf9b2b367c58"
