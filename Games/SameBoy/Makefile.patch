@@ -1,0 +1,11 @@
+--- Makefile.old	2025-03-15 18:59:02.456935673 -0400
++++ Makefile	2025-03-15 18:59:12.748934999 -0400
+@@ -41,7 +41,7 @@
+ NULL := NUL
+ endif
+ 
+-PREFIX ?= /usr/local
++PREFIX ?= /usr
+ ifneq ($(shell which xdg-open 2> $(NULL))$(FREEDESKTOP),)
+ # Running on an FreeDesktop environment, configure for (optional) installation
+ DESTDIR ?= 
