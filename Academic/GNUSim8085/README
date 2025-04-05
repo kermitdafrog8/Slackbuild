@@ -1,0 +1,6 @@
+GNUSim8085 is a graphical cross platform simulator plus assembler
+with debugger for the Intel 8085 microprocessor.
+You have to enter assembly code in order to use the simulator. The
+assembly syntax is not too hard to learn. For more information
+see "asm-guide.txt" in the doc/ directory.
+

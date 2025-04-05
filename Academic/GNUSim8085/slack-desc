@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+          |-----handy-ruler------------------------------------------------------|
+GNUSim8085: GNUSim8085 (simulator, assembler and debugger for the Intel 8085)
+GNUSim8085:
+GNUSim8085: GNUSim8085 is a graphical cross platform simulator plus assembler
+GNUSim8085: with debugger for the Intel 8085 microprocessor.
+GNUSim8085:
+GNUSim8085: You have to enter assembly code in order to use the simulator. The
+GNUSim8085: assembly syntax is not too hard to learn. For more information
+GNUSim8085: see "asm-guide.txt" in the doc/ directory.
+GNUSim8085:
+GNUSim8085:
+GNUSim8085:
