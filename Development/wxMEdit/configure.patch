@@ -1,0 +1,30 @@
+4641c4641
+< ALL_LINGUAS="de_DE es fr_FR it_IT ja_JP pl_PL ru_RU zh_CN zh_TW"
+---
+> ALL_LINGUAS="de_DE es fr_FR it_IT ja_JP pl_PL ru_RU ta zh_CN zh_TW"
+7267,7269c7267,7269
+< CXXFLAGS="$CXXFLAGS -std=c++11"
+< { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether -std=c++11 is supported" >&5
+< $as_echo_n "checking whether -std=c++11 is supported... " >&6; }
+---
+> CXXFLAGS="$CXXFLAGS -std=c++17"
+> { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether -std=c++17 is supported" >&5
+> $as_echo_n "checking whether -std=c++17 is supported... " >&6; }
+7285c7285
+< 	my_cxx11_suported="x"
+---
+> 	my_cxx17_suported="x"
+7294c7294
+< if test "x$my_cxx11_suported" == "x"; then
+---
+> if test "x$my_cxx17_suported" == "x"; then
+7296,7298c7296,7298
+< CXXFLAGS="$CXXFLAGS -std=c++0x"
+< { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether -std=c++0x is supported" >&5
+< $as_echo_n "checking whether -std=c++0x is supported... " >&6; }
+---
+> CXXFLAGS="$CXXFLAGS -std=c++11"
+> { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether -std=c++11 is supported" >&5
+> $as_echo_n "checking whether -std=c++11 is supported... " >&6; }
+7316a7317
+> 	as_fn_error $? "C++11 support is required" "$LINENO" 5

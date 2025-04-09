@@ -84,6 +84,12 @@ find -L . \
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
+
+echo "Applying patch to configure"
+patch configure $CWD/configure.patch
+echo "Applying patch to configure.ac"
+patch configure.ac $CWD/configure_ac.patch
+
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
