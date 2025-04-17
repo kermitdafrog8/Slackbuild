@@ -1,10 +1,10 @@
 PRGNAM="wasm-tools"
-VERSION="1.223.0"
+VERSION="1.227.1"
 HOMEPAGE="https://github.com/bytecodealliance/wasm-tools"
-DOWNLOAD="https://github.com/bytecodealliance/wasm-tools/archive/v1.223.0/wasm-tools-1.223.0.tar.gz
-          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/wasm-tools-vendored-sources-1.223.0.tar.xz"
-MD5SUM="01ad7b9ba86bb89b82588c923e5e2483
-        fb8ea4a4df62ea54c6231253e9ac250b"
+DOWNLOAD="https://github.com/bytecodealliance/wasm-tools/archive/v1.227.1/wasm-tools-1.227.1.tar.gz
+          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/wasm-tools-vendored-sources-1.227.1.tar.xz"
+MD5SUM="dda8eed13d895547546245602bd286cd
+        5714553e6f61e3321b75f03841c5a223"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""

@@ -110,7 +110,7 @@ cd build
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DINSTALL_DIR_LIB=lib${LIBDIRSUFFIX} \
-    -DINSTALL_DIR_CMAKE=lib${LIBDIRSUFFIX}/cmake/opencascade \
+    -DINSTALL_DIR_CMAKE=lib${LIBDIRSUFFIX}/cmake/OpenCascade \
     -DINSTALL_DIR_DOC=/usr/doc/$PRGNAM-$VERSION \
     -DINSTALL_DIR_INCLUDE=lib${LIBDIRSUFFIX}/include/opencascade \
     -DINSTALL_DIR_BIN=bin \
@@ -129,7 +129,7 @@ cd ..
 
 # fix cmake files
 echo "update cmake files"
-tar xvf $CWD/occ_cmake.tar.gz -C $PKG/usr/lib64/cmake/opencascade
+tar xvf $CWD/occ_cmake.tar.gz -C $PKG/usr/lib64/cmake/OpenCascade
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
