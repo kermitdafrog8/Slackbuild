@@ -6,9 +6,9 @@ Collection of my Slackbuild scripts.
 All scripts built using sbo-create (https://dslackw.gitlab.io/sbo-create) and I do not care if
 someone decides to rip these scripts and submit to the SBo site as maintainer.
 
-[horizon](https://github.com/kermitdafrog8/Slackbuild/tree/main/Academic/horizon) - 
-Horizon is a free EDA package<br>
+[po4a](https://github.com/kermitdafrog8/Slackbuild/tree/main/Misc/po4a) - 
+po4a (PO for anything) eases translations and their maintenance,
+allowing gettext's usage on unexpected areas like documentation.<br>
 
-[LibrePCB](https://github.com/kermitdafrog8/Slackbuild/tree/main/Academic/LibrePCB) - 
-LibrePCB is a free EDA suite to develop printed circuit boards on
-Windows, Linux and MacOS<br>
+[yara](https://github.com/kermitdafrog8/Slackbuild/tree/main/Misc/yara) - 
+YARA - a malware identification and classification tool<br>
