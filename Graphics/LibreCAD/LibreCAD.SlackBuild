@@ -25,8 +25,8 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=LibreCAD
-VERSION=${VERSION:-latest}
-SRCNAM=LibreCAD_3
+VERSION=${VERSION:-2.2.1.1}
+#SRCNAM=LibreCAD_3
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -73,9 +73,9 @@ set -e # Exit on most errors
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $SRCNAM-$VERSION
-tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
-cd $SRCNAM-$VERSION
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -118,11 +118,11 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
 #find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-#cp -a LICENSE README.md $PKG/usr/doc/$PRGNAM-$VERSION
+#cp -a <documentation> $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
-cat $CWD/slack-desc > $PKG/install/slack-desc
+#cat $CWD/slack-desc > $PKG/install/slack-desc
 #cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
