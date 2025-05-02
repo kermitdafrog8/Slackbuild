@@ -10,7 +10,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=SoQt
 SRCNAM=soqt
-VERSION=${VERSION:-1.6.0}
+VERSION=${VERSION:-1.6.3}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
