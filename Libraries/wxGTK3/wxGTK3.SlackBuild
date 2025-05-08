@@ -35,7 +35,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wxGTK3
-VERSION=${VERSION:-3.2.6}
+VERSION=${VERSION:-3.2.8}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -121,6 +121,7 @@ cd build
     -DwxUSE_LIBLZMA=ON \
     -DwxUSE_STL=ON \
     -DMAN_INSTALL_DIR=/usr/man \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install DESTDIR=$PKG
