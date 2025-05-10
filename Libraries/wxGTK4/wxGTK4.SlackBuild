@@ -114,45 +114,47 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \+
 
-mkdir -p build
-cd build
-  cmake \
-    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
-    -DwxBUILD_TOOLKIT:STRING=gtk4 \
-    -DwxUSE_LIBLZMA=ON \
-    -DwxUSE_STL=ON \
-    -DMAN_INSTALL_DIR=/usr/man \
-    -DCMAKE_BUILD_TYPE=Release ..
-  make
-  make install DESTDIR=$PKG
-cd ..
+#mkdir -p build
+#cd build
+#  cmake \
+#    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
+#    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
+#    -DCMAKE_INSTALL_PREFIX=/usr \
+#    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
+#    -DwxBUILD_TOOLKIT:STRING=gtk4 \
+#    -DwxUSE_LIBLZMA=ON \
+#    -DwxUSE_STL=ON \
+#    -DMAN_INSTALL_DIR=/usr/man \
+#    -DCMAKE_BUILD_TYPE=Release ..
+#  make
+#  make install DESTDIR=$PKG
+#cd ..
+
+#rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
+
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+./configure \
+  --prefix=/usr \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --sysconfdir=/etc \
+  --enable-mediactrl \
+  --with-opengl \
+  --enable-graphics_ctx \
+  --with-gtk=3 \
+  --enable-unicode \
+  --enable-plugins \
+  --enable-ipv6 \
+  --enable-webview \
+  $wk \
+  $stl \
+  $st \
+  --build=$ARCH-slackware-linux
+
+make
+make install DESTDIR=$PKG
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
-
-#CFLAGS="$SLKCFLAGS" \
-#CXXFLAGS="$SLKCFLAGS" \
-#./configure \
-#  --prefix=/usr \
-#  --libdir=/usr/lib${LIBDIRSUFFIX} \
-#  --sysconfdir=/etc \
-#  --enable-mediactrl \
-#  --with-opengl \
-#  --enable-graphics_ctx \
-#  --with-gtk=4 \
-#  --enable-unicode \
-#  --enable-plugins \
-#  --enable-ipv6 \
-#  --enable-webview \
-#  $wk \
-#  $stl \
-#  $st \
-#  --build=$ARCH-slackware-linux
-
-#make
-#make install DESTDIR=$PKG
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
