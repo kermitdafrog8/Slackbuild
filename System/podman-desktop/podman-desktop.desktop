@@ -7,4 +7,4 @@ TryExec=/opt/podman-desktop-1.6.4/podman-desktop
 Icon=/opt/podman-desktop-1.6.4/podman-desktop
 Terminal=false
 Type=Application
-Categories=System;
+Categories=Utility;

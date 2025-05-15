@@ -91,6 +91,7 @@ cd build
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DBUILD_SHARED_LIBS=ON \
     -DMAN_INSTALL_DIR=/usr/man \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   make 
   make install/strip DESTDIR=$PKG

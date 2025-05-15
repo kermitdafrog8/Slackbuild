@@ -28,7 +28,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=python3-flit_core
 SRCNAM=${PRGNAM#python3-*}
-VERSION=${VERSION:-3.9.0}
+VERSION=${VERSION:-3.11.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -81,10 +81,6 @@ find -L . \
 
 python3 -m flit_core.wheel
 python3 bootstrap_install.py --install-root "$PKG" dist/*.whl
-
-# installing tests to a subdir of your project might not conflict the toplevel, but
-# don't do it anyway...
-rm -r "$PKG"/usr/lib*/python*/site-packages/${SRCNAM}/tests/
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
