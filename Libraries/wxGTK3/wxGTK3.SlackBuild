@@ -138,8 +138,8 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 # Now let's fix the broken symlink created by the package
-linksrc=gtk3-unicode-3.0
-[ "${STATIC:-no}" = "yes" ] && linksrc=gtk3-unicode-static-3.0
+linksrc=gtk3-unicode-3.2
+[ "${STATIC:-no}" = "yes" ] && linksrc=gtk3-unicode-static-3.2
 
 ln -sf ../lib${LIBDIRSUFFIX}/wx/config/$linksrc $PKG/usr/bin/wx-config
 
