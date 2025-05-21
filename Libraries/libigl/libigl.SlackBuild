@@ -94,6 +94,7 @@ cd build
     -DBUILD_EXECUTABLE=ON \
     -DMAN_INSTALL_DIR=/usr/man \
     -DBUILD_TESTING=OFF \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   make -j6
   make install/strip DESTDIR=$PKG

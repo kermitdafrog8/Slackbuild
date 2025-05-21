@@ -1,4 +1,5 @@
-LibreCAD 3 is a next generation 2D CAD application written to be
-modular, with a core independent from GUI toolkits.
-Scripting is possible with Lua.
+LibreCAD is a cross-platform 2D CAD program written in C++17. It can
+read DXF/DWG files and can write DXF/PDF/SVG files. It supports point
+/line/circle/ellipse/parabola/spline primitives. The user interface
+is highly customizable, and has dozens of translations.
 

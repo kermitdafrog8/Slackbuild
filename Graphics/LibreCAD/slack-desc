@@ -6,12 +6,12 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
         |-----handy-ruler------------------------------------------------------|
-LibreCAD: LibreCAD (2D CAD applicaiton)
+LibreCAD: LibreCAD (2D CAD program)
 LibreCAD:
-LibreCAD: LibreCAD 3 is a next generation 2D CAD application written to be
-LibreCAD: modular, with a core independent from GUI toolkits.
-LibreCAD:
-LibreCAD: Scripting is possible with Lua.
+LibreCAD: LibreCAD is a cross-platform 2D CAD program written in C++17. It can
+LibreCAD: read DXF/DWG files and can write DXF/PDF/SVG files. It supports point
+LibreCAD: /line/circle/ellipse/parabola/spline primitives. The user interface
+LibreCAD: is highly customizable, and has dozens of translations.
 LibreCAD:
 LibreCAD:
 LibreCAD:

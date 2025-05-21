@@ -35,7 +35,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wxGTK3
-VERSION=${VERSION:-3.2.6}
+VERSION=${VERSION:-3.2.8}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -121,6 +121,7 @@ cd build
     -DwxUSE_LIBLZMA=ON \
     -DwxUSE_STL=ON \
     -DMAN_INSTALL_DIR=/usr/man \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install DESTDIR=$PKG
@@ -130,15 +131,16 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 if [ "$LIBDIRSUFFIX" = "64" ]; then
 	mkdir -p $PKG/usr/lib64
-	mv $PKG/usr/lib/libwx_* $PKG/usr/lib64
+	cp -R $PKG/usr/lib/* $PKG/usr/lib64
+	rm -R $PKG/usr/lib
 fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 # Now let's fix the broken symlink created by the package
-linksrc=gtk3-unicode-3.0
-[ "${STATIC:-no}" = "yes" ] && linksrc=gtk3-unicode-static-3.0
+linksrc=gtk3-unicode-3.2
+[ "${STATIC:-no}" = "yes" ] && linksrc=gtk3-unicode-static-3.2
 
 ln -sf ../lib${LIBDIRSUFFIX}/wx/config/$linksrc $PKG/usr/bin/wx-config
 
