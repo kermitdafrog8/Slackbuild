@@ -92,6 +92,7 @@ cd build
     -DSLIC3R_WX_STABLE=OFF \
     -DwxWidgets_CONFIG_EXECUTABLE=/usr/lib64/wx/config/gtk3-unicode-3.2 \
     -DwxWidgets_LIBRARIES=/usr/lib64 \
+    -DOPENVDB_FIND_MODULE_PATH=/usr/lib64/cmake/OpenVDB \
     -DBUILD_SHARED_LIBS=ON \
     -DBUILD_TESTING=OFF \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \

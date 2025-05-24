@@ -90,6 +90,7 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DOPENMP_ROOT=usr/lib64/cmake/openmp/ \
+    -DOPENVDB_FIND_MODULE_PATH=/usr/lib64/cmake/OpenVDB \
     -DMAN_INSTALL_DIR=/usr/man \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
