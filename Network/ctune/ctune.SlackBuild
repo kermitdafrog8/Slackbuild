@@ -107,8 +107,8 @@ mv $PKG/usr/share/man/* $PKG/usr/man/man1
 rm -r $PKG/usr/share/
 
 
-cp -R $PKG/tmp/SBo/ctune-$VERSION/external $PKG/usr/lib64/ctune/
-rm -R $PKG/tmp
+#cp -R $PKG/tmp/SBo/ctune-$VERSION/external $PKG/usr/lib64/ctune/
+#rm -R $PKG/tmp
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a *.md LICENSE $PKG/usr/doc/$PRGNAM-$VERSION
