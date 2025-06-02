@@ -111,6 +111,7 @@ cd build
     -DLLVM_DIR=$TMP/package-llvm15/usr/lib/cmake/llvm \
     -DCMAKE_C_COMPILER=clang \
     -DCMAKE_CXX_COMPILER=clang++ \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   ninja
   DESTDIR=$PKG ninja install/strip
