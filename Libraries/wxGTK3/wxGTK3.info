@@ -5,6 +5,6 @@ DOWNLOAD="https://github.com/wxWidgets/wxWidgets/releases/download/v3.2.8/wxWidg
 MD5SUM="d809582fa4508eb350ef68a81f2fbd47"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="libmspack"
 MAINTAINER="Willy Sudiarto Raharjo"
 EMAIL="willysr@slackbuilds.org"
