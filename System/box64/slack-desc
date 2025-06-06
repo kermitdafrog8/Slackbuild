@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+     |-----handy-ruler------------------------------------------------------|
+box64: box64 (Linux Userspace x86_64 Emulator for non x86)
+box64:
+box64: Box64 - Linux Userspace x86_64 Emulator with a twist, targeted at
+box64: ARM64, RV64 and LoongArch Linux devices
+box64:
+box64:
+box64:
+box64:
+box64:
+box64:
+box64:
