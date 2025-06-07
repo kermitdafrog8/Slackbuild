@@ -1,12 +1,8 @@
 PRGNAM="wamr"
-VERSION="2.1.1"
+VERSION="2.3.1"
 HOMEPAGE="https://bytecodealliance.github.io/wamr.dev"
-DOWNLOAD="https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-2.1.1.tar.gz
-          https://github.com/bytecodealliance/wasm-micro-runtime/releases/download/WAMR-2.1.1/wamr-ide-2.1.1.tar.gz
-          https://github.com/bytecodealliance/wasm-micro-runtime/releases/download/WAMR-2.1.1/wasm-toolchain-2.1.1.tar.gz"
-MD5SUM="acdd4eb09da45093969336de414081c6
-        f7c0df5f625815593b96cc667e2932e2
-        e6fa4ff19febb6fde47bc971d87f7979"
+DOWNLOAD="https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-2.3.1.tar.gz"
+MD5SUM="3dcb8add167b14cfb1e85198346e7c80"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""
