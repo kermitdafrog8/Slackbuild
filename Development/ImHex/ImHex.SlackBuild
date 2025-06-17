@@ -107,8 +107,12 @@ cd build
 cd ..
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
+
+if [ "$LIBDIRSUFFIX" = "64" ]; then
 mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}
 mv $PKG/usr/lib/*.so $PKG/usr/lib${LIBDIRSUFFIX}
+rm -r $PKG/usr/lib
+fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
