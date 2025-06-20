@@ -74,11 +74,11 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$PRGNAM-$VERSION
 
-if [ -f $CWD/$PRGNAM-$VERSION ]; then
+if [ -f $CWD/$PRGNAM-$VERSION.tar.gz ]; then
 tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM-$PRGNAM-$VERSION
-elif [ -f $CWD/$PRGNAM-$PRGNAM-$VERSION ];then
-tar xvf $CWD/$PRGNAM-$PRGNAM.tar.gz
+elif [ -f $CWD/$PRGNAM-$PRGNAM-$VERSION.tar.gz ];then
+tar xvf $CWD/$PRGNAM-$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM-$PRGNAM-$VERSION
 fi
 
