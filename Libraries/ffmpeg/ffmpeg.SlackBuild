@@ -182,7 +182,7 @@ libvidstab="" ; [ "${VIDSTAB:-yes}" != "no" ]     && libvidstab="--enable-libvid
 libxml2=""    ; [ "${LIBXML2:-yes}" != "no" ]     && libxml2="--enable-libxml2"
 librsvg=""    ; [ "${LIBRSVG:-yes}" != "no" ]     && librsvg="--enable-librsvg"
 libdrm=""     ; [ "${LIBDRM:-yes}" != "no" ]      && libdrm="--enable-libdrm"
-vulkan=""     ; [ "${VULKAN:-yes}" != "no" ]      && vulkan="--enable-vulkan"
+vulkan=""     ; [ "${VULKAN:-no}" != "no" ]      && vulkan="--enable-vulkan"
 libass=""     ; [ "${ASS:-yes}" != "no" ]         && libass="--enable-libass"
 libplacebo="" ; [ "${PLACEBO:-yes}" != "no" ]     && libplacebo="--enable-libplacebo"
 lcms2=""      ; [ "${LCMS2:-yes}" != "no" ]       && lcms2="--enable-lcms2"
