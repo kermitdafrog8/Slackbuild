@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/a6/f8/d9c74d0daf3f742840fd818d
 MD5SUM="c6c2173e5565fb12f08bef410ea50f72"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="python3-installer"
 MAINTAINER="Nikos Giotis"
 EMAIL="nikos.giotis@gmail.com"
