@@ -1,8 +1,0 @@
-2c2
-< PREFIX := /usr/local
----
-> PREFIX := /usr
-7c7
-< MANDIR := $(PREFIX)/share/man
----
-> MANDIR := $(PREFIX)/man
