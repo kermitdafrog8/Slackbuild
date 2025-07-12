@@ -5,6 +5,6 @@ DOWNLOAD="https://github.com/CrealityOfficial/CrealityPrint/archive/v6.2.0/Creal
 MD5SUM="92f91217dd045b73a684447a967fcdf9"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="cereal openvdb nlopt tbb"
+REQUIRES="cereal openvdb nlopt tbb glfw3 c-blosc IlmBase libspnav CGAL OpenCASCADE wxGTK3"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
