@@ -97,6 +97,20 @@ CXXFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
 
+mkdir -p $PKG/usr/share/kactus2
+mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}
+mkdir -p $PKG/usr/bin
+cp -R /usr/share/kactus2 $PKG/usr/share/
+cp -R /usr/bin/kactus2 $PKG/usr/bin
+mv /usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so.1.0.0 $PKG/usr/lib${LIBDIRSUFFIX}/
+mv /usr/lib${LIBDIRSUFFIX}/libKactusAPI.so $PKG/usr/lib${LIBDIRSUFFIX}/
+ln -f -s $PKG/usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so.1.0.0 $PKG/usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so
+ln -f -s $PKG/usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so.1.0.0 /usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so.1
+ln -f -s libIPXACTmodels.so.1.0.0 /usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so.1.0
+ln -f -s libKactusAPI.so.1.0.0 /usr/lib64/libKactusAPI.so
+ln -f -s libKactusAPI.so.1.0.0 /usr/lib64/libKactusAPI.so.1
+ln -f -s libKactusAPI.so.1.0.0 /usr/lib64/libKactusAPI.so.1.0
+
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
