@@ -102,37 +102,14 @@ mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}
 mkdir -p $PKG/usr/bin
 cp -R /usr/share/kactus2 $PKG/usr/share/
 cp -R /usr/bin/kactus2 $PKG/usr/bin
-mv /usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so.1.0.0 $PKG/usr/lib${LIBDIRSUFFIX}/
+mv /usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so $PKG/usr/lib${LIBDIRSUFFIX}/
 mv /usr/lib${LIBDIRSUFFIX}/libKactusAPI.so $PKG/usr/lib${LIBDIRSUFFIX}/
-ln -f -s $PKG/usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so.1.0.0 $PKG/usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so
-ln -f -s $PKG/usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so.1.0.0 /usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so.1
-ln -f -s libIPXACTmodels.so.1.0.0 /usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so.1.0
-ln -f -s libKactusAPI.so.1.0.0 /usr/lib64/libKactusAPI.so
-ln -f -s libKactusAPI.so.1.0.0 /usr/lib64/libKactusAPI.so.1
-ln -f -s libKactusAPI.so.1.0.0 /usr/lib64/libKactusAPI.so.1.0
 
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
-
-#find $PKG/usr/man -type f -exec gzip -9 {} \;
-#for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-
-# Compress info pages and remove the package's dir file
-# If no info pages are installed by the software, don't leave this in the script
-#rm -f $PKG/usr/info/dir
-#gzip -9 $PKG/usr/info/*.info*
-
-# Remove perllocal.pod and other special files that don't need to be installed,
-# as they will overwrite what's already on the system.  If this is not needed,
-# remove it from the script.
-# Remove 'special' files
-#find $PKG -name perllocal.pod \
-#  -o -name ".packlist" \
-#  -o -name "*.bs" \
-#  | xargs rm -f
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a LICENSE PSF_LICENSE.txt README.md  $PKG/usr/doc/$PRGNAM-$VERSION
