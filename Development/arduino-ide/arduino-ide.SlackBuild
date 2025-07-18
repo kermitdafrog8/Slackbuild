@@ -86,7 +86,7 @@ mkdir -p $PKG/opt/arduino-ide
 cp -a * $PKG/opt/arduino-ide/
 rm $PKG/opt/arduino-ide/LICENSE*
 mkdir -p $PKG/usr/share/applications
-cp -a $CWD/ardunio-ide.desktop $PKG/usr/share/applications/
+cp -a $CWD/arduino-ide.desktop $PKG/usr/share/applications/
 
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
