@@ -1,5 +1,5 @@
 PRGNAM="LibreCAD"
-VERSION="latest"
+VERSION="2.2.1.2"
 HOMEPAGE="https://librecad.org/#download"
 DOWNLOAD="https://github.com/LibreCAD/LibreCAD/archive/v2.2.1.2/LibreCAD-2.2.1.2.tar.gz"
 MD5SUM="17dfd532887dc71e490cd13ed9d9a1f8"
