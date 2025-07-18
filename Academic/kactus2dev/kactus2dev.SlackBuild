@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Slackware build script for libmd
+# Slackware build script for kactus2dev
 
-# Copyright 2024 Christopher Luck Orlando, FL
+# Copyright 2025 Christopher Luck Orlando, FL
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,8 +24,8 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=libmd
-VERSION=${VERSION:-1.1.0}
+PRGNAM=kactus2dev
+VERSION=${VERSION:-3.13.5}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -73,7 +73,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.xz
+tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
@@ -84,7 +84,6 @@ find -L . \
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
-./autogen
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
@@ -98,21 +97,27 @@ CXXFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
 
+mkdir -p $PKG/usr/share/kactus2
+mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}
+mkdir -p $PKG/usr/bin
+cp -R /usr/share/kactus2 $PKG/usr/share/
+cp -R /usr/bin/kactus2 $PKG/usr/bin
+mv /usr/lib${LIBDIRSUFFIX}/libIPXACTmodels.so* $PKG/usr/lib${LIBDIRSUFFIX}/
+mv /usr/lib${LIBDIRSUFFIX}/libKactusAPI.so* $PKG/usr/lib${LIBDIRSUFFIX}/
+
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-find $PKG/usr/man -type f -exec gzip -9 {} \;
-for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a COPYING ChangeLog README $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a LICENSE PSF_LICENSE.txt README.md  $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
