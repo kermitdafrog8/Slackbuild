@@ -96,7 +96,6 @@ sh ./configure \
   --build=$ARCH-slackware-linux
 
 make
-make install DESTDIR=$PKG
 
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
@@ -106,8 +105,16 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
 
 mkdir -p $PKG/usr/share/icons
 mkdir -p $PKG/usr/share/applications
-install -D -m 0644 $CWD/die.desktop $PKG/usr/share/applications/
+mkdir -p $PKG/usr/bin
+mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}
+cp -f LINUX/die.desktop $PKG/usr/share/applications/
 cp -R LINUX/hicolor $PKG/usr/share/icons
+cp -f build/release/die* $PKG/usr/bin
+cp -Rf XStyles/qss/ $PKG/usr/lib${LIBDIRSUFFIX}/die/
+cp -Rf XInfoDB/info/ $PKG/usr/lib${LIBDIRSUFFIX}/die/
+cp -Rf Detect-It-Easy/db/ $PKG/usr/lib${LIBDIRSUFFIX}/die/
+cp -Rf Detect-It-Easy/db_custom/ $PKG/usr/lib${LIBDIRSUFFIX}/die/
+cp -Rf images/ $PKG/usr/lib${LIBDIRSUFFIX}/die/
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a LICENSE README.md $PKG/usr/doc/$PRGNAM-$VERSION
