@@ -29,7 +29,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=kicad
-VERSION=${VERSION:-8.0.0}
+VERSION=${VERSION:-9.0.3}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -90,6 +90,7 @@ cd build
     -DKICAD_DOCS=/usr/doc/$PRGNAM-$VERSION \
     -DKICAD_PLUGINS=/usr/lib${LIBDIRSUFFIX}/$PRGNAM/plugins \
     -DKICAD_SCRIPTING_WXPYTHON=ON \
+    -DOCC_INCLUDE_DIR=/usr/lib64/include/opencascade \
     -DKICAD_USE_EGL=ON \
     -DCMAKE_BUILD_TYPE=Release ..
   make
