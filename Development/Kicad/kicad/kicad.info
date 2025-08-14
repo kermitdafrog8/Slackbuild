@@ -5,6 +5,6 @@ DOWNLOAD="https://gitlab.com/kicad/code/kicad/-/archive/9.0.3/kicad-9.0.3.tar.gz
 MD5SUM="8126f4f5febbdbb189f5e08cb6d34e22"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="OpenCASCADE glm ngspice unixODBC wxPython4 wxWidgets libgit2 OpenCASCADE"
+REQUIRES="OpenCASCADE glm ngspice unixODBC wxPython4 wxWidgets libgit2 OpenCASCADE nng"
 MAINTAINER="Fernando Lopez Jr."
 EMAIL="fernando.lopezjr@gmail.com"
