@@ -26,7 +26,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=webkit2gtk
 SRCNAM=webkitgtk
-VERSION=${VERSION:-2.44.1}
+VERSION=${VERSION:-2.48.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -98,14 +98,15 @@ cd build
         -DUSE_SOUP2=ON \
         -DENABLE_JOURNALD_LOG=OFF \
 	-DENABLE_DOCUMENTATION=OFF \
-	-DENABLE_BUBBLEWRAP_SANDBOX=off \
-	-DUSE_SYSTEM_MALLOC=on \
+	-DENABLE_BUBBLEWRAP_SANDBOX=OFF \
+	-DUSE_SYSTEM_MALLOC=ON \
         -DUSE_GSTREAMER_TRANSCODER=OFF \
+	-DUSE_SYSTEM_SYSPROF_CAPTURE=NO \
         -DUSE_AVIF=OFF \
         -DUSE_GTK4=OFF \
         -DUSE_LIBBACKTRACE=OFF \
         -DUSE_JPEGXL=OFF \
-        -Wno-dev \
+i        -Wno-dev \
         -G Ninja \
         ..
 

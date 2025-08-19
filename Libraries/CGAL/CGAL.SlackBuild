@@ -29,7 +29,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=CGAL
-VERSION=${VERSION:-4.13}
+VERSION=${VERSION:-5.6.2}
 BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -58,9 +58,6 @@ elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
   LIBDIRSUFFIX=""
 elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2 -fPIC"
-  LIBDIRSUFFIX="64"
-elif [ "$ARCH" = "aarch64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
 else
@@ -92,6 +89,7 @@ cd build
     -DCGAL_INSTALL_LIB_DIR=lib${LIBDIRSUFFIX} \
     -DCGAL_INSTALL_MAN_DIR=man/man1 \
     -DCGAL_INSTALL_CMAKE_DIR=lib${LIBDIRSUFFIX}/CGAL \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install/strip DESTDIR=$PKG
@@ -107,7 +105,7 @@ rm -rf $PKG/usr/share/
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
   AUTHORS CHANGES.md README VERSION \
-  LICENSE LICENSE.FREE_USE LICENSE.GPL LICENSE.LGPL LICENSE.BSL \
+  LICENSE LICENSE.GPL LICENSE.LGPL LICENSE.BSL \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 

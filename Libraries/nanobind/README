@@ -1,0 +1,3 @@
+nanobind is a small binding library that exposes C++ types in Python
+and vice versa
+
