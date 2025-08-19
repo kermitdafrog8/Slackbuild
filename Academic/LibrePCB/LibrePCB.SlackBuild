@@ -93,6 +93,7 @@ cd build
     -DMAN_INSTALL_DIR=/usr/man \
     -DBUILD_TESTS=OFF \
     -DUSE_OPENCASCADE=OFF \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install/strip DESTDIR=$PKG

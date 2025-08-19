@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=codon
-VERSION=${VERSION:-0.16.1}
+VERSION=${VERSION:-0.18.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -75,8 +75,14 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+if [ -f $CWD/llvm-project-llvmorg-15.0.1.tar.gz  ]; then
 tar xvf $CWD/llvm-project-llvmorg-15.0.1.tar.gz
+elif [ -f $CWD/llvmorg-15.0.1.tar.gz ]; then
+tar xvf $CWD/llvmorg-15.0.1.tar.gz
+fi
+
 cd llvm-project-llvmorg-15.0.1
+
 mkdir -p llvm/build && cd llvm/build
 mkdir -p $TMP/package-llvm
 cmake -G Ninja \
@@ -87,6 +93,7 @@ cmake -G Ninja \
 	-DLLVM_ENABLE_ZLIB=OFF \
 	-DLLVM_ENABLE_TERMINFO=OFF \
 	-DLLVM_TARGETS_TO_BUILD=all \
+	-DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
 	-DCMAKE_INSTALL_PREFIX=/usr .. 
 ninja
 DESTDIR=$TMP/package-llvm15/ ninja install
@@ -110,6 +117,7 @@ cd build
     -DLLVM_DIR=$TMP/package-llvm15/usr/lib/cmake/llvm \
     -DCMAKE_C_COMPILER=clang \
     -DCMAKE_CXX_COMPILER=clang++ \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   ninja
   DESTDIR=$PKG ninja install/strip
