@@ -105,6 +105,7 @@ meson setup \
   --localstatedir=/var \
   --buildtype=release \
   -D gtk_doc=enabled \
+  -D valgrind=true \
   -D usb-ids-path=/usr/share/hwdata/usb.ids \
   .. || exit 1
   "${NINJA:=ninja}" || exit 1
