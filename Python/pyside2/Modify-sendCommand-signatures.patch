@@ -1,5 +1,4 @@
-
-m: Dmitry Shachnev <mitya57@debian.org>
+From: Dmitry Shachnev <mitya57@debian.org>
 Date: Sun, 4 Feb 2024 00:29:00 +0300
 Subject: Modify sendCommand signatures to use 0 as default value
 
@@ -40,4 +39,3 @@ index 8696a12..310595f 100644
          </object-type>
          <object-type name="QNodeCommand" since="5.10"/>
          <object-type name="QNodeCreatedChangeBase"/>
-
