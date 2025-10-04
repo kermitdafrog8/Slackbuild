@@ -84,7 +84,7 @@ find -L . \
 
 mkdir -p build
 cd build
-  cmake \
+  cmake -G Ninja \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
