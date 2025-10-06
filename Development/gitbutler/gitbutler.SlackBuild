@@ -73,7 +73,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-if [ -e $VERSION.tar.gz" ]; then
+if [ -e "$VERSION.tar.gz" ]; then
 	mv $CWD/$VERSION.tar.gz $CWD/$PRGNAM-$VERSION.tar.gz
 	tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 else
