@@ -73,9 +73,13 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-#mv $CWD/$VERSION.tar.gz $CWD/$PRGNAM-$VERSION.tar.gz
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-tar xvf $CWD/$PRGNAM-vendored-sources-$VERSION.tar.xz -C $CWD
+if [ -e $VERSION.tar.gz" ]; then
+	mv $CWD/$VERSION.tar.gz $CWD/$PRGNAM-$VERSION.tar.gz
+	tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+else
+        tar xvf $CWD/$PRGNAM-release-$VERSION.tar.gz
+fi
+
 cd $PRGNAM-release-$VERSION
 
 wget https://static.crates.io/crates/javascriptcore-rs-sys@1.1.1
