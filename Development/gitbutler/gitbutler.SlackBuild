@@ -83,7 +83,6 @@ fi
 cd $PRGNAM-release-$VERSION
 
 wget https://static.crates.io/crates/javascriptcore-rs-sys@1.1.1
-wget https://static.crates.io/crates/javascriptcoregtk-4.1
 
 chown -R root:root .
 find -L . \
