@@ -1,10 +1,12 @@
 PRGNAM="gitbutler"
 VERSION="0.14.8"
 HOMEPAGE="https://gitbutler.com/"
-DOWNLOAD="https://github.com/gitbutlerapp/gitbutler/archive/refs/tags/release/0.14.8.tar.gz"
-MD5SUM="364aa85f9fbae38892c924ca0e401dca"
+DOWNLOAD="https://github.com/gitbutlerapp/gitbutler/archive/refs/tags/release/0.14.8.tar.gz
+          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/gitbutler-vendored-sources-0.14.8.tar.xz"
+MD5SUM="364aa85f9fbae38892c924ca0e401dca
+        d58d869ae12e09a1ee0bc1701320e956"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="webkit2gtk4.1"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
