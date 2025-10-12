@@ -5,6 +5,6 @@ DOWNLOAD="https://github.com/tox-dev/filelock/archive/3.19.1/filelock-3.19.1.tar
 MD5SUM="daa7157c3f3c8cb67ef74f6f43fb4085"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-hatch_vcs"
+REQUIRES=""
 MAINTAINER="Jeremy Hansen"
 EMAIL="jebrhansen+SBo@gmail.com"
