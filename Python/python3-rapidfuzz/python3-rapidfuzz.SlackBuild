@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Slackware build script for python3-setuptools-rust
+# Slackware build script for python3-rapidfuzz
 
-# Copyright 2022 Jay Lanagan (j@lngn.net), Detroit, MI, USA
+# Copyright 2024-2025 Jeremy Hansen <jebrhansen+SBo@gmail.com>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -21,15 +21,16 @@
 #  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=python3-setuptools-rust
-SRCNAM=setuptools_rust
-VERSION=${VERSION:-1.12.0}
-TAG=_SBo
+PRGNAM=python3-rapidfuzz
+VERSION=${VERSION:-3.14.1}
+RAPIDCPPVER=${RAPIDCPPVER:-2440ffa}
+TASKVER=${TASKVER:-130f795}
+SRCNAM=${SRCNAM:-RapidFuzz}
 BUILD=${BUILD:-1}
-PKGTYPE=${PKGTYPE:-txz}
+TAG=${TAG:-_SBo}
+PKGTYPE=${PKGTYPE:-tgz}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -44,26 +45,9 @@ if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
   exit 0
 fi
 
-TMP=${TMP:-/tmp/gfs}
+TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
-OUTPUT=${OUTPUT:-$CWD}
-
-if [ "$ARCH" = "i586" ]; then
-  SLKCFLAGS="-O2 -march=i586 -mtune=i686"
-  LIBDIRSUFFIX=""
-elif [ "$ARCH" = "i686" ]; then
-  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
-  LIBDIRSUFFIX=""
-elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2 -fPIC"
-  LIBDIRSUFFIX="64"
-elif [ "$ARCH" = "aarch64" ]; then
-  SLKCFLAGS="-O2 -fPIC"
-  LIBDIRSUFFIX="64"
-else
-  SLKCFLAGS="-O2"
-  LIBDIRSUFFIX=""
-fi
+OUTPUT=${OUTPUT:-/tmp}
 
 set -e
 
@@ -71,7 +55,12 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM-$VERSION
-tar xvf $CWD/$SRCNAM-$VERSION.tar.?z
+tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
+tar xvf $CWD/rapidfuzz-cpp-$RAPIDCPPVER*.tar.gz
+tar xvf $CWD/taskflow-$TASKVER*.tar.gz
+rmdir $SRCNAM-$VERSION/extern/{rapidfuzz-cpp,taskflow}
+mv rapidfuzz-cpp-$RAPIDCPPVER* $SRCNAM-$VERSION/extern/rapidfuzz-cpp
+mv taskflow-$TASKVER* $SRCNAM-$VERSION/extern/taskflow
 cd $SRCNAM-$VERSION
 chown -R root:root .
 find -L . \
@@ -80,25 +69,27 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-# Use this setup.py shim:
-cat << EOF > setup.py
-from setuptools import setup
-setup(name="${SRCNAM}", version="${VERSION}", packages=["${SRCNAM}"], package_data={"": ["*"]})
-EOF
+# Just allow any numpy, and newer Cython
+sed -i 's|oldest-supported-numpy|numpy|;s|, <3.1.0||' pyproject.toml
 
-unshare -n python3 setup.py install --root=$PKG || exit 1
+PYVER=$(python3 -c 'import sys; print("%d.%d" % sys.version_info[:2])')
+export PYTHONPATH="/opt/python$PYVER/site-packages:/opt/cython/python$PYVER/site-packages"
+export PATH="/opt/cython/bin:$PATH"
+
+python3 -m build --wheel --no-isolation
+python3 -m installer --destdir=$PKG dist/*.whl
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a CHANGELOG.md LICENSE README.md $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a \
+  LICENSE README.md \
+  $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-if [ -f $CWD/slack-suggests ]; then cat $CWD/slack-suggests > $PKG/install/slack-suggests; fi
-if [ -f $CWD/slack-conflicts ]; then cat $CWD/slack-conflicts > $PKG/install/slack-conflicts; fi
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
