@@ -5,6 +5,6 @@ DOWNLOAD="https://github.com/numpy/numpy/releases/download/v1.26.3/numpy-1.26.3.
 MD5SUM="1c915dc6c36dd4c674d9379e9470ff8b"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-mesonpy"
+REQUIRES="python3-mesonpy python3-cython-opt"
 MAINTAINER="Christoph Willing"
 EMAIL="chris.willing@linux.com"
