@@ -26,7 +26,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=pbs-installer
 SRCNAM=pbs_installer
-VERSION=${VERSION:-2025.10.7}
+VERSION=${VERSION:-2025.10.10}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
