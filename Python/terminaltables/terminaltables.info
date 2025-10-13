@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/f5/fc/0b73d782f5ab7feba8d00757
 MD5SUM="5467e06a1a6e24dc44e6dd241706668e"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-shellingham python3-poetry pbs-installer cleo python3-cachecontrol python3-dulwich python3-findpython"
+REQUIRES="python3-shellingham python3-poetry pbs-installer cleo python3-cachecontrol python3-dulwich python3-findpython python3-poetry-core python3-jsonschema python3-keyring pkginfo requests-toolbelt"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
