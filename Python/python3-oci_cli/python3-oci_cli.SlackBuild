@@ -26,7 +26,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=python3-oci_cli
 SRCNAM=oci_cli
-VERSION=${VERSION:-3.68.1}
+VERSION=${VERSION:-3.69.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
