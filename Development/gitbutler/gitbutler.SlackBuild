@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=gitbutler
-VERSION=${VERSION:-0.14.35}
+VERSION=${VERSION:-0.16.10}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -74,16 +74,15 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
 
-if [ -e $CWD/$VERSION.tar.gz ]; then
-	tar xvf $CWD/$VERSION.tar.gz
+if [[ -f "$CWD/$VERSION.tar.gz" ]]; then
+	mv $CWD/$VERSION.tar.gz $CWD/$PRGNAM-$VERSION.tar.gz
 else
-	tar xvf $CWD/$PRGNAM-release-$VERSION.tar.gz
-fi
-
+	tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+fi	
 tar xvf $CWD/$PRGNAM-vendored-sources-$VERSION.tar.xz -C $CWD
-wget https://crates.io/crates/gix-actor/0.35.1
-
 cd $PRGNAM-release-$VERSION
+
+wget https://static.crates.io/crates/javascriptcore-rs-sys@1.1.1
 
 chown -R root:root .
 find -L . \
@@ -109,7 +108,7 @@ EOF
 
 # deps and versions come from Cargo.lock
 
-rm -rf $TMP/$PRGNAM-release-$VERSION/vendor
+rm -rf $TMP/$PRGNAM-$VERSION-src/vendor
 mkdir vendor
 (
   cd vendor
@@ -148,7 +147,6 @@ mkdir vendor
 	
 cargo build --release
 
-rm $CWD/*.crate
 
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
@@ -162,7 +160,7 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-#cat $CWD/doinst.sh > $PKG/install/doinst.sh
+rm *.crate
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
