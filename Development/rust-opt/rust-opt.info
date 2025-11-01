@@ -1,14 +1,16 @@
 PRGNAM="rust-opt"
 VERSION="1.89.0"
 HOMEPAGE="https://rust-lang.org"
-DOWNLOAD="https://static.rust-lang.org/dist/2025-08-07/cargo-1.89.0-i686-unknown-linux-gnu.tar.gz
-          https://static.rust-lang.org/dist/2025-08-07/cargo-1.89.0-arm-unknown-linux-gnueabihf.tar.gz
-          https://static.rust-lang.org/dist/2025-08-07/cargo-1.89.0-aarch64-unknown-linux-gnu.tar.gz"
-MD5SUM="f60e27f83e40427ce61ed4d9c0346e37
-        37cdcdadf4ddeef8641982528f02e405
-        c5598618f5230adc55fc0cb8d6037681"
-DOWNLOAD_x86_64="https://static.rust-lang.org/dist/2025-08-07/cargo-1.89.0-x86_64-unknown-linux-gnu.tar.gz"
-MD5SUM_x86_64="20db57f95352a6fa848e355aca4759d9"
+DOWNLOAD="https://static.rust-lang.org/dist/2025-08-07/rust-1.89.0-i686-unknown-linux-gnu.tar.gz
+          https://static.rust-lang.org/dist/2025-08-07/rust-1.89.0-arm-unknown-linux-gnueabihf.tar.gz
+          https://static.rust-lang.org/dist/2025-08-07/rust-1.89.0-x86_64-unknown-linux-gnu.tar.gz
+          https://static.rust-lang.org/dist/2025-08-07/rust-1.89.0-aarch64-unknown-linux-gnu.tar.gz"
+MD5SUM="371ded03468db5a803b03d282ddf156c
+        d2123e53b49308773e227f1eb44bd5bd
+        03fe43e1e0808c17d536f69698039a6b
+        df358e202cd5d6e9994fcf45eb56cb8c"
+DOWNLOAD_x86_64=""
+MD5SUM_x86_64=""
 REQUIRES=""
 MAINTAINER="K. Eugene Carlson"
 EMAIL="kvngncrlsn@gmail.com"
