@@ -1,10 +1,10 @@
 PRGNAM="bluetui"
-VERSION="0.7.1"
+VERSION="0.7.2"
 HOMEPAGE="https://github.com/pythops/bluetui"
-DOWNLOAD="https://github.com/pythops/bluetui/archive/v0.7.1/bluetui-0.7.1.tar.gz
-          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/bluetui-vendored-sources-0.7.1.tar.gz"
-MD5SUM="9a51392bc7c164a3891087558c1c3df6
-        3496f19f33bd655412adea074bda3ea3"
+DOWNLOAD="https://github.com/pythops/bluetui/archive/v0.7.2/bluetui-0.7.2.tar.gz
+          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/bluetui-vendored-sources-0.7.2.tar.gz"
+MD5SUM="8dadcbc3aaeac6eeede7735a26decc31
+        8840fc746c34d4882963af53e93d552c"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""
