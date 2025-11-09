@@ -26,7 +26,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=qemu
-VERSION=${VERSION:-10.1.1}
+VERSION=${VERSION:-10.1.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -36,7 +36,7 @@ TARGETS=${TARGETS:-all}
 VNC_ENABLE=${VNC_ENABLE:-yes}
 AUDIODRIVERS=${AUDIODRIVERS:-pa,alsa,oss,sdl}
 BRIDGE_HELPER_SETUID=${BRIDGE_HELPER_SETUID:-no}
-SLIRP=${SLIRP:-=no}
+SLIRP=${SLIRP:-=yes}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -67,6 +67,10 @@ elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
   KVMARCH="x86_64"
+elif [ "$ARCH" = "aarch64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+  KVMARCH="aarch64"
 else
   SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
