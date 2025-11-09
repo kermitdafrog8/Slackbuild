@@ -28,7 +28,8 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wine
 VERSION=${VERSION:-10.14}
-ARCHS="i386,x86_64"
+#ARCHS="i386,x86_64"
+ARCHS="aarch64"
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
