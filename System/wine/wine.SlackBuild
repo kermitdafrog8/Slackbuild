@@ -77,6 +77,10 @@ case "$ARCH" in
   LIBDIRSUFFIX="64"
   WINE64="yes"
   ;;
+ aarch64)
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+  WINE64="yes"
 esac
 
 MULTILIB=${MULTILIB@L}
