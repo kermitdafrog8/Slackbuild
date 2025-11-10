@@ -69,8 +69,8 @@ find -L . \
 patch -p1 < $CWD/gcc-version-fix-includes.patch
 patch -p1 < $CWD/cross_platform_byteswap_fix.patch
 
-CFLAGS="$SLKCFLAGS -fexceptions -fvisibility=hidden -DNO_LCMS" \
-CXXFLAGS="$SLKCFLAGS -fexceptions -fvisibility=hidden -Wno-ctor-dtor-privacy -std=c++14 -DPNG_ARM_NEON_OPT=0" \
+CFLAGS="$SLKCFLAGS -fexceptions -fvisibility=hidden -DNO_LCMS -DPNG_ARM_NEON_OPT=0" \
+CXXFLAGS="$SLKCFLAGS -fexceptions -fvisibility=hidden -Wno-ctor-dtor-privacy -std=c++14" \
 make INSTALLDIR=$PKG/usr/lib${LIBDIRSUFFIX} DESTDIR=$PKG
 make install INSTALLDIR=$PKG/usr/lib${LIBDIRSUFFIX} DESTDIR=$PKG
 
