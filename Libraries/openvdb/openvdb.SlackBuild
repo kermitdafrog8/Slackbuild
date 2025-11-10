@@ -25,10 +25,11 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=openvdb
-VERSION=${VERSION:-12.0.1}
+VERSION=${VERSION:-13.0.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
+BLOSC=${BLOSC:-=ON}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -79,6 +80,11 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+# Disable C-BLOSC for AARCH64
+if [ "$ARCH" = "aarch64" ]; then
+    BLOSC=OFF
+fi
+	
 mkdir -p build
 cd build
   cmake \
@@ -87,6 +93,7 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
+    -DUSE_BLOSC="$BLOSC" \
     -DOPENVDB_BUILD_AX=OFF \
     -DOPENVDB_BUILD_DOCS=ON \
     -DOPENVDB_BUILD_MAYA_PLUGIN=OFF \

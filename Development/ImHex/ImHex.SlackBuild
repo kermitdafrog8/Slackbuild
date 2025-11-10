@@ -100,6 +100,7 @@ cd build
     -DIMHEX_USE_GTK_FILE_PICKER=ON \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     $OFFLINE \
     -DCMAKE_BUILD_TYPE=Release ..
   make -j7

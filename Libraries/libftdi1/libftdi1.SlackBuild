@@ -89,6 +89,7 @@ cd build
     -DSTATICLIBS:BOOL=OFF \
     -DFTDIPP=ON \
     -DDOCUMENTATION=ON \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install DESTDIR=$PKG

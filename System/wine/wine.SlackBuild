@@ -27,9 +27,10 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wine
-VERSION=${VERSION:-9.0}
-ARCHS="i386,x86_64"
-BUILD=${BUILD:-3}
+VERSION=${VERSION:-10.14}
+#ARCHS="i386,x86_64"
+ARCHS="aarch64"
+BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
@@ -77,6 +78,10 @@ case "$ARCH" in
   LIBDIRSUFFIX="64"
   WINE64="yes"
   ;;
+ aarch64)
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+  WINE64="yes"
 esac
 
 MULTILIB=${MULTILIB@L}
