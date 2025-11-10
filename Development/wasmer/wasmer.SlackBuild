@@ -151,8 +151,6 @@ cp -a package/lib/lib* $PKG/usr/lib64
 mv $PKG/usr/lib64/libwasmer.so $PKG/usr/lib64/libwasmer.so.$VERSION
 mv $PKG/usr/lib64/libwasmer-headless.so $PKG/usr/lib64/libwasmer-headless.so.$VERSION
 
-rm $CWD/*.crate
-
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 

@@ -26,7 +26,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=qemu
-VERSION=${VERSION:-10.1.2}
+VERSION=${VERSION:-9.2.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -36,7 +36,7 @@ TARGETS=${TARGETS:-all}
 VNC_ENABLE=${VNC_ENABLE:-yes}
 AUDIODRIVERS=${AUDIODRIVERS:-pa,alsa,oss,sdl}
 BRIDGE_HELPER_SETUID=${BRIDGE_HELPER_SETUID:-no}
-SLIRP=${SLIRP:-=yes}
+SLIRP=${SLIRP:-=no}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -67,10 +67,6 @@ elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
   KVMARCH="x86_64"
-elif [ "$ARCH" = "aarch64" ]; then
-  SLKCFLAGS="-O2 -fPIC"
-  LIBDIRSUFFIX="64"
-  KVMARCH="aarch64"
 else
   SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
@@ -97,7 +93,9 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} + || true
 
-#patch -p1 < $CWD/qemu-10.0.3-pip-25.2-compat.patch
+# Patch for glibc >= 2.41: thanks to Fabio Bas!
+# https://patchwork.ozlabs.org/project/qemu-devel/list/?series=427568
+#patch -p1 < $CWD/glibc-2.41.patch
 
 # Use newer meson from python3-meson-opt
 PYVER=$(python3 -c 'import sys; print("%d.%d" % sys.version_info[:2])')
@@ -141,7 +139,6 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-sdl \
   --enable-malloc=jemalloc \
   --enable-nettle \
-  --disable-docs \
   --${uring}able-linux-io-uring \
   --audio-drv-list=${AUDIODRIVERS} \
   $with_slirp \

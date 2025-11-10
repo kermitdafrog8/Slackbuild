@@ -1,10 +1,10 @@
 PRGNAM="wasmi"
-VERSION="0.50.0"
+VERSION="0.46.0"
 HOMEPAGE="https://wasmi-labs.github.io/wasmi/"
-DOWNLOAD="https://github.com/wasmi-labs/wasmi/archive/v0.50.0/wasmi-0.50.0.tar.gz
-          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/wasmi-vendored-sources-0.50.0.tar.gz"
-MD5SUM="33ec01766070a9fa370ca339e3485b7c
-        6c4171873f634bba2ef653b7789a8027"
+DOWNLOAD="https://github.com/wasmi-labs/wasmi/archive/v0.46.0/wasmi-0.46.0.tar.gz
+          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/wasmi-vendored-sources-0.46.0.tar.gz"
+MD5SUM="b1def5a7b841ff7ab3cea169da04c19c
+        ef0160fbc02775a9291c098eb5a0d11d"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""

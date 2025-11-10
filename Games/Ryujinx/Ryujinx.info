@@ -1,7 +1,7 @@
 PRGNAM="Ryujinx"
 VERSION="1.2.82"
 HOMEPAGE="https://github.com/GreemDev/Ryujinx"
-DOWNLOAD="https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/Ryujinx-1.2.82.tar.gz"
+DOWNLOAD="https://github.com/Ryubing/Ryujinx/archive/1.2.82/Ryujinx-1.2.82.tar.gz"
 MD5SUM="acfea107b1520f305afc0fe8317847a8"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""

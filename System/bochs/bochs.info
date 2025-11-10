@@ -1,7 +1,7 @@
 PRGNAM="bochs"
 VERSION="2.7"
 HOMEPAGE="https://bochs.sourceforge.io/"
-DOWNLOAD="https://slackware.uk/sbosrcarch/by-name/system/bochs/bochs-2.7.tar.gz"
+DOWNLOAD="https://sourceforge.net/projects/bochs/files/bochs/2.7/bochs-2.7.tar.gz"
 MD5SUM="d77a43c21cfd8aa013eb2eaa35644f80"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""

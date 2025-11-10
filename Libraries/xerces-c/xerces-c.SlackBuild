@@ -95,10 +95,6 @@ elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
   BITS=64
-elif [ "$ARCH" = "aarch64" ];then
-  SLKCFLAGS="-O2 -fPIC"
-  LIBDIRSUFFIX="64"
-  BIT=64
 fi
 
 set -eu

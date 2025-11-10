@@ -26,7 +26,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=dotnet-runtime-9.0
 SRCNAM=dotnet-runtime
-VERSION=${VERSION:-9.0.10}
+VERSION=${VERSION:-9.0.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -37,8 +37,6 @@ fi
 
 if [ "$ARCH" = "x86_64" ]; then
   ARCHITECTURE="x64"
-elif [ "$ARCH" = "aarch64" ]; then
-  ARCHITECTURE="arm64"
 else
   echo "Package for $ARCH architecture is not available."
   exit 1

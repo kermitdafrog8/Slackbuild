@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/d8/7d/f77f2bc2e2a210502a164556
 MD5SUM="c7d3eec4824b9f206781d68d12c326ec"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="scikit-build-core"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"

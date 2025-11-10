@@ -92,7 +92,6 @@ cd build
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DEXAMPLES=OFF \
     -DMAN_INSTALL_DIR=/usr/man \
-    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install DESTDIR=$PKG

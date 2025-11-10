@@ -98,15 +98,14 @@ cd build
         -DUSE_SOUP2=ON \
         -DENABLE_JOURNALD_LOG=OFF \
 	-DENABLE_DOCUMENTATION=OFF \
-	-DENABLE_BUBBLEWRAP_SANDBOX=OFF \
-	-DUSE_SYSTEM_MALLOC=ON \
+	-DENABLE_BUBBLEWRAP_SANDBOX=off \
+	-DUSE_SYSTEM_MALLOC=on \
         -DUSE_GSTREAMER_TRANSCODER=OFF \
-	-DUSE_SYSTEM_SYSPROF_CAPTURE=NO \
         -DUSE_AVIF=OFF \
         -DUSE_GTK4=OFF \
         -DUSE_LIBBACKTRACE=OFF \
         -DUSE_JPEGXL=OFF \
-i        -Wno-dev \
+        -Wno-dev \
         -G Ninja \
         ..
 

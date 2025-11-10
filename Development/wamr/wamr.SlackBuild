@@ -25,8 +25,8 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wamr
-SRCNAM=wasm-micro-runtime-WAMR
-VERSION=${VERSION:-2.3.1}
+SRCNAM=WAMR
+VERSION=${VERSION:-2.1.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -74,16 +74,8 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM-$VERSION
-if [ -f $CWD/WAMR-2.3.1.tar.gz ]; then
-	echo "Extracting WAMR-2.3.1.tar.gz"
-	tar xvf $CWD/WAMR-2.3.1.tar.gz
-	cd $SRCNAM-$VERSION
-elif [ -f $CWD/wasm-micro-runtime-WAMR-2.3.1.tar.gz ]; then
-	echo "Extracting wasm-micro-runtime-WAMR-2.3.1"
-	tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
-	cd $SRCNAM-$VERSION
-fi
-
+tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
+cd wasm-micro-runtime-WAMR-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -99,26 +91,23 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
-    -DBUILD_SHARED_LIBS=ON \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install/strip DESTDIR=$PKG
-
-mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}
-install -Dm 0755 libiwasm.so.2.3.1 $PKG/usr/lib${LIBDIRSUFFIX}
-
-if [ "$LIBDIRSUFFIX" = "64" ]; then 
-	cp -R $PKG/usr/lib/cmake/iwasm/ $PKG/usr/lib${LIBDIRSUFFIX}/cmake
-	rm -r $PKG/usr/lib
-fi
-
 cd ..
+
+mkdir -p $PKG/usr/lib64
+cp -a $PKG/usr/lib/libiwasm.so $PKG/usr/lib64/libiwasm.so.$VERSION
+rm -R $PKG/usr/lib
 
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+#find $PKG/usr/man -type f -exec gzip -9 {} \;
+#for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a ATTRIBUTIONS.md CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE ORG_CODE_OF_CONDUCT.md README.md RELEASE_NOTES.md SECURITY.md \
@@ -127,13 +116,13 @@ cp -a ATTRIBUTIONS.md CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE ORG_CODE_OF_CON
 cp -a doc $PKG/usr/doc/$PRGNAM-$VERSION
 chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/doc
 cp -a samples $PKG/usr/doc/$PRGNAM-$VERSION
-chmod 0444 -R $PKG/usr/doc/$PRGNAM-$VERSION/samples
+chmod 0755 -R $PKG/usr/doc/$PRGNAM-$VERSION/samples
 
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
+#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

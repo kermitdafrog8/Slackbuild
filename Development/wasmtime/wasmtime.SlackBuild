@@ -2,7 +2,7 @@
 
 # Slackware build script for wasmtime
 
-# Copyright 2023-2025 Christopher Luck Orlando, FL
+# Copyright 2023 Christopher Luck Orlando, FL
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -26,7 +26,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wasmtime
 SRCNAM=wasmtime
-VERSION=${VERSION:-v38.0.3}
+VERSION=${VERSION:-v28.0.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -160,8 +160,6 @@ chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/docs/assemblyscript-hello-world
 chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/docs/assemblyscript_demo
 chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/docs/assets
 #chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/docs/rust_wasi_markdown_parser
-
-rm $CWD/*.crate
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc

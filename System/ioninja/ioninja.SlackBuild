@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=ioninja
-VERSION=${VERSION:-5.9.0}
+VERSION=${VERSION:-5.4.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -59,11 +59,9 @@ elif [ "$ARCH" = "i686" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
-  ARCHITECTURE="amd64"
 elif [ "$ARCH" = "aarch64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
-  ARCHITECTURE="arm64"
 else
   SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
@@ -74,9 +72,9 @@ set -e # Exit on most errors
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION-linux-$ARCHITECTURE
-tar xvf $CWD/$PRGNAM-$VERSION-linux-$ARCHITECTURE.tar.xz
-cd $PRGNAM-$VERSION-linux-$ARCHITECTURE
+rm -rf $PRGNAM-$VERSION-linux-amd64
+tar xvf $CWD/$PRGNAM-$VERSION-linux-amd64.tar.xz
+cd $PRGNAM-$VERSION-linux-amd64
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -90,13 +88,13 @@ mkdir -p $PKG/usr/share/applications
 mkdir -p $PKG/usr/share/icons
 mkdir -p $PKG/usr/lib64
 
-cp -r share $PKG/usr/
-#cp -a share/applications/ioninja.desktop $PKG/usr/share/applications
+cp -r share/icons $PKG/usr/share/icons
+cp -a share/applications/ioninja.desktop $PKG/usr/share/applications
 cp -a bin/* $PKG/usr/bin
-cp -a lib/* $PKG/usr/lib64
-cp -r etc/ $PKG/etc
-#cp -r share/ioninja $PKG/usr/share
-#rm -r /usr/lib
+cp -a lib/* $PKG/usr/lib${LIBDIRSUFFIX}
+cp -r etc/ioninja/ $PKG/etc
+cp -r share/ioninja $PKG/usr/share
+
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 

@@ -89,12 +89,7 @@ cd build
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DSLIC3R_GTK=3 \
-    -DSLIC3R_WX_STABLE=OFF \
-    -DwxWidgets_CONFIG_EXECUTABLE=/usr/lib64/wx/config/gtk3-unicode-3.2 \
-    -DwxWidgets_LIBRARIES=/usr/lib64 \
-    -DOPENVDB_FIND_MODULE_PATH=/usr/lib64/cmake/OpenVDB \
     -DBUILD_SHARED_LIBS=ON \
-    -DBUILD_TESTING=OFF \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
@@ -111,6 +106,16 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
 
 #find $PKG/usr/man -type f -exec gzip -9 {} \;
 #for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
+# Compress info pages and remove the package's dir file
+# If no info pages are installed by the software, don't leave this in the script
+#rm -f $PKG/usr/info/dir
+#gzip -9 $PKG/usr/info/*.info*
+
+# Remove perllocal.pod and other special files that don't need to be installed,
+# as they will overwrite what's already on the system.  If this is not needed,
+# remove it from the script.
+#find $PKG -name perllocal.pod -o -name ".packlist" -o -name "*.bs" | xargs rm -f || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 #cp -a <documentation> $PKG/usr/doc/$PRGNAM-$VERSION

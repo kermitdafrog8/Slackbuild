@@ -1,7 +1,3 @@
-24c24
-< 	  CXXFLAGS += -O2 -Wall -Wextra -Wno-unknown-pragmas -Waggregate-return -Wcast-align -Wcast-qual -Wconditionally-supported -Wdisabled-optimization -Wdouble-promotion -Wfloat-equal -Wformat=2 -Wformat-signedness -Winit-self -Winline -Winvalid-pch -Wlogical-op -Wmissing-include-dirs -Wmultichar -Wnoexcept -Woverlength-strings -Wpacked -Wpointer-arith -Wredundant-decls -Wshadow -Wstack-protector -Wstrict-aliasing=2 -Wstrict-null-sentinel -Wswitch-default -Wswitch-enum -Wtrampolines -Wvariadic-macros -Wvector-operation-performance -Wwrite-strings -Wunused-macros
----
-> 	  CXXFLAGS += -O2 -Wall -Wextra -Wno-unknown-pragmas -fpermissive -Waggregate-return -Wcast-align -Wcast-qual -Wconditionally-supported -Wdisabled-optimization -Wdouble-promotion -Wfloat-equal -Wformat=2 -Wformat-signedness -Winit-self -Winline -Winvalid-pch -Wlogical-op -Wmissing-include-dirs -Wmultichar -Wnoexcept -Woverlength-strings -Wpacked -Wpointer-arith -Wredundant-decls -Wshadow -Wstack-protector -Wstrict-aliasing=2 -Wstrict-null-sentinel -Wswitch-default -Wswitch-enum -Wtrampolines -Wvariadic-macros -Wvector-operation-performance -Wwrite-strings -Wunused-macros
 101c101
 <     PREFIX := /usr/local
 ---

@@ -60,7 +60,7 @@ elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
 elif [ "$ARCH" = "aarch64" ]; then
-  SLKCFLAGS="-O2 -fPIC -fpermissive"
+  SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
 else
   SLKCFLAGS="-O2"
@@ -90,7 +90,6 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
-    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install/strip DESTDIR=$PKG
@@ -101,6 +100,9 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+#find $PKG/usr/man -type f -exec gzip -9 {} \;
+#for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a CONTRIBUTING.md LICENSE.txt README.md LICENSES/*.txt $PKG/usr/doc/$PRGNAM-$VERSION
