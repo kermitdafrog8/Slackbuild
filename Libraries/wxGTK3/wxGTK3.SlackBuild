@@ -131,7 +131,8 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
 if [ "$LIBDIRSUFFIX" = "64" ]; then
 	mkdir -p $PKG/usr/lib64
-	mv $PKG/usr/lib/libwx_* $PKG/usr/lib64
+	cp -R $PKG/usr/lib/* $PKG/usr/lib64
+	rm -R $PKG/usr/lib
 fi
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \

@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/source/b/build/build-1.2.1.tar
 MD5SUM="9675d7b278f4533b9b75701e6e87390b"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-pyproject-hooks python3-flit_core"
+REQUIRES=""
 MAINTAINER="fourtysixandtwo"
 EMAIL="fourtysixandtwo@sliderr.net"
