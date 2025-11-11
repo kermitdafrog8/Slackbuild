@@ -113,9 +113,9 @@ cd build
   cmake --build sources/$PRGNAM 
   DESTDIR=$PKG cmake --install sources/$PRGNAM
 cd ..
-python$PYTHON_VERSION setup.py egg_info --build-type=shiboken2
-mkdir -p $PKG/$PYTHON_LIB_PATH
-mv shiboken2.egg-info $PKG/$PYTHON_LIB_PATH/
+#python$PYTHON_VERSION setup.py egg_info --build-type=shiboken2
+#mkdir -p $PKG/$PYTHON_LIB_PATH
+#mv shiboken2.egg-info $PKG/$PYTHON_LIB_PATH/
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
