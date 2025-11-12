@@ -29,7 +29,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=python3-numpy
 SRCNAM=numpy
-VERSION=${VERSION:-2.3.3}
+VERSION=${VERSION:-2.3.4}
 BUILD=${BUILD:-3}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -44,6 +44,8 @@ fi
 
 LIBDIRSUFFIX=""
 if [ "$ARCH" = "x86_64" ]; then
+  LIBDIRSUFFIX="64"
+elif [ "$ARCH" = "aarch64" ]; then
   LIBDIRSUFFIX="64"
 fi
 
@@ -72,7 +74,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM-$VERSION
-tar xf $CWD/$SRCNAM-$VERSION.tar.gz
+tar xfv $CWD/$SRCNAM-$VERSION.tar.gz
 cd $SRCNAM-$VERSION
 chown -R root:root .
 find -L . \
