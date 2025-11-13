@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+   |-----handy-ruler------------------------------------------------------|
+FEX: FEX (A fast usermode x86 and x86-64 emulator for Arm64 Linux)
+FEX:
+FEX: FEX allows you to run x86 and x86-64 binaries on an AArch64 host,
+FEX: similar to qemu-user and box86.
+FEX:
+FEX:
+FEX:
+FEX:
+FEX:
+FEX:
+FEX:
