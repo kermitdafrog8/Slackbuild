@@ -87,17 +87,22 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+CC=clang CXX=clang++ 
 mkdir -p build
 cd build
-  cmake \
+  cmake -G Ninja\
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
+    -DUSE_LINKER=ldd \
+    -DENABLE_LTO=True \
+    -DBUILD_TESTING=False \
+    -DENABLE_ASSERTIONS=False \
     -DCMAKE_BUILD_TYPE=Release ..
-  make
-  make install/strip DESTDIR=$PKG
+  ninja
+  ninja install/strip DESTDIR=$PKG
 cd ..
 
 # Don't ship .la files:
