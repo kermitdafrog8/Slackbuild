@@ -1,7 +1,7 @@
 PRGNAM="aarch64-w64-mingw32"
 VERSION="2025-07-15"
 HOMEPAGE="https://github.com/Windows-on-ARM-Experiments/mingw-woarm64-build"
-DOWNLOAD="https://github.com/Windows-on-ARM-Experiments/mingw-woarm64-build/archive/2025-07-15/aarch64-w64-mingw32-2025-07-15.tar.gz"
+DOWNLOAD="https://github.com/Windows-on-ARM-Experiments/mingw-woarm64-build/archive/2025-07-15/mingw-woarm64-build-2025-07-15.tar.gz"
 MD5SUM="eedeab61f56132d6340c84d0eba45fc5"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
