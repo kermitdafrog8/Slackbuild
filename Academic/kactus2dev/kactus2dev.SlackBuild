@@ -102,8 +102,8 @@ mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}
 mkdir -p $PKG/usr/bin
 cp -R /usr/share/kactus2 $PKG/usr/share/
 cp -R /usr/bin/kactus2 $PKG/usr/bin
-mv /usr/lib/libIPXACTmodels* $PKG/usr/lib${LIBDIRSUFFIX}/
-mv /usr/lib/libKactusAPI* $PKG/usr/lib${LIBDIRSUFFIX}/
+mv /usr/lib${LIBDIRSUFFIX}/libIPXACTmodels* $PKG/usr/lib${LIBDIRSUFFIX}/
+mv /usr/lib${LIBDIRSUFFIX}/libKactusAPI* $PKG/usr/lib${LIBDIRSUFFIX}/
 
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
