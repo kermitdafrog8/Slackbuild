@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=gitbutler
-VERSION=${VERSION:-0.14.8}
+VERSION=${VERSION:-0.16.10}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -74,13 +74,15 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
 
-if [ -e $VERSION.tar.gz ]; then
-   mv $VERSION.tar.gz $PRGNAM-release-$VERSION.tar.gz
-fi
-tar xvf $CWD/$PRGNAM-release-$VERSION.tar.gz
+if [[ -f "$CWD/$VERSION.tar.gz" ]]; then
+	mv $CWD/$VERSION.tar.gz $CWD/$PRGNAM-$VERSION.tar.gz
+else
+	tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+fi	
+tar xvf $CWD/$PRGNAM-vendored-sources-$VERSION.tar.xz -C $CWD
 cd $PRGNAM-release-$VERSION
 
-wget https://static.crates.io/crates/
+wget https://static.crates.io/crates/javascriptcore-rs-sys@1.1.1
 
 chown -R root:root .
 find -L . \
@@ -89,6 +91,60 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+# build offline
+# configuration tells cargo to use the configured directory
+# for dependencies instead of downloading from crates.io
+
+rm -rf $TMP/$PRGNAM-release-$VERSION/.cargo
+mkdir .cargo
+cat << EOF >> .cargo/config
+[source.crates-io]
+registry = 'https://github.com/rust-lang/crates.io-index'
+replace-with = 'vendored-sources'
+
+[source.vendored-sources]
+directory = '$(pwd)/vendor'
+EOF
+
+# deps and versions come from Cargo.lock
+
+rm -rf $TMP/$PRGNAM-$VERSION-src/vendor
+mkdir vendor
+(
+  cd vendor
+
+  grep -h -A 3 "\[\[package\]\]" $(find ../ -maxdepth 1 -mindepth 1 -name Cargo.lock | tr '\n' ' ') | \
+    sed 's/[[:space:]]*=[[:space:]]*/=/g;s/^--//;s/^\[\[/--\n[[/' | \
+    awk 'BEGIN { RS = "--\n" ; FS="\n" } { print $2, $3, $4 }' | sed 's/"//g;s/name=//;s/ version=/=/' | \
+    grep crates\.io-index | sed 's/ source=.*$//' | sort -u | while read -r dep ; do
+
+    ver="$(printf "%s\n" "$dep" | cut -d= -f2)"
+    dep="$(printf "%s\n" "$dep" | cut -d= -f1)"
+
+    tar xvf $CWD/$dep-$ver.crate
+
+    touch $dep-$ver/.cargo-ok
+
+    # generate checksum
+    {
+      printf "{\n"
+      printf '    "files": {\n'
+
+      (
+        cd $dep-$ver
+        find . -type f -print0 | xargs -0 sha256sum | sed -n '/\.cargo-checksum\.json/!p' | sed 's/\.\///;s/^\([^ ]*\)[[:space:]][[:space:]]*\(.*\)$/"\2":"\1",/'
+      ) | sed '$ s/,$//'
+
+      printf "    },\n"
+      printf '    "package": "'
+
+      sha256sum "$CWD/$dep-$ver.crate" | cut -f1 -d' ' | sed 's/$/"/'
+
+      printf "}\n"
+    } > $dep-$ver/.cargo-checksum.json
+  done
+)
+	
 cargo build --release
 
 
@@ -104,7 +160,7 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-#cat $CWD/doinst.sh > $PKG/install/doinst.sh
+rm *.crate
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

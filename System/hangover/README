@@ -1,0 +1,4 @@
+This is Hangover, a project started by André Zwing and Stefan
+Dösinger in 2016 that can run x86_64 and x86_32 Windows
+applications on aarch64 Wine.
+

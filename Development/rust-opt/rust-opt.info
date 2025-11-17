@@ -1,12 +1,16 @@
 PRGNAM="rust-opt"
-VERSION="1.85.0"
+VERSION="1.89.0"
 HOMEPAGE="https://rust-lang.org"
-DOWNLOAD="https://static.rust-lang.org/dist/2025-02-20/rust-1.85.0-i686-unknown-linux-gnu.tar.gz
-          https://static.rust-lang.org/dist/2025-02-20/rust-1.85.0-arm-unknown-linux-gnueabihf.tar.gz"
-MD5SUM="0332e200f60a142cbdb84257e60901a9
-        d17d4c9bd0677861a0cd641b1583eefd"
-DOWNLOAD_x86_64="https://static.rust-lang.org/dist/2025-02-20/rust-1.85.0-x86_64-unknown-linux-gnu.tar.gz"
-MD5SUM_x86_64="edc01a1a46aae91c79eaccf0ac3c57c1"
+DOWNLOAD="https://static.rust-lang.org/dist/2025-08-07/rust-1.89.0-i686-unknown-linux-gnu.tar.gz
+          https://static.rust-lang.org/dist/2025-08-07/rust-1.89.0-arm-unknown-linux-gnueabihf.tar.gz
+          https://static.rust-lang.org/dist/2025-08-07/rust-1.89.0-x86_64-unknown-linux-gnu.tar.gz
+          https://static.rust-lang.org/dist/2025-08-07/rust-1.89.0-aarch64-unknown-linux-gnu.tar.gz"
+MD5SUM="371ded03468db5a803b03d282ddf156c
+        d2123e53b49308773e227f1eb44bd5bd
+        03fe43e1e0808c17d536f69698039a6b
+        df358e202cd5d6e9994fcf45eb56cb8c"
+DOWNLOAD_x86_64=""
+MD5SUM_x86_64=""
 REQUIRES=""
 MAINTAINER="K. Eugene Carlson"
 EMAIL="kvngncrlsn@gmail.com"

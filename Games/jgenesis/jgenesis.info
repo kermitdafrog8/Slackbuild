@@ -1,0 +1,12 @@
+PRGNAM="jgenesis"
+VERSION="0.10.1"
+HOMEPAGE="https://github.com/jsgroth/jgenesis"
+DOWNLOAD="https://github.com/jsgroth/jgenesis/archive/v0.10.1/jgenesis-0.10.1.tar.gz
+          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/jgenesis-vendored-sources-0.10.1.tar.gz"
+MD5SUM="92ccc96325c573259bff59a901640362
+        94c9ff8254a7fd3d60831585615108fb"
+DOWNLOAD_x86_64=""
+MD5SUM_x86_64=""
+REQUIRES=""
+MAINTAINER="Christopher Luck"
+EMAIL="kermitdafrog8@gmail.com"

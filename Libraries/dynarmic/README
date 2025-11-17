@@ -1,0 +1,8 @@
+Fast dynamic binary translation via Just-in-Time compilation
+Clean API
+Implemented in modern C++20
+Hooks exposed for easy code instrumentation
+Code injection support for very fine-grained instrumentation
+Support for unusual address space setups (bring-your-own memory
+system)
+
