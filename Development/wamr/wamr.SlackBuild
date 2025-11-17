@@ -105,7 +105,7 @@ cd build
   make install/strip DESTDIR=$PKG
 
 mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}
-install -Dm 0644 libiwasm.so.2.3.1 $PKG/usr/lib${LIBDIRSUFFIX}
+install -Dm 0755 libiwasm.so.2.3.1 $PKG/usr/lib${LIBDIRSUFFIX}
 
 if [ "$LIBDIRSUFFIX" = "64" ]; then 
 	cp -R $PKG/usr/lib/cmake/iwasm/ $PKG/usr/lib${LIBDIRSUFFIX}/cmake
@@ -127,7 +127,7 @@ cp -a ATTRIBUTIONS.md CODE_OF_CONDUCT.md CONTRIBUTING.md LICENSE ORG_CODE_OF_CON
 cp -a doc $PKG/usr/doc/$PRGNAM-$VERSION
 chmod 0755 $PKG/usr/doc/$PRGNAM-$VERSION/doc
 cp -a samples $PKG/usr/doc/$PRGNAM-$VERSION
-chmod 0755 -R $PKG/usr/doc/$PRGNAM-$VERSION/samples
+chmod 0444 -R $PKG/usr/doc/$PRGNAM-$VERSION/samples
 
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 

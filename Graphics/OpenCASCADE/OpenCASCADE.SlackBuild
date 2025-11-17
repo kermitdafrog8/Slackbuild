@@ -32,9 +32,9 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=OpenCASCADE
 SRCNAM=OCCT
-VERSION=${VERSION:-7.8.1}
-SRCV=7_8_1
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-7.9.2}
+SRCV=7_9_2
+BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
@@ -67,6 +67,9 @@ elif [ "$ARCH" = "i686" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC -fpermissive"
   LIBDIRSUFFIX="64"
+elif [ "$ARCH" = "aarch64" ]; then
+  SLKCFLAGS="-O2 -fPIC -fpermissive"
+  LIBDIRSUFFIX="64"
 else
   SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
@@ -88,7 +91,7 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 #patch -p1 < $CWD/occt.git-7f523af8e8a63ee17d8fc26f107c191cd51dcd44.patch
-patch -p1 < $CWD/slackware-ffmpeg.patch
+#patch -p1 < $CWD/slackware-ffmpeg.patch
 sed -i -e '/#include <iostream>/a#include <limits>' src/ViewerTest/ViewerTest_CmdParser.cxx
 
 # Fix bogus install path
@@ -121,7 +124,7 @@ cd build
     -DUSE_GL2PS=ON \
     -DUSE_TBB=ON \
     -DUSE_VTK=ON \
-    -D3RDPARTY_VTK_INCLUDE_DIR=/usr/include/vtk-9.4 \
+    -D3RDPARTY_VTK_INCLUDE_DIR=/usr/include/vtk-9.5 \
     -D3RDPARTY_VTK_LIBRARY_DIR=/usr/lib${LIBDIRSUFFIX} ..
 
   make -j1

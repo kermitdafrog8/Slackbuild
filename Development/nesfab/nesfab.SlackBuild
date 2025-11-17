@@ -2,7 +2,7 @@
 
 # Slackware build script for nesfab
 
-# Copyright 2023-2025 Christopher Luck Orlando, FL
+# Copyright 2023 Christopher Luck Orlando, FL
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=nesfab
-VERSION=${VERSION:-1.8}
+VERSION=${VERSION:-1.7}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-txz}

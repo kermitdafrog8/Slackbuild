@@ -81,6 +81,8 @@ sed -i 's,-groff.*,roff2pdf -K utf8 md2roff.1 > md2roff.1.pdf,' Makefile
 # all, it just insists the variable has to be set). So:
 export DISPLAY=${DISPLAY:-no_such_display}
 
+ln -s /usr/bin/pdfroff /usr/bin/roff2pdf
+
 make install \
   CFLAGS="$SLKCFLAGS" \
   prefix=/usr \
@@ -99,6 +101,7 @@ ln -s ../../man/man1/$PRGNAM.1.gz $PKGDOC/$PRGNAM.1.gz
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/douninst.sh > $PKG/install/douninst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE

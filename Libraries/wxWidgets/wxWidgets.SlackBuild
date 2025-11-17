@@ -166,8 +166,8 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
 install -Dm644 wxwin.m4 -t $PKG/usr/share/aclocal
 
 # wxWidgets 3.2 provides 2 wx-configs, but we will use GTK by default
-gtk=gtk3-unicode-3.2
-qt=qt-unicode-3.2
+gtk=gtk3-unicode-3.3
+qt=qt-unicode-3.3
 
 if [ "${INTERFACE:-gtk3}" = "qt" ]; then
   ln -sf ../lib${LIBDIRSUFFIX}/wx/config/$qt $PKG/usr/bin/wx-config

@@ -1,57 +1,52 @@
 #!/bin/bash
-#
+
 # Slackware build script for mbedtls
-#
-# Copyright 2020-2023 Corrado Franco (https://corradofranco.it)
+
+# Copyright 2015 Euan Thoms (euan at potensol dot com)
+# Copyright 2019-2020 Hunter Sezen California, USA
 # All rights reserved.
 #
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version, with the following exception:
-# the text of the GPL license may be omitted.
-
-# This program is distributed in the hope that it will be useful, but
-# without any warranty; without even the implied warranty of
-# merchantability or fitness for a particular purpose. Compiling,
-# interpreting, executing or merely reading the text of the program
-# may result in lapses of consciousness and/or very being, up to and
-# including the end of all existence and the Universe as we know it.
-# See the GNU General Public License for more details.
-
-# You may have received a copy of the GNU General Public License along
-# with this program (most likely, a file named COPYING).  If not, see
-# <http://www.gnu.org/licenses/>.
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
 #
-# Latest version of this SlackBuild at https://github.com/conraid/SlackBuilds
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ''AS IS'' AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+# EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-set -eu
+# 20220422 bkw: Modified by SlackBuilds.org: fix PRINT_PACKAGE_NAME.
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PKGNAM=mbedtls
-VERSION=3.6.3.1
+PRGNAM=mbedtls
+VERSION=${VERSION:-2.16.8}
 BUILD=${BUILD:-1}
-TAG=${TAG:-cf}
-TMP=${TMP:-/tmp/pkg}
-PKG=$TMP/package-$PKGNAM
+TAG=${TAG:-_SBo}
+PKGTYPE=${PKGTYPE:-tgz}
+
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-DOCFILES="ChangeLog LICENSE *.md"
-
-if [ -z ${ARCH:=""} ]; then
+if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
-    i?86) ARCH=i686 ;;
+    i?86) ARCH=i586 ;;
     arm*) ARCH=arm ;;
        *) ARCH=$( uname -m ) ;;
   esac
 fi
 
-# If the variable PRINT_PACKAGE_NAME is set, then this script will report what
-# the name of the created package would be, and then exit. This information
-# could be useful to other scripts.
-if [ ! -z "${PRINT_PACKAGE_NAME:-""}" ]; then
-  echo "$PKGNAM-$VERSION-$ARCH-$BUILD.txz "
+if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
+  echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
   exit 0
 fi
 
@@ -62,87 +57,50 @@ elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
   LIBDIRSUFFIX=""
 elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2 -fPIC -pipe -fomit-frame-pointer"
+  SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
 else
   SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
 fi
 
+set -eu
+
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PKGNAM-$VERSION
-tar xvf $CWD/$PKGNAM-$VERSION.tar.bz2
-cd $PKGNAM-$VERSION
-
+rm -rf $PRGNAM-$PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$PRGNAM-$VERSION.tar.gz
+cd $PRGNAM-$PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
-  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-  -exec chmod 755 {} \; -o \
-  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-  -exec chmod 644 {} \;
+ \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
+  -o -perm 511 \) -exec chmod 755 {} \+ -o \
+ \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \+
 
-# Apply patches
-if [ -e $CWD/patches ]; then
-  if [ -e $CWD/patches/series ]; then
-    for PATCH in $(cat $CWD/patches/series); do
-      patch -p1 -i $CWD/patches/$PATCH
-    done
-  else
-    for PATCH in $CWD/patches/*.patch; do
-      patch -p1 -i $PATCH
-    done
-  fi
-fi
-
-# enable flags for non-embedded systems
-sed 's|//\(#define MBEDTLS_THREADING_C\)|\1|' -i include/mbedtls/mbedtls_config.h
-sed 's|//\(#define MBEDTLS_THREADING_PTHREAD\)|\1|' -i include/mbedtls/mbedtls_config.h
-# broken in 2.25.0
-sed -i 's/thread_id, -ret/thread_id, (unsigned int)(-ret)/' programs/ssl/ssl_pthread_server.c
-sed -i 's/thread_id, ret/thread_id, (unsigned int)ret/' programs/ssl/ssl_pthread_server.c
-sed -i 's/ -ret );/ (unsigned int)(-ret) );/' programs/ssl/ssl_pthread_server.c
-sed -i 's/ -ret, error_buf/ (unsigned int)(-ret), error_buf/' programs/ssl/ssl_pthread_server.c
-sed -i 's/04x\\n", ret /04x\\n", (unsigned int)ret /' programs/ssl/ssl_pthread_server.c
-
-mkdir -p build
+mkdir build
 cd build
-cmake -Wno-dev \
-  -DCMAKE_C_FLAGS_RELEASE:STRING="$SLKCFLAGS -DNDEBUG" \
-  -DCMAKE_BUILD_TYPE=Release \
-  -DCMAKE_INSTALL_PREFIX=/usr \
-  -DLIB_INSTALL_DIR=/usr/lib${LIBDIRSUFFIX} \
-  -DCMAKE_SKIP_RPATH=ON \
-  -DUSE_SHARED_MBEDTLS_LIBRARY=ON \
-  -DUSE_STATIC_MBEDTLS_LIBRARY=OFF \
-  -DENABLE_TESTING=OFF \
-  ..
-
-make
-make DESTDIR=$PKG install
+  cmake \
+    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DLIB_INSTALL_DIR=lib${LIBDIRSUFFIX} \
+    -DUSE_SHARED_MBEDTLS_LIBRARY=ON \
+    -DUSE_STATIC_MBEDTLS_LIBRARY=OFF \
+    -DENABLE_TESTING=OFF \
+    -DCMAKE_SKIP_RPATH=TRUE \
+    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+    -DCMAKE_BUILD_TYPE=Release ..
+  make
+  make install/strip DESTDIR=$PKG
 cd ..
 
-# Don't ship .la files:
-rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
-
-find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF | cut -f 1 -d : | xargs -r strip --strip-unneeded 2> /dev/null || true
-find $PKG | xargs file | grep "current ar archive" | cut -f 1 -d : | xargs -r strip -g 2> /dev/null || true
-
-if [ -d $PKG/usr/man ]; then
-  find $PKG/usr/man -type f -exec chmod 644 {} \; -exec gzip -9 {} \;
-  for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-fi
-
-mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
-cp -a $DOCFILES $PKG/usr/doc/$PKGNAM-$VERSION || true
-cat $CWD/$PKGNAM.SlackBuild > $PKG/usr/doc/$PKGNAM-$VERSION/$PKGNAM.SlackBuild
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a CONTRIBUTING.md ChangeLog LICENSE README.md $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-if [ -e $CWD/slack-required ]; then
-  cat $CWD/slack-required > $PKG/install/slack-required
-fi
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PKGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
