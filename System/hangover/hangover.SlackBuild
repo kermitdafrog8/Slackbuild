@@ -86,7 +86,7 @@ mkdir -p wine/build
 cd wine/build
 export PATH=/opt/llvm-mingw/bin:$PATH
 ../configure --prefix=/usr --disable-tests --with-mingw=clang --enable-archs=arm64ec,aarch64,i386
-make -j10
+make 
 make install DESTDIR=$PKG
 cd ..
 
