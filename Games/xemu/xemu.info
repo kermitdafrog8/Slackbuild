@@ -5,6 +5,6 @@ DOWNLOAD="https://github.com/xemu-project/xemu/releases/download/v0.8.108/src.ta
 MD5SUM="c660a3f8069bb5ffc4c8828b1d0c5f38"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="alabaster python3-virtualenv libslirp"
+REQUIRES="alabaster python3-virtualenv libslirp python3-distlib"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
