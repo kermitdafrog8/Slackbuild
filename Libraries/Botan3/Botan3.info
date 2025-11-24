@@ -1,4 +1,4 @@
-PRGNAM="Botan"
+PRGNAM="Botan3"
 VERSION="3.10.0"
 HOMEPAGE="https://botan.randombit.net/"
 DOWNLOAD="https://botan.randombit.net/releases/Botan-3.10.0.tar.xz"

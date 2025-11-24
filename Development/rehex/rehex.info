@@ -5,6 +5,6 @@ DOWNLOAD="https://github.com/solemnwarning/rehex/archive/0.62.1/rehex-0.62.1.tar
 MD5SUM="ab8fc438d19e9905f60af415955cea2e"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="wxLua webkit2gtk lua Botan capstone"
+REQUIRES="wxLua webkit2gtk lua Botan2 capstone"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
