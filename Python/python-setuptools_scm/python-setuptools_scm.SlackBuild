@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright 2021  Patrick J. Volkerding, Sebeka, MN, USA
+# Copyright 2021, 2024  Patrick J. Volkerding, Sebeka, MN, USA
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -29,7 +29,7 @@ BUILD=${BUILD:-1}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
-    i?86) ARCH=i586 ;;
+    i?86) ARCH=i686 ;;
     arm*) ARCH=arm ;;
        *) ARCH=$( uname -m ) ;;
   esac
@@ -60,19 +60,21 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \+
 
-python3 setup.py install --root=$PKG || exit 1
+unshare -n python3 -m build --wheel --no-isolation || exit 1
+
+python3 -m installer --destdir "$PKG" dist/*.whl || exit 1
 
 mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
-cp -a *.rst LICENSE* NOTICE PKG-INFO README* \
+cp -a *.md LICENSE* PKG-INFO* README* docs \
   $PKG/usr/doc/$PKGNAM-$VERSION
 find $PKG/usr/doc/$PKGNAM-$VERSION -type f -exec chmod 0644 {} \+
 
-# If there's a HISTORY.rst, installing at least part of the recent history
+# If there's a CHANGELOG.md, installing at least part of the recent history
 # is useful, but don't let it get totally out of control:
-if [ -r HISTORY.rst ]; then
+if [ -r CHANGELOG.md ]; then
   DOCSDIR=$(echo $PKG/usr/doc/${PKGNAM}-$VERSION)
-  cat HISTORY.rst | head -n 1000 > $DOCSDIR/HISTORY.rst
-  touch -r HISTORY.rst $DOCSDIR/HISTORY.rst
+  cat CHANGELOG.md | head -n 1000 > $DOCSDIR/CHANGELOG.md
+  touch -r CHANGELOG.md $DOCSDIR/CHANGELOG.md
 fi
 
 mkdir -p $PKG/install
