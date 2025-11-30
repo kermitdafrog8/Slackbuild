@@ -6,10 +6,6 @@ Collection of my Slackbuild scripts.
 All scripts built using sbo-create (https://dslackw.gitlab.io/sbo-create) and I do not care if
 someone decides to rip these scripts and submit to the SBo site as maintainer.
 
-[abseil-cpp](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/abseil-cpp) - 
-Abseil is an open-source collection of C++ code (compliant to C++14)
-designed to augment the C++ standard library.
-
 [c-blosc](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/c-blosc) - 
 Blosc is a high performance compressor optimized for binary data<br>
 
@@ -31,10 +27,6 @@ applications.<br>
 
 [importlib2](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/importlib2) - 
 A complete backport to 2.7 (and 3.x) of the ``importlib`` package from Python 3<br>
-
-[jansson](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/jansson) - 
-Jansson is a C library for encoding, decoding and manipulating
-JSON data.<br>
 
 [kddockwidgets](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/kddockwidgets) - 
 KDDockWidgets is a Qt dock widget library written by KDAB, suitable for replacing
