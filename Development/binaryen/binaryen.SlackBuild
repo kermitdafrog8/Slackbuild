@@ -91,6 +91,7 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
+    -DENABLE_WERROR=OFF \
     -DBUILD_TESTS=OFF \
     -DCMAKE_BUILD_TYPE=Release ..
   make
