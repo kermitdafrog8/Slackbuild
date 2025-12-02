@@ -31,7 +31,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=Botan
-VERSION=${VERSION:-3.10.0}
+VERSION=${VERSION:-3.9.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -86,7 +86,7 @@ find -L . \
   \! -perm /111 -a \! -perm 644 -a -exec chmod 644 {} +
 
 TPMFLAG=""
-if [ "${TPM:-NO}" = 'YES' ]; then
+if [ "${TPM:-YES}" = 'NO' ]; then
   TPMFLAG="--with-tpm"
 fi
 
