@@ -1,7 +1,7 @@
 PRGNAM="kicad-doc"
 VERSION="8.0.0"
 HOMEPAGE="http://kicad-pcb.org/"
-DOWNLOAD="UNSUPPORTED"
+DOWNLOAD=""
 MD5SUM=""
 DOWNLOAD_x86_64="https://gitlab.com/kicad/services/kicad-doc/-/archive/8.0.0/kicad-doc-8.0.0.tar.gz
                  https://sourceforge.net/projects/slackbuildsdirectlinks/files/asciidoctor-web-pdf/asciidoctor-web-pdf-64bit-20230721.tar.gz"
