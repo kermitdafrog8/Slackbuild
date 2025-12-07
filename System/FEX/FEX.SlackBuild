@@ -73,12 +73,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$PRGNAM-$VERSION
-
-if [ -e $CWD/$PRGNAM-$VERSION ]; then
-  tar -xJvf $CWD/$PRGNAM-$VERSION.tar.xz
-else 
-  tar -xJvf $CWD/$PRGNAM-$PRGNAM-$VERSION.tar.xz
-fi
+tar -xvf $CWD/$PRGNAM-$VERSION.tar.xz
 cd $PRGNAM-$PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
