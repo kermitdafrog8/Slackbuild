@@ -75,9 +75,9 @@ cd $TMP
 rm -rf $PRGNAM-$PRGNAM-$VERSION
 
 if [ -e $CWD/$PRGNAM-$VERSION ]; then
-  tar xvf $CWD/$PRGNAM-$VERSION.tar.xz
+  tar -xJvf $CWD/$PRGNAM-$VERSION.tar.xz
 else 
-  tar xvf $CWD/$PRGNAM-$PRGNAM-$VERSION.tar.xz
+  tar -xJvf $CWD/$PRGNAM-$PRGNAM-$VERSION.tar.xz
 fi
 cd $PRGNAM-$PRGNAM-$VERSION
 chown -R root:root .
