@@ -5,6 +5,6 @@ DOWNLOAD="https://slackware.uk/sbosrcarch/by-name/graphics/dblatex/dblatex3-0.3.
 MD5SUM="550adafd078432ff144b57d90c647714"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-wheel python3-build texlive-extra importlib2 python3-flit_core python3-installer python3-pyproject-hooks"
+REQUIRES="importlib2"
 MAINTAINER="Vincent Batts"
 EMAIL="vbatts@hashbangbash.com"
