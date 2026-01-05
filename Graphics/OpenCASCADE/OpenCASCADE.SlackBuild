@@ -119,7 +119,7 @@ cd build
     -DINSTALL_DIR_INCLUDE=lib${LIBDIRSUFFIX}/include/opencascade \
     -DINSTALL_DIR_BIN=bin \
     -DUSE_GLES2=ON \
-    -DUSE_FFMPEG=ON \
+    -DUSE_FFMPEG=OFF \
     -DUSE_FREEIMAGE=ON \
     -DUSE_GL2PS=ON \
     -DUSE_TBB=ON \
@@ -140,7 +140,7 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  LICENSE_LGPL_21.txt OCCT_LGPL_EXCEPTION.txt README.txt \
+  LICENSE_LGPL_21.txt OCCT_LGPL_EXCEPTION.txt README.md \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
