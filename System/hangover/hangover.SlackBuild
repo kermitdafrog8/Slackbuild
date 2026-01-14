@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=hangover
-VERSION=${VERSION:-10.18}
+VERSION=${VERSION:-11.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -85,8 +85,41 @@ find -L . \
 mkdir -p wine/build
 cd wine/build
 export PATH=/opt/llvm-mingw/bin:$PATH
-../configure --prefix=/usr --disable-tests --with-mingw=clang --enable-archs=arm64ec,aarch64,i386
-make -j10
+../configure --disable-tests --with-mingw=clang --enable-archs=arm64ec,aarch64,i386
+make -j$(nproc)
+make install DESTDIR=$PKG
+cd ..
+
+mkdir -p fex/build_ec
+cd fex/build_ec
+export PATH=/opt/llvm-mingw/bin:$PATH
+  cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+	-DCMAKE_TOOLCHAIN_FILE=../Data/CMake/toolchain_mingw.cmake \
+	-DENABLE_LTO=False -DMINGW_TRIPLE=arm64ec-w64-mingw32 \
+	-DBUILD_TESTS=False ..
+make -j$(nproc) arm64ecfex
+make install DESTDIR=$PKG
+cd ..
+
+mkdir -p fex/build_pe
+cd fex/build_pe
+export PATH=/opt/llvm-mingw/bin:$PATH
+  cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+	-DCMAKE_TOOLCHAIN_FILE=../Data/CMake/toolchain_mingw.cmake \
+	-DENABLE_LTO=False \
+	-DMINGW_TRIPLE=aarch64-w64-mingw32 \
+	-DBUILD_TESTS=False ..
+make -j$(nproc) wow64fex
+make install DESTDIR=$PKG
+cd ..
+
+mkdir -p box64/build_pe
+cd box64/build_pe
+export PATH=/opt/llvm-mingw/bin:$PATH
+  cmake -DCMAKE_BUILD_TYPE=Release \
+	-DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc \
+	-DARM_DYNAREC=ON -DWOW64=ON ..
+make -j$(nproc) wowbox64
 make install DESTDIR=$PKG
 cd ..
 
