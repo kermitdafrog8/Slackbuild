@@ -99,7 +99,7 @@ export PATH=/opt/llvm-mingw/bin:$PATH
 	-DBUILD_TESTS=False ..
 make -j$(nproc) arm64ecfex
 make install DESTDIR=$PKG
-cd ..
+cd ../..
 
 mkdir -p fex/build_pe
 cd fex/build_pe
@@ -111,7 +111,7 @@ export PATH=/opt/llvm-mingw/bin:$PATH
 	-DBUILD_TESTS=False ..
 make -j$(nproc) wow64fex
 make install DESTDIR=$PKG
-cd ..
+cd ../..
 
 mkdir -p box64/build_pe
 cd box64/build_pe
@@ -121,7 +121,7 @@ export PATH=/opt/llvm-mingw/bin:$PATH
 	-DARM_DYNAREC=ON -DWOW64=ON ..
 make -j$(nproc) wowbox64
 make install DESTDIR=$PKG
-cd ..
+cd ../..
 
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
