@@ -27,9 +27,8 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wine
-VERSION=${VERSION:-10.14}
-#ARCHS="i386,x86_64"
-ARCHS="aarch64"
+VERSION=${VERSION:-11.0}
+ARCHS="i386,x86_64"
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -202,12 +201,12 @@ cp $CWD/wine.menu $PKG/etc/xdg/menus/applications-merged
 # Add a desktop menu for winecfg, wine-uninstaller and wine-browsedrive:
 mkdir -p $PKG/usr/share/{applications,icons/hicolor/scalable/apps,pixmaps}
 
-convert $CWD/wine.svg -scale 64 $PKG/usr/share/pixmaps/wine.png
+#convert $CWD/wine.svg -scale 64 $PKG/usr/share/pixmaps/wine.png
 cp $CWD/wine.svg $PKG/usr/share/icons/hicolor/scalable/apps/
 
-convert $CWD/winecfg.png -scale 64 $PKG/usr/share/pixmaps/winecfg.png
-convert $CWD/winecfg.png -scale 64 $PKG/usr/share/pixmaps/folder-wine.png
-convert $CWD/winecfg.png -scale 64 $PKG/usr/share/pixmaps/wine-uninstaller.png
+#convert $CWD/winecfg.png -scale 64 $PKG/usr/share/pixmaps/winecfg.png
+#convert $CWD/winecfg.png -scale 64 $PKG/usr/share/pixmaps/folder-wine.png
+#convert $CWD/winecfg.png -scale 64 $PKG/usr/share/pixmaps/wine-uninstaller.png
 
 cp programs/winecfg/winecfg.svg $PKG/usr/share/icons/hicolor/scalable/apps/
 cp $CWD/*.desktop $PKG/usr/share/applications/
