@@ -95,7 +95,7 @@ cd build
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   make
-  make install DESTDIR=$PKG
+  make install/strip DESTDIR=$PKG
 mkdir -p $PKG/usr/man/man3
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/html
 cp -a doc/man/man3/*.3 $PKG/usr/man/man3
@@ -103,6 +103,8 @@ cp -a doc/html/* $PKG/usr/doc/$PRGNAM-$VERSION/html
 cd ..
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
+
+patchelf --remove-rpath $PKG/usr/site-packages/_ftdi.so
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
