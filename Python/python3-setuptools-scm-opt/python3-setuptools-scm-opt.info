@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/7b/b1/19587742aad604f1988a8a36
 MD5SUM="72975fc3ec40a1ae06bb2d86ca8ac48d"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-typing-extensions python3-rich python-importlib_metadata"
+REQUIRES="python3-typing-extensions python3-rich"
 MAINTAINER="fourtysixandtwo"
 EMAIL="fourtysixandtwo@sliderr.net"
