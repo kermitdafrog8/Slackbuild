@@ -25,8 +25,8 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=Catch2
-VERSION=${VERSION:-3.5.4}
-DOCS=${DOCS:-OFF}
+VERSION=${VERSION:-3.13.0}
+DOCS=${DOCS:-ON}
 EXTRAS=${EXTRAS:-ON}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
