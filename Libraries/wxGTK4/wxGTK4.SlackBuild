@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for wxGTK3
+# Slackware build script for wxGTK4
 
 # Copyright 2013-2021 Willy Sudiarto Raharjo <willysr@slackbuilds.org>
 # All rights reserved.
@@ -35,7 +35,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wxGTK4
-VERSION=${VERSION:-3.2.8}
+VERSION=${VERSION:-3.3.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
