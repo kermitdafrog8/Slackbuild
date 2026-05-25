@@ -2,7 +2,7 @@
 
 # Slackware build script for shiboken2
 
-# Copyright 2023-2025 Christoph Willing,  Sydney Australia
+# Copyright 2023-2026 Christoph Willing,  Sydney Australia
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -28,8 +28,8 @@ PRGNAM=shiboken2
 VERSION=${VERSION:-5.15.18}
 SRCNAM=pyside-setup-opensource-src
 SRCNAM_PATCHES=pyside2
-SRCNAM_PATCHES_VERSION=5.15.16-3.1
-BUILD=${BUILD:-2}
+SRCNAM_PATCHES_VERSION=5.15.18-1
+BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
 
@@ -85,9 +85,9 @@ rm -rf $SRCNAM-$VERSION
 tar xvf $CWD/$SRCNAM-$VERSION.tar.xz
 cd $SRCNAM-$VERSION/
 
-#tar xvf $CWD/${SRCNAM_PATCHES}_${SRCNAM_PATCHES_VERSION}.debian.tar.xz
-#while read -r patch ; do patch -Np1 -i debian/patches/$patch ; done <debian/patches/series
-#patch -Np1 < $CWD/Modify-sendCommand-signatures.patch
+tar xvf $CWD/${SRCNAM_PATCHES}_${SRCNAM_PATCHES_VERSION}.debian.tar.xz
+while read -r patch ; do patch -Np1 -i debian/patches/$patch ; done <debian/patches/series
+patch -Np1 < $CWD/Modify-sendCommand-signatures.patch
 sed -i -e 's:#!/usr/bin/env python:#!/usr/bin/env/python3:' sources/shiboken2/shiboken_tool.py
 
 chown -R root:root .
