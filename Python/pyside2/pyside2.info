@@ -7,6 +7,6 @@ MD5SUM="ec63438b7b253574a1524e0d18f09415
         679e3e345aa69e14e8b1721e4dfb73d3"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="shiboken2 python3-numpy"
+REQUIRES="shiboken2"
 MAINTAINER="Christoph Willing"
 EMAIL="chris.willing@linux.com"

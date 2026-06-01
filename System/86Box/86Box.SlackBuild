@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=86Box
-VERSION=${VERSION:-5.3}
+VERSION=${VERSION:-3.11}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -90,7 +90,6 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
-    -DUSE_QT6=ON \
     -DCMAKE_BUILD_TYPE=Release ..
   make
   make install/strip DESTDIR=$PKG
@@ -102,12 +101,14 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-#find $PKG/usr/man -type f -exec gzip -9 {} \;
-#for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+mkdir -p $PKG//usr/share/86Box/roms/
+tar xvf $CWD/roms-3.11.tar.gz -C $PKG/usr/share/86Box/roms
+cp -R $PKG/usr/share/86Box/roms/roms-3.11/* $PKG/usr/share/86Box/roms
+rm -R $PKG/usr/share/86Box/roms/roms-3.11
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a AUTHORS COPYING *.md $PKG/usr/doc/$PRGNAM-$VERSION
-cp -r doc/ $PKG/usr/doc/$PRGNAM-$VERSION
+#cp -r doc/ $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install

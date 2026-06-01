@@ -2,7 +2,7 @@
 
 # Slackware build script for pyside2
 
-# Copyright 2021-2025 Christoph Willing,   Sydney Australia
+# Copyright 2021-2026 Christoph Willing,   Sydney Australia
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -28,7 +28,7 @@ PRGNAM=pyside2
 SRCNAM=pyside-setup-opensource-src
 VERSION=${VERSION:-5.15.18}
 SRCNAM_PATCHES=pyside2
-SRCNAM_PATCHES_VERSION=5.15.16-3.1
+SRCNAM_PATCHES_VERSION=5.15.18-1
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -60,7 +60,7 @@ elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
   LIBDIRSUFFIX=""
 elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2 -fPIC"
+  SLKCFLAGS="-O2 -fPIC -fpermissive"
   LIBDIRSUFFIX="64"
 else
   SLKCFLAGS="-O2"
@@ -81,8 +81,8 @@ rm -rf $SRCNAM-${VERSION%.*}
 tar xvf $CWD/$SRCNAM-$VERSION.tar.xz
 cd $SRCNAM-${VERSION}
 
-#tar xvf $CWD/${SRCNAM_PATCHES}_${SRCNAM_PATCHES_VERSION}.debian.tar.xz
-#while read -r patch ; do patch -Np1 -i debian/patches/$patch ; done <debian/patches/series
+tar xvf $CWD/${SRCNAM_PATCHES}_${SRCNAM_PATCHES_VERSION}.debian.tar.xz
+while read -r patch ; do patch -Np1 -i debian/patches/$patch ; done <debian/patches/series
 #patch -Np1 < $CWD/Modify-sendCommand-signatures.patch
 
 chown -R root:root .
@@ -92,11 +92,24 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+if [ -x /usr/bin/numpy-config ]; then
+  SLKCFLAGS="$SLKCFLAGS $(/usr/bin/numpy-config --cflags)"
+fi
+
 mkdir -p build
 cd build
+
+# Install the compiler wrapper that fixes shiboken2-generated wrapper files.
+# shiboken2 5.15.x incorrectly substitutes wrong Qt enum types during code
+# generation when built against modern gcc/Python. The wrapper intercepts
+# compilation of affected files and patches them before g++ sees them.
+# See cxx_wrapper.sh for the full list of affected files and type mappings.
+install -m 755 $CWD/cxx_wrapper.sh /tmp/cxx_wrapper.sh
+
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_CXX_COMPILER=/tmp/cxx_wrapper.sh \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_INSTALL_DIR=lib64 \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
@@ -104,7 +117,9 @@ cd build
     -DUSE_PYTHON_VERSION=$PYTHON_VERSION \
     -DBUILD_TESTS=OFF \
     -DCMAKE_BUILD_TYPE=Release ..
-  cmake --build sources/$PRGNAM
+  JOBS=${JOBS:-$(nproc)}
+  cmake --build sources/$PRGNAM -j$JOBS
+  #cmake --build sources/$PRGNAM
   DESTDIR=$PKG cmake --install sources/$PRGNAM
 cd ..
 python setup.py egg_info --build-type=pyside2
