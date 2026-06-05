@@ -32,10 +32,6 @@ applications.<br>
 [importlib2](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/importlib2) - 
 A complete backport to 2.7 (and 3.x) of the ``importlib`` package from Python 3<br>
 
-[jansson](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/jansson) - 
-Jansson is a C library for encoding, decoding and manipulating
-JSON data.<br>
-
 [kddockwidgets](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/kddockwidgets) - 
 KDDockWidgets is a Qt dock widget library written by KDAB, suitable for replacing
 QDockWidget and implementing advanced functionalities missing in Qt.<br>
