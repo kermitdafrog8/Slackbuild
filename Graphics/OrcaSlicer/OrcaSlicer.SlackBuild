@@ -82,6 +82,10 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+# Removing system requirements from Boost for 1.90+
+sed -i '386 s/system;//g' CMakeLists.txt
+sed -i '386 s/filethread;//g' CMakeLists.txt
+
 mkdir -p build
 cd build
   cmake \
