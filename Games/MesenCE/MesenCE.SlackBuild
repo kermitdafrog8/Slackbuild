@@ -86,7 +86,7 @@ make
 
 mkdir -p $PKG/opt/$PRGNAM-$VERSION
 cp -R bin/linux-x64/Release $PKG/opt/$PRGNAM-$VERSION
-rm -R $PKG/opt/$PRGNAM-$VERSION/linux-x64
+rm -R $PKG/opt/$PRGNAM-$VERSION/bin/linux-x64/Release/linux-x64
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
