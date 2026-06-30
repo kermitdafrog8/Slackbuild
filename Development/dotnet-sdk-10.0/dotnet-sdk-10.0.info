@@ -1,0 +1,12 @@
+PRGNAM="dotnet-sdk-9.0"
+VERSION="10.0.301"
+HOMEPAGE="https://dotnet.microsoft.com/"
+DOWNLOAD="https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.301/dotnet-sdk-10.0.301-linux-x64.tar.gz
+          https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.301/dotnet-sdk-10.0.301-linux-arm64.tar.gz"
+MD5SUM="8830de6939200785eacf767ad006d684 \
+  63ddfc27d4ac7be645d532d9f406d851"
+DOWNLOAD_x86_64=""
+MD5SUM_x86_64=""
+REQUIRES=""
+MAINTAINER="Reza Talebi"
+EMAIL="reza.talebi.73@outlook.com"
