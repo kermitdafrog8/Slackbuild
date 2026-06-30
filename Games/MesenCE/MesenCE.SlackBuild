@@ -89,7 +89,7 @@ cp -a bin/linux-x64/Release/* $PKG/opt/$PRGNAM-$VERSION
 rm -R $PKG/opt/$PRGNAM-$VERSION/linux-x64
 
 mkdir -p $PKG/usr/share/applications
-cp $PWD/MesenCE.desktop $PKG/usr/share/applications
+cp $CWD/MesenCE.desktop $PKG/usr/share/applications
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
