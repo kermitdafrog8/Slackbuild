@@ -1,8 +1,10 @@
 PRGNAM="86Box"
-VERSION="5.2"
+VERSION="3.11"
 HOMEPAGE="https://86box.net/"
-DOWNLOAD="https://github.com/86Box/86Box/archive/v5.2/86Box-5.2.tar.gz"
-MD5SUM="4c783b9cb196698436406267fe95af98"
+DOWNLOAD="https://github.com/86Box/86Box/archive/v3.11/86Box-3.11.tar.gz
+          https://github.com/86Box/roms/archive/v3.11/roms-3.11.tar.gz"
+MD5SUM="b438c09126a3cd5eadc6c08de4a956ae
+        8897725fc340dadefe291ac867334d8c"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES="rtmidi"
