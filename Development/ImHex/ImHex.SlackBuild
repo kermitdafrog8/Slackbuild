@@ -68,7 +68,9 @@ else
   LIBDIRSUFFIX=""
 fi
 
-OFFLINE="-DIMHEX_OFFLINE_BUILD=ON" # Need to set this up as a user choice
+# OFFLINE="-DIMHEX_OFFLINE_BUILD=ON" # Need to set this up as a user choice
+# No long needed with repackaged source code.
+
 
 set -e
 
@@ -76,9 +78,9 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PKG
-rm -rf $TMP/$PRGNAM
-tar xvf $CWD/Full.Sources.tar.gz
-cd ImHex
+rm -rf $TMP/$PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION.tar.xz
+cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -98,6 +100,8 @@ cd build
     -DUSE_SYSTEM_CAPSTONE=OFF \
     -DIMHEX_ENABLE_LTO=ON \
     -DIMHEX_USE_GTK_FILE_PICKER=ON \
+    -DIMHEX_STRIP_RELEASE=ON \
+    -DIMHEX_PATTERNS_PULL_MASTER=ON \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
