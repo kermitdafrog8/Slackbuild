@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+              |-----handy-ruler------------------------------------------------------|
+container2wasm: container2wasm (Container to WASM converter)
+container2wasm:
+container2wasm: container2wasm is a container-to-wasm image converter that enables
+container2wasm: to run the container on WASM.
+container2wasm:
+container2wasm:
+container2wasm:
+container2wasm:
+container2wasm:
+container2wasm:
+container2wasm:

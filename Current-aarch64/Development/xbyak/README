@@ -1,0 +1,3 @@
+a JIT assembler for x86(IA-32)/x64(AMD64, x86-64) MMX/SSE
+/SSE2/SSE3/SSSE3/SSE4/FPU/AVX/AVX2/AVX-512 by C++ header
+

@@ -1,0 +1,2 @@
+Like Python's ZipFile module, except it works as a generator that provides the
+file in many small chunks. 

@@ -1,0 +1,4 @@
+Asar is an SNES assembler designed for applying patches to existing
+ROM images, or creating new ROM images from scratch. It supports
+65c816, SPC700, and Super FX architectures
+

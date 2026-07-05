@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+            |-----handy-ruler------------------------------------------------------|
+zipstream-ng: zipstream-ng (A modern and easy to use streamable zip file generator)
+zipstream-ng:
+zipstream-ng: A modern and easy to use streamable zip file generator. It can package
+zipstream-ng: and stream many files and folders into a zip on the fly without
+zipstream-ng: needing temporary files or excessive memory. It can also calculate the
+zipstream-ng: the final size of the zip file before streaming it.
+zipstream-ng:
+zipstream-ng:
+zipstream-ng:
+zipstream-ng:
+zipstream-ng:

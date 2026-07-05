@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+     |-----handy-ruler------------------------------------------------------|
+bochs: bochs (Cross Platform x86 Emulator)
+bochs:
+bochs: Bochs is a portable IA-32 (x86) PC emulator written in C++, that
+bochs: runs on most popular platforms. It includes emulation of the Intel
+bochs: x86 CPU, common I/O devices, and a custom BIOS.
+bochs:
+bochs:
+bochs:
+bochs:
+bochs:
+bochs:

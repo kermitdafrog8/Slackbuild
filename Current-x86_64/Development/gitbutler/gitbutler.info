@@ -1,0 +1,12 @@
+PRGNAM="gitbutler"
+VERSION="0.16.10"
+HOMEPAGE="https://gitbutler.com/"
+DOWNLOAD="https://github.com/gitbutlerapp/gitbutler/archive/refs/tags/release/0.16.10.tar.gz
+          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/gitbutler-vendored-sources-0.16.10.tar.xz"
+MD5SUM="3f9418212efadc3444405ab3cc7ff658
+        f99e68412d956b904590628c02c8cc60"
+DOWNLOAD_x86_64=""
+MD5SUM_x86_64=""
+REQUIRES="webkit2gtk4.1"
+MAINTAINER="Christopher Luck"
+EMAIL="kermitdafrog8@gmail.com"

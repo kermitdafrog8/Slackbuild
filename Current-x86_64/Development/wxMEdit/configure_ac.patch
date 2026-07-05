@@ -1,0 +1,26 @@
+13c13
+< ALL_LINGUAS="de_DE es fr_FR it_IT ja_JP pl_PL ru_RU zh_CN zh_TW"
+---
+> ALL_LINGUAS="de_DE es fr_FR it_IT ja_JP pl_PL ru_RU ta zh_CN zh_TW"
+24,25c24,25
+< CXXFLAGS="$CXXFLAGS -std=c++11"
+< AC_MSG_CHECKING([whether -std=c++11 is supported])
+---
+> CXXFLAGS="$CXXFLAGS -std=c++17"
+> AC_MSG_CHECKING([whether -std=c++17 is supported])
+28c28
+< 	[my_cxx11_suported="x"],
+---
+> 	[my_cxx17_suported="x"],
+33c33
+< if test "x$my_cxx11_suported" == "x"; then
+---
+> if test "x$my_cxx17_suported" == "x"; then
+35,36c35,36
+< CXXFLAGS="$CXXFLAGS -std=c++0x"
+< AC_MSG_CHECKING([whether -std=c++0x is supported])
+---
+> CXXFLAGS="$CXXFLAGS -std=c++11"
+> AC_MSG_CHECKING([whether -std=c++11 is supported])
+40a41
+> 	[AC_MSG_ERROR([C++11 support is required])]

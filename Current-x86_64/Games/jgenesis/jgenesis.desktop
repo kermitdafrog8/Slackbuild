@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=jgenesis
+Comment=Sega Genesis / Sega CD / SNES / Master System / Game Gear emulator
+Exec=/usr/bin/jgenesis-gui
+Icon=
+Terminal=false
+Type=Application
+Categories=Game;
+GenericName=

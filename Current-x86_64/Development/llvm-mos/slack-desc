@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+        |-----handy-ruler------------------------------------------------------|
+llvm-mos: llvm-mos (Port of LLVM to the MOS 6502 and related processors)
+llvm-mos:
+llvm-mos: LLVM-MOS is a LLVM fork supporting the MOS 65xx series of
+llvm-mos: microprocessors.
+llvm-mos:
+llvm-mos:
+llvm-mos:
+llvm-mos:
+llvm-mos:
+llvm-mos:
+llvm-mos:

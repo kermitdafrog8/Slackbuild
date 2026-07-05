@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+        |-----handy-ruler------------------------------------------------------|
+quickemu: quickemu (create/run optimised Windows, macOS and Linux desktop VMs)
+quickemu:
+quickemu: Quickly create and run highly optimised desktop virtual machines for
+quickemu: Linux, macOS and Windows; with just two commands. You decide what
+quickemu: operating system you want to run and Quickemu will figure out the
+quickemu: best way to do it for you. For example:
+quickemu:
+quickemu: quickget ubuntu-mate 22.04
+quickemu: quickemu --vm ubuntu-mate-22.04.conf
+quickemu:
+quickemu:

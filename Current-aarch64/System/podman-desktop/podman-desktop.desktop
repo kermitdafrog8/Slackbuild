@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Podman-Desktop
+GenericName=Podman Desktop
+Comment=Podman Desktop is a graphical interface that enables application developers to seamlessly work with containers and Kubernetes.
+Exec=/opt/podman-desktop-1.6.4/podman-desktop
+TryExec=/opt/podman-desktop-1.6.4/podman-desktop
+Icon=/opt/podman-desktop-1.6.4/podman-desktop
+Terminal=false
+Type=Application
+Categories=Utility;

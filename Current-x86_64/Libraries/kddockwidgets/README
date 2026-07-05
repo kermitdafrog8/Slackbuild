@@ -1,0 +1,3 @@
+KDDockWidgets is a Qt dock widget library written by KDAB, suitable for replacing
+QDockWidget and implementing advanced functionalities missing in Qt.
+

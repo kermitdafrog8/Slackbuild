@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+         |-----handy-ruler------------------------------------------------------|
+libdragon: libdragon (Open source library for N64 developtment)
+libdragon:
+libdragon: Libdragon is an open-source SDK for Nintendo 64. It aims for a
+libdragon: complete N64 programming experience while providing programmers
+libdragon: with modern approach to programming and debugging.
+libdragon:
+libdragon:
+libdragon:
+libdragon:
+libdragon:
+libdragon:

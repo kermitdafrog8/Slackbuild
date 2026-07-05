@@ -1,0 +1,4 @@
+Varia is a simple download manager that conforms to the latest
+Libadwaita design guidelines, integrating nicely with GNOME.
+It uses the amazing aria2 to handle the downloads.
+

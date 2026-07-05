@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                |-----handy-ruler------------------------------------------------------|
+python3-docutils: python3-docutils (modular Python documentation format)
+python3-docutils:
+python3-docutils: Docutils is a modular system for processing documentation into
+python3-docutils: useful formats, such as HTML, XML, and LaTeX.  For input Docutils
+python3-docutils: supports reStructuredText, an easy-to-read,
+python3-docutils: what-you-see-is-what-you-get plaintext markup syntax.
+python3-docutils:
+python3-docutils:
+python3-docutils:
+python3-docutils:
+python3-docutils:

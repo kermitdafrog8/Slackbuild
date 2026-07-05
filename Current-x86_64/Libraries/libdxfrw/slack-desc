@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+        |-----handy-ruler------------------------------------------------------|
+libdxfrw: libdxfrw (c++ library to read/write DXF files in binary and ascii)
+libdxfrw:
+libdxfrw: Successor of https://sourceforge.net/projects/libdxfrw/, developed
+libdxfrw: for LibreCAD, by LibreCAD Contributors, usable for all.
+libdxfrw:
+libdxfrw:
+libdxfrw:
+libdxfrw:
+libdxfrw:
+libdxfrw:
+libdxfrw:

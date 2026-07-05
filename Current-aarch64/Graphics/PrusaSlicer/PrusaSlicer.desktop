@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Prusa-Slicer
+Type=Application
+Icon=Prusa-Slicer
+Exec=prusa-slicer
+Categories=Graphics;
+Comment=G-code generator for 3D printers
+

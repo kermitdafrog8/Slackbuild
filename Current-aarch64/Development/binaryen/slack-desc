@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+        |-----handy-ruler------------------------------------------------------|
+binaryen: binaryen (Optimizer and compiler/toolchain library for WebAssembly)
+binaryen:
+binaryen: Binaryen is a compiler and toolchain infrastructure library for
+binaryen: WebAssembly, written in C++. It aims to make compiling to
+binaryen: WebAssembly easy, fast, and effective:
+binaryen:
+binaryen:
+binaryen:
+binaryen:
+binaryen:
+binaryen:
