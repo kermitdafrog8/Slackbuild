@@ -28,7 +28,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=glfw3
 SRCNAM=${PRGNAM%3}
-VERSION=${VERSION:-3.3.8}
+VERSION=${VERSION:-3.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
