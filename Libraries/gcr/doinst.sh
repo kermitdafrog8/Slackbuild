@@ -1,8 +1,0 @@
-( cd usr/lib64 ; rm -rf libgck-2.so )
-( cd usr/lib64 ; ln -sf libgck-2.so.0.0.0 libgck-2.so )
-( cd usr/lib64 ; rm -rf libgck-2.so.0.0.0 )
-( cd usr/lib64 ; ln -sf libgck-2.so.2.0.0 libgck-2.so.0.0.0 )
-( cd usr/lib64 ; rm -rf libgcr-4.so )
-( cd usr/lib64 ; ln -sf libgcr-4.so.0.0.0 libgcr-4.so )
-( cd usr/lib64 ; rm -rf libgcr-4.so.0.0.0 )
-( cd usr/lib64 ; ln -sf libgcr-4.so.4.0.0 libgcr-4.so.0.0.0 )
