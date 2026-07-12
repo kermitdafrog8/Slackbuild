@@ -1,10 +1,10 @@
 PRGNAM="dotnet-runtime-9.0"
-VERSION="9.0.10"
+VERSION="9.0.17"
 HOMEPAGE="https://dotnet.microsoft.com/"
-DOWNLOAD="https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.10/dotnet-runtime-9.0.10-linux-arm64.tar.gz
+DOWNLOAD="https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.17/dotnet-runtime-9.0.17-linux-arm64.tar.gz
           https://builds.dotnet.microsoft.com/dotnet/Runtime/9.0.10/dotnet-runtime-9.0.10-linux-x64.tar.gz"
-MD5SUM="d2bd264efdf1b0cb313a9f8fbbbec421
-        f5ce2a393ec99abdfcb214e21b2da608"
+MD5SUM="2afa0a67af95e7792c4cc88a0dc94c9c \
+  f5ce2a393ec99abdfcb214e21b2da608"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""
