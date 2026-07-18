@@ -78,6 +78,8 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+sed -i '/cmake_minimum_required/s,3\.25,3.21.4,' CMakeLists.txt
+
 mkdir -p build
 cd build
   cmake \
