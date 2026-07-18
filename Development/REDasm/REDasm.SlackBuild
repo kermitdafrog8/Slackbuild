@@ -95,7 +95,7 @@ cd build
   make -j10
   make install/strip DESTDIR=$PKG
 cd ..
-#install -Dm644 REDasm.desktop $PKG/usr/share/applications/REDasm.desktop
+install -Dm644 $CWD/REDasm.desktop $PKG/usr/share/applications/REDasm.desktop
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+NoDisplay=false
+Terminal=false
+Exec=/usr/bin/redasm-gui
+Icon=
+Name=REDasm
+Comment=cross platform disassembler
+Categories=Development
