@@ -1,14 +1,10 @@
 PRGNAM="REDasm"
-VERSION="3.0.0.beta7"
+VERSION="4.0.0"
 HOMEPAGE="https://redasm.io/"
-DOWNLOAD="https://github.com/kermitdafrog8/Slackbuild/releases/download/Source/REDasm-3.0.0.tar.gz
-          https://github.com/KDAB/KDDockWidgets/releases/download/v1.7.0/kddockwidgets-1.7.0.tar.gz
-          https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz"
-MD5SUM="ed42efb27eecac56397dcc25d6398b17
-        fcf47cdfd2a05926e4d00832551ffd84
-        c23a33f04786d85c29fda8d16b5f0efd"
-DOWNLOAD_x86_64=""
-MD5SUM_x86_64=""
-REQUIRES="spdlog"
+DOWNLOAD="https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/redasm-4.0.0-beta1.tar.xz"
+MD5SUM="75d784589e7f36bca86e49cbe81b2018"
+DOWNLOAD_ARM64="https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/redasm-4.0.0-beta1.tar.xz"
+MD5SUM_ARM64="75d784589e7f36bca86e49cbe81b2018"
+REQUIRES=""
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
