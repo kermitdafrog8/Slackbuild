@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=MesenCE
+Icon=
+Exec=/opt/MesenCE-2.2.1/Mesen
+Comment=Multi-system emulator
+Categories=Games
+Terminal=false

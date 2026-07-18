@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+       |-----handy-ruler------------------------------------------------------|
+MesenCE: MesenCE (Multi-system emulator)
+MesenCE:
+MesenCE: Mesen is a multi-system emulator for Windows, Linux, and macOS. It
+MesenCE: supports NES, SNES, Game Boy (GB/SGB/GBC), Game Boy Advance,
+MesenCE: PC Engine, SMS/Game Gear, and WonderSwan (WS/WSC).
+MesenCE:
+MesenCE: MesenCE is a community-managed fork based on Mesen2, created to
+MesenCE: maintain and expand this emulator into the future.
+MesenCE:
+MesenCE:
+MesenCE:

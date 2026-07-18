@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Slackware build script for c-blosc
+# Slackware build script for ZQuest
 
-# Copyright 2026 Christopher Luck
+# Copyright 2026 Christopher Luck Orlando, FL
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,8 +24,9 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=c-blosc2
-VERSION=${VERSION:-3.2.3}
+PRGNAM=ZQuest
+SRCNAM=ZQuestClassic
+VERSION=${VERSION:-2.55.15}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -34,7 +35,6 @@ if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
     i?86) ARCH=i586 ;;
     arm*) ARCH=arm ;;
-    aarch64) ARCH=aarch64 ;;
        *) ARCH=$( uname -m ) ;;
   esac
 fi
@@ -73,9 +73,16 @@ set -e # Exit on most errors
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-cd $PRGNAM-$VERSION
+if [ -e $CWD/$SRCNAM-$VERSION.tar.gz ]; then 
+	rm -rf $SRCNAM-$VERSION
+	tar xvf $CWD/$SRCNAM-$VERSION.tar.gz
+	cd $SRCNAM-$VERSION
+elif [ -e $CWD/$PRGNAM-$VERSION.tar.gz ]; then
+	rm -rf $SRCNAM-$VERSION
+	tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+	cd $SRCNAM-$VERSION
+fi
+
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
@@ -91,7 +98,6 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DMAN_INSTALL_DIR=/usr/man \
-    -DBUILD_SHARED=ON \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release ..
   make
@@ -104,14 +110,18 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+#find $PKG/usr/man -type f -exec gzip -9 {} \;
+#for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a *.rst *.md LICENSE.txt $PKG/usr/doc/$PRGNAM-$VERSION
-cp -R LICENSES/ $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS *.md LICENSE $PKG/usr/doc/$PRGNAM-$VERSION
+cp -R docs $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
+#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
