@@ -79,6 +79,11 @@ find -L . \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
 sed -i '/cmake_minimum_required/s,3\.25,3.21.4,' CMakeLists.txt
+sed -i '/cmake_minimum_required/s,3.25,3.21.4,' commands/CMakeLists.txt
+sed -i '/cmake_minimum_required/s,3.25,3.21.4,' core/CMakeLists.txt
+sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/CMakeLists.txt
+sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/CMakeLists.txt
+sed -i '/cmake_minimum_required/s,3.25,3.21.4,' redasm/CMakeLists.txt
 
 mkdir -p build
 cd build

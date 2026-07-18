@@ -5,6 +5,6 @@ DOWNLOAD="https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/r
 MD5SUM="75d784589e7f36bca86e49cbe81b2018"
 DOWNLOAD_ARM64="https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/redasm-4.0.0-beta1.tar.xz"
 MD5SUM_ARM64="75d784589e7f36bca86e49cbe81b2018"
-REQUIRES=""
+REQUIRES="qt6"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
