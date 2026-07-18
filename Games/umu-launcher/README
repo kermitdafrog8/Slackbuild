@@ -1,0 +1,2 @@
+This is a unified launcher for Windows games on Linux. It is essentially a copy of the Steam Runtime Tools and Steam Linux Runtime
+that Valve uses for Proton, with some modifications made so that it can be used outside of Steam.

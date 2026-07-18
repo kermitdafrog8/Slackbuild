@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Slackware build script for c-blosc
+# Slackware build script for umu-launcher
 
-# Copyright 2026 Christopher Luck
+# Copyright 2026 Christopher Luck Orlando, FL
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,8 +24,8 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=c-blosc2
-VERSION=${VERSION:-3.2.3}
+PRGNAM=umu-launcher
+VERSION=${VERSION:-1.4.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -34,7 +34,6 @@ if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
     i?86) ARCH=i586 ;;
     arm*) ARCH=arm ;;
-    aarch64) ARCH=aarch64 ;;
        *) ARCH=$( uname -m ) ;;
   esac
 fi
@@ -68,7 +67,7 @@ else
   LIBDIRSUFFIX=""
 fi
 
-set -e # Exit on most errors
+set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
@@ -83,20 +82,14 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-mkdir -p build
-cd build
-  cmake \
-    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
-    -DMAN_INSTALL_DIR=/usr/man \
-    -DBUILD_SHARED=ON \
-    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
-    -DCMAKE_BUILD_TYPE=Release ..
-  make
-  make install/strip DESTDIR=$PKG
-cd ..
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+./configure.sh --prefix=/usr \
+   --use-system-pyzstd \
+   --use-system-urllib
+
+make
+make install DESTDIR=$PKG
 
 # Don't ship .la files:
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
@@ -104,14 +97,22 @@ rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+mkdir -p $PKG/usr/man/man1
+mkdir -p $PKG/usr/man/man5
+mv $PKG/usr/share/man/man1/umu.1 $PKG/usr/man/man1
+mv $PKG/usr/share/man/man5/umu.5 $PKG/usr/man/man5
+rm -R $PKG/usr/share
+
+find $PKG/usr/man -type f -exec gzip -9 {} \;
+for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a *.rst *.md LICENSE.txt $PKG/usr/doc/$PRGNAM-$VERSION
-cp -R LICENSES/ $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a LICENSE README.md release_notes.md $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
+#cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
