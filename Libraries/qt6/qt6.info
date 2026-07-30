@@ -37,6 +37,6 @@ MD5SUM_x86_64="ae252a683d070e33ecd10862d6a7cafc \
                a3f4a7c3dd5c3dc057aeaad5fb9295b3 \
                10a39c4b4af4f465c4ff0352a6d18a0a \
                3cee913489eb2748591f19478a049a2e"
-REQUIRES="double-conversion html5lib md4c nodejs22 llvm-opt renderdoc"
+REQUIRES="double-conversion html5lib md4c nodejs22 llvm-opt renderdoc snappy re2"
 MAINTAINER="Ruoh-Shoei LIN"
 EMAIL="lin.ruohshoei+sbo@gmail.com"
