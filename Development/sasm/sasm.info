@@ -1,6 +1,6 @@
 PRGNAM="sasm"
 VERSION="3.16.0"
-HOMEPAGE="http://dman95.github.io/SASM/"
+HOMEPAGE="https://dman95.github.io/SASM/"
 DOWNLOAD="https://github.com/Dman95/SASM/archive/v3.16.0/SASM-3.16.0.tar.gz"
 MD5SUM="b7345d14be9c532d34c374a95fbe7564"
 DOWNLOAD_x86_64=""
