@@ -88,10 +88,9 @@ sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/elf/CMakeLists.txt
 sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/mz/CMakeLists.txt
 sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/psx/CMakeLists.txt
 sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/xbe/CMakeLists.txt
-sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processor/CMakeLists.txt
-sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processor/capstonebundle/CMakeLists.txt
-sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processor/mips/CMakeLists.txt
-sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processor/x86/CMakeLists.txt
+sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/capstonebundle/CMakeLists.txt
+sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/mips/CMakeLists.txt
+sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/x86/CMakeLists.txt
 sed -i '/cmake_minimum_required/s,3.25,3.21.4,' kb/CMakeLists.txt
 
 mkdir -p build
