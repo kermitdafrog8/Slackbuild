@@ -2,7 +2,7 @@
 
 # Slackware build script for SASM
 
-# Copyright 2023 Christopher Luck Orlando,FL
+# Copyright 2023-2026 Christopher Luck Orlando,FL
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -26,11 +26,11 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=sasm
 SRCNAM=SASM
-VERSION=${VERSION:-3.14.0}
+VERSION=${VERSION:-3.16.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
- 
+
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
     i?86) ARCH=i586 ;;
