@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Slackware build script for colored
+# Slackware build script for colord
 
-# Copyright 2014-2026  Dimitris Zlatanidis  Orestiada, Greece
+# Copyright 2015-2024 Willy Sudiarto Raharjo <willysr@slackbuilds.org>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,8 +24,8 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=colored
-VERSION=${VERSION:-2.3.2}
+PRGNAM=colord
+VERSION=${VERSION:-1.4.8}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -38,9 +38,19 @@ if [ -z "$ARCH" ]; then
   esac
 fi
 
-# If the variable PRINT_PACKAGE_NAME is set, then this script will report what
-# the name of the created package would be, and then exit. This information
-# could be useful to other scripts.
+bailout() {
+  printf "This requires a \"colord\" user and group.\n"
+  printf "groupadd -g 303 colord\n"
+  printf "useradd -d /var/lib/colord -u 303 -g colord -s /bin/false colord"
+  exit 1
+}
+
+if ! getent group colord 2>/dev/null 1>/dev/null ; then
+  bailout
+elif ! getent passwd colord 2>/dev/null 1>/dev/null ; then
+  bailout
+fi
+
 if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
   echo "$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE"
   exit 0
@@ -64,13 +74,19 @@ else
   LIBDIRSUFFIX=""
 fi
 
+if [ "${BASH_COMPLETION:-no}" = "yes" ]; then
+  USE_BASH="true"
+else
+  USE_BASH="false"
+fi
+
 set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+tar xvf $CWD/$PRGNAM-$VERSION.tar.xz
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find -L . \
@@ -79,18 +95,54 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-python3 -m build --no-isolation
-python3 -m installer --destdir "$PKG" dist/*.whl
+# Since polkit in current apply upstream git
+# we have to reduce the polkit version used to test
+# https://github.com/hughsie/colord/issues/36
+sed -i "s|0.114|0.113|" meson.build
+
+mkdir -p build
+cd build
+meson --prefix=/usr \
+      --buildtype=release \
+      --localstatedir=/var \
+      --libdir=lib${LIBDIRSUFFIX} \
+      --libexecdir=/usr/lib${LIBDIRSUFFIX}/colord \
+      --mandir=/usr/man \
+      -Dlibcolordcompat=true \
+      -Dsane=true \
+      -Dvapi=true \
+      -Dsystemd=false \
+      -Dargyllcms_sensor=false \
+      -Dprint_profiles=false \
+      -Dtests=false \
+      -Dbash_completion=${USE_BASH} \
+      -Ddaemon_user=colord \
+      -Dman=false \
+      ../
+"${NINJA:=ninja}"
+DESTDIR=$PKG $NINJA install
+cd ..
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+# Fix paths
+sed -i "s|/lib|/lib${LIBDIRSUFFIX}|g" $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig/colord.pc
+sed -i "s|/lib|/lib${LIBDIRSUFFIX}|g" $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig/colorhug.pc
+mv $PKG/usr/share/dbus-1/system.d/org.freedesktop.ColorManager.conf $PKG/usr/share/dbus-1/system.d/org.freedesktop.ColorManager.conf.new
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a README.md CHANGES.md LICENSE.txt $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS COPYING* MAINTAINERS $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+find $PKG/usr/doc/$PRGNAM-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
+
+mkdir -p $PKG/var/lib/$PRGNAM
+chown -R $PRGNAM:$PRGNAM $PKG/var/lib/$PRGNAM
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
