@@ -69,7 +69,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $SRCNAM-$VERSION-$EXTBIT
-tar xvf $CWD/$SRCNAM-$VERSION-$EXTBIT.tar.xz
+tar xvf $CWD/$SRCNAM-$VERSION-$EXTBIT.tar.*z?
 cd $SRCNAM-$VERSION-$EXTBIT
 chown -R root:root .
 find -L . \
@@ -96,7 +96,7 @@ find -L . \
 
 mkdir -p build
 cd build
-  cmake \
+/opt/cmake-opt/bin/cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
