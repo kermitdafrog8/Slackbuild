@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Slackware build script for REDasm
+# Slackware build script for cmake-opt
 
-# Copyright 2026 Christopher Luck Orlando, USA
+# Copyright 2026, Lockywolf
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -22,15 +22,19 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+# 20260627 bkw: Modified by SlackBuilds.org, BUILD=2:
+# - include a csh version of the profile.d script.
+# - explicitly set the perms of the profile.d scripts to 644.
+
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=REDasm
-VERSION=${VERSION:-4.0.0}
-EXTBIT=beta1
-SRCNAM=redasm
-BUILD=${BUILD:-1}
+PRGNAM=cmake-opt
+VERSION=${VERSION:-3.31.12}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
+
+TARNAM=cmake
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -58,6 +62,9 @@ elif [ "$ARCH" = "i686" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
+elif [ "$ARCH" = "aarch64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
 else
   SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
@@ -68,50 +75,28 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $SRCNAM-$VERSION-$EXTBIT
-tar xvf $CWD/$SRCNAM-$VERSION-$EXTBIT.tar.xz
-cd $SRCNAM-$VERSION-$EXTBIT
+rm -rf $TARNAM-$VERSION
+tar xvf $CWD/$TARNAM-$VERSION.tar.gz
+cd $TARNAM-$VERSION
 chown -R root:root .
 find -L . \
  \( -perm 777 -o -perm 775 -o -perm 750 -o -perm 711 -o -perm 555 \
-  -o -perm 511 \) -exec chmod 755 {} \; -o \
+  -o -perm 511 \) -exec chmod 755 {} + -o \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
-  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
+  -o -perm 440 -o -perm 400 \) -exec chmod 644 {} +
 
-#sed -i '/cmake_minimum_required/s,3\.25,3.21.4,' CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' commands/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' commands/coff/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' core/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' redasm/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/elf/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/mz/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/psx/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/xbe/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/capstonebundle/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/mips/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/x86/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' kb/CMakeLists.txt
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+./configure \
+  --prefix=/opt/$PRGNAM \
+  --mandir=man \
+  --docdir=doc/$PRGNAM-$VERSION
 
-mkdir -p build
-cd build
-  cmake \
-    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
-    -DMAN_INSTALL_DIR=/usr/man \
-    -DCAPSTONE_SPARC_SUPPORT=ON \
-    -DCAPSTONE_PPC_SUPPORT=ON \
-    -DCAPSTONE_X86_SUPPORT=ON \
-    -DCAPSTONE_MIPS_SUPPORT=ON \
-    -DCAPSTONE_M68K_SUPPORT=ON \
-    -DCMAKE_BUILD_TYPE=Release ..
-  make -j10
-  make install/strip DESTDIR=$PKG
-cd ..
-install -Dm644 $CWD/REDasm.desktop $PKG/usr/share/applications/REDasm.desktop
+
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+make
+make install DESTDIR=$PKG
 
 rm -f $PKG/{,usr/}lib${LIBDIRSUFFIX}/*.la
 
@@ -119,12 +104,16 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | gr
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a LICENSE README* $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a \
+  CONTRIBUTING.rst      Copyright.txt  README.rst \
+  $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/etc/profile.d/
+install -m0644 $CWD/$PRGNAM.{sh,csh} $PKG/etc/profile.d/
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION."$EXTBIT"-$ARCH-$BUILD$TAG.$PKGTYPE
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.$PKGTYPE
