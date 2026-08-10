@@ -81,7 +81,11 @@ sed -i 's,-groff.*,roff2pdf -K utf8 md2roff.1 > md2roff.1.pdf,' Makefile
 # all, it just insists the variable has to be set). So:
 export DISPLAY=${DISPLAY:-no_such_display}
 
-ln -s /usr/bin/pdfroff /usr/bin/roff2pdf
+# Check if link exist before creating
+if [[ -L "/usr/bin/roff2pdf" ]]; then
+rm roff2pdf
+ln -s /usr/bin/gropdf /usr/bin/roff2pdf
+fi
 
 make install \
   CFLAGS="$SLKCFLAGS" \
