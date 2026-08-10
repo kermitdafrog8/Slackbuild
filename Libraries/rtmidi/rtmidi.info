@@ -1,4 +1,4 @@
-PRGNAM="RtMidi"
+PRGNAM="rtmidi"
 VERSION="6.0.0"
 HOMEPAGE="https://github.com/thestk/rtmidi"
 DOWNLOAD="https://github.com/thestk/rtmidi/archive/6.0.0/rtmidi-6.0.0.tar.gz"
