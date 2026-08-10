@@ -82,6 +82,10 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
+# Claims to need cmake-3.24, but our 3.21.4 worx fine. Upstream
+# notified, no response yet.
+ sed -i '/cmake_minimum_required/s,3\.24,3.21.4,' CMakeLists.txt
+
 mkdir -p build
 cd build
   cmake \
