@@ -94,7 +94,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --disable-static \
   --build=$ARCH-slackware-linux
 
-make -j5
+make
 make install DESTDIR=$PKG
 
 # Don't ship .la files:
