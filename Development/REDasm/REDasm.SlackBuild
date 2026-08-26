@@ -78,25 +78,9 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-#sed -i '/cmake_minimum_required/s,3\.25,3.21.4,' CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' commands/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' commands/coff/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' core/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' redasm/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/elf/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/mz/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/psx/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' loaders/xbe/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/capstonebundle/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/mips/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' processors/x86/CMakeLists.txt
-#sed -i '/cmake_minimum_required/s,3.25,3.21.4,' kb/CMakeLists.txt
-
 mkdir -p build
 cd build
-/opt/cmake-opt/bin/cmake \
+cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX=/usr \
@@ -108,7 +92,7 @@ cd build
     -DCAPSTONE_MIPS_SUPPORT=ON \
     -DCAPSTONE_M68K_SUPPORT=ON \
     -DCMAKE_BUILD_TYPE=Release ..
-  make -j10
+  make
   make install/strip DESTDIR=$PKG
 cd ..
 install -Dm644 $CWD/REDasm.desktop $PKG/usr/share/applications/REDasm.desktop
