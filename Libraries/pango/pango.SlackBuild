@@ -102,8 +102,7 @@ cd build
     --datadir=/usr/share \
     --includedir=/usr/include \
     --libexecdir=/usr/libexec \
-    -Ddocumentation=true \
-    -Dman-pages=true \
+    -Dgtk_doc=true \
     -Dintrospection=enabled \
     -Dstrip=true
   "${NINJA:=ninja}"
