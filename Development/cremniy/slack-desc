@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+       |-----handy-ruler------------------------------------------------------|
+cremniy: cremniy (Low-level IDE)
+cremniy:
+cremniy: Cremniy is an integrated environment for low-level development.
+cremniy: Instead of keeping a HEX editor in one window, a disassembler in
+cremniy: another, and a code editor in a third all tools are combined and
+cremniy: linked in a single convenient application.
+cremniy:
+cremniy:
+cremniy:
+cremniy:
+cremniy:
