@@ -46,15 +46,6 @@ The purpose of this project is to provide a cross platform library which can par
 [rapidjson](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/rapidjson) -
 RapidJSON is a JSON parser and generator for C++. It was inspired by RapidXml.<br>
 
-[spdlog](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/spdlog) - 
-Very fast, header-only/compiled, C++ logging library.
-
-fmt is an optional dependency and will be autodetected if installed.
-
-This scripts builds both 32bit and 64bit libraries by autodetecting
-multilib. If you are on a multilib system and only wish to build the
-64bit library, pass COMPAT32=no to the build script.<br>
-
 [VTK](https://github.com/kermitdafrog8/Slackbuild/tree/main/Libraries/VTK) - 
 The Visualization Toolkit (VTK) is an open source, freely
 available software system for 3D computer graphics, modeling,
