@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/source/h/hatch_fancy_pypi_read
 MD5SUM="f5f9e639f066c91f8e623ec6231beae9"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="python3-hatchling"
 MAINTAINER="fourtysixandtwo"
 EMAIL="fourtysixandtwo@sliderr.net"
