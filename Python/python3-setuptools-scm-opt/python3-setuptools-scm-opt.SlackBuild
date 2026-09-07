@@ -2,7 +2,7 @@
 
 # Slackware build script for python3-setuptools-scm-opt
 
-# Copyright 2023-2024  fourtysixandtwo <fourtysixandtwo@sliderr.net>
+# Copyright 2023-2025  fourtysixandtwo <fourtysixandtwo@sliderr.net>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -26,7 +26,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=python3-setuptools-scm-opt
 SRCNAM=setuptools_scm
-VERSION=${VERSION:-9.2.1}
+VERSION=${VERSION:-8.3.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -65,6 +65,9 @@ find -L . \
   -o -perm 511 \) -exec chmod 755 {} \+ -o \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \+
+
+# remove upper version limit if python3-tomli-opt is installed
+sed -i '/tomli<=2.0.2/d' pyproject.toml
 
 PYVER=$(python3 -c 'import sys; print("%d.%d" % sys.version_info[:2])')
 export PYTHONPATH=/opt/python$PYVER/site-packages
