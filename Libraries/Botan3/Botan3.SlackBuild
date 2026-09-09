@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for Botan
+# Slackware build script for Botan3
 
 # Copyright (c) 2010-2022  Markus Reichelt, Aachen, DE
 # Copyright (c) 2023-2025  Gregory J. L. Tourte <artourter@gmail.com>
@@ -30,7 +30,7 @@
 
 cd $(dirname $0) ; CWD=$(pwd)
 
-PRGNAM=Botan
+PRGNAM=Botan3
 VERSION=${VERSION:-3.10.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}

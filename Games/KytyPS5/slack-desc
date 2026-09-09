@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+       |-----handy-ruler------------------------------------------------------|
+KytyPS5: KytyPS5 (PlayStation 5 emulator)
+KytyPS5:
+KytyPS5: KytyPS5 is a free and open-source PlayStation 5 emulator written in
+KytyPS5: C++ for Windows and Linux, with experimental macOS support. It is
+KytyPS5: based on a heavily modified version of Kyty. The project is in an
+KytyPS5: early stage of development, so compatibility is limited and behavior
+KytyPS5: may change significantly between builds.
+KytyPS5:
+KytyPS5: 
+KytyPS5: 
+KytyPS5: 
