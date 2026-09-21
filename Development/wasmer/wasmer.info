@@ -1,10 +1,10 @@
 PRGNAM="wasmer"
-VERSION="5.0.2"
+VERSION="7.4.2"
 HOMEPAGE="https://wasmer.io/"
-DOWNLOAD="https://github.com/wasmerio/wasmer/archive/v5.0.2/wasmer-5.0.2.tar.gz
-          https://github.com/kermitdafrog8/Slackbuild/releases/download/Source/wasmer-vendored-sources-5.0.2.tar.gz"
-MD5SUM="692dffcff1391bdb7ab208985adc2c3b
-        d9bfb46ba6454c406d8ca9b6a6f46f2a"
+DOWNLOAD="https://github.com/wasmerio/wasmer/archive/v7.4.2/wasmer-7.4.2.tar.gz
+          https://github.com/kermitdafrog8/Slackbuild/releases/download/v0.0.2/wasmer-vendored-sources-7.4.2.tar.bz2"
+MD5SUM="d9fd0416ca853750c2fb3c9edb897c75 
+  	a33fe90b6da18274612461ce78ea2948"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""

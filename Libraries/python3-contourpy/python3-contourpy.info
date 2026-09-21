@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/b4/9b/6edb9d3e334a70a212f66a84
 MD5SUM="e0d60b16c86e66637ba5ab42245fd422"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="pybind11 python3-numpy python3-setuptools-opt"
+REQUIRES="python3-numpy python3-setuptools-opt"
 MAINTAINER="Serban Udrea"
 EMAIL="S.Udrea@gsi.de"

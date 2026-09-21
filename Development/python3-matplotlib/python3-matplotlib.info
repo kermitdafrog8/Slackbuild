@@ -10,6 +10,6 @@ MD5SUM="6da436514c0016b6122bf605c0dec1d5 \
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES="python3-contourpy python3-cycler python3-dateutil python3-fonttools python3-kiwisolver \
-          python3-numpy importlib-resources pybind11 python3-setuptools-scm-opt"
+          python3-numpy importlib-resources python3-setuptools-scm-opt"
 MAINTAINER="Serban Udrea"
 EMAIL="S.Udrea@gsi.de"
