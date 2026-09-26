@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+     |-----handy-ruler------------------------------------------------------|
+moria: moria (IoT firmware identification and extraction)
+moria:
+moria: moria identifies files and the structures embedded inside firmware
+moria: and IoT images (filesystems, kernels, bootloaders, archives,  keys)
+moria: and unpacks most of what it finds, without root. It reports each
+moria: finding with a byte offset, a type, and a confidence score, and it
+moria: speaks clean JSON so scripts and LLM agents can drive it as
+moria: easily as people can.
+moria:
+moria:
+moria:

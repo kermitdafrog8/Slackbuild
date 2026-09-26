@@ -25,7 +25,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=wasmer
-VERSION=${VERSION:-5.0.2}
+VERSION=${VERSION:-7.4.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
@@ -74,8 +74,7 @@ mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
 tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-tar xvf $CWD/wasmer-vendored-sources-5.0.2.tar.gz -C $CWD
-#mv wasmer-vendored-sources-5.0.0/*.crates ../
+tar xvf $CWD/wasmer-vendored-sources-$VERSION.tar.bz2 -C $CWD
 cd $PRGNAM-$VERSION
 
 # build offline

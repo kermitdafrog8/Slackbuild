@@ -1,0 +1,3 @@
+KytyPS5 is a free and open-source PlayStation 5 emulator written in C++ for Windows and Linux, with
+experimental macOS support. It is based on a heavily modified version of Kyty. The project is in an early stage
+evelopment, so compatibility is limited and behavior may change significantly between builds.
