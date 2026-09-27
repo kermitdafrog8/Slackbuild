@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/source/s/sphinxcontrib-applehe
 MD5SUM="5604b67076d57cf229da15daf3472ff5"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-build"
+REQUIRES=""
 MAINTAINER="fourtysixandtwo"
 EMAIL="fourtysixandtwo@sliderr.net"

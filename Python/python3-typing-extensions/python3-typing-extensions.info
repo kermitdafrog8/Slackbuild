@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/source/t/typing_extensions/typ
 MD5SUM="cf64c2313f5fa5eb04c1deb3fc93abe9"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-build"
+REQUIRES=""
 MAINTAINER="Jeremy Hansen"
 EMAIL="jebrhansen+SBo@gmail.com"

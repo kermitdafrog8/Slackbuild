@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/source/j/jaraco_functools/jara
 MD5SUM="b8a8d165da986efa1966abd91c45348e"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-setuptools-opt python3-typing-extensions python3-more-itertools python3-wheel"
+REQUIRES="python3-setuptools-opt python3-typing-extensions python3-more-itertools"
 MAINTAINER="fourtysixandtwo"
 EMAIL="fourtysixandtwo@sliderr.net"

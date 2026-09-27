@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/source/m/more_itertools/more_i
 MD5SUM="05fc46d7baf167d89c82a383c9f0c2fa"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-build"
+REQUIRES=""
 MAINTAINER="fourtysixandtwo"
 EMAIL="fourtysixandtwo@sliderr.net"
