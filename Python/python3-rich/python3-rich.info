@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/source/r/rich/rich-13.7.1.tar.
 MD5SUM="2ac0824eb42705e186f8f57555a6602e"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-poetry-core python3-markdown-it-py"
+REQUIRES="python3-markdown-it-py"
 MAINTAINER="fourtysixandtwo"
 EMAIL="fourtysixandtwo@sliderr.net"
