@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/source/t/tomli/tomli-2.2.1.tar
 MD5SUM="1e0e2fb2e29f3d77f0507bee71fb4ab4"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-installer"
+REQUIRES=""
 MAINTAINER="fourtysixandtwo"
 EMAIL="fourtysixandtwo@sliderr.net"
