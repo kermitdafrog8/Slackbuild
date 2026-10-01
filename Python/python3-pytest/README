@@ -1,0 +1,13 @@
+The pytest testing tool makes it easy to write small tests, yet
+scales to support complex functional testing.
+
+This is installed with python3.
+
+IMPORTANT: The scripts py.test and pytest are renamed to py.test3
+and pytest3 respectively to avoid conflicts with the pytest installed
+with python.
+
+This is the Python 3 build of pytest.
+
+NOTE: Unable to support newer versions due to requiring newer version
+of python than is available in Slackware 15.0 (python 3.10).

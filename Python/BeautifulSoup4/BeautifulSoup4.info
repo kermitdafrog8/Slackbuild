@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e2
 MD5SUM="c7e801c7d4e2300c1112eeb0b21ccb9b"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES="python3-soupsieve python3-typing-extensions"
+REQUIRES="python3-typing-extensions"
 MAINTAINER="Giancarlo Dessi"
 EMAIL="slack@giand.it"
