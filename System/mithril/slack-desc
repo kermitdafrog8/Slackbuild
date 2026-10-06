@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+       |-----handy-ruler------------------------------------------------------|
+mithril: mithril (IoT static scanner for secrets, SBOM, CVEs and more.)
+mithril:
+mithril: mithril analyzes the contents of firmware and IoT software, whether a
+mithril: single file or an unpacked rootfs. It looks for embedded secrets
+mithril: and keys, a software bill of materials (SBOM), known CVEs affecting
+mithril: those components, open-source licenses, boot-security posture
+mithril: (U-Boot env, device tree, FIT/AVB/UEFI verified boot), and weak or
+mithril: leaked public keys (keys whose private half is public, ROCA,
+mithril: undersized RSA). It reports each finding with its evidence and a
+mithril: confidence, and it speaks clean JSON so scripts and LLM agents can
+mithril: drive it as easily as people can.

@@ -1,0 +1,3 @@
+moria identifies files and the structures embedded inside firmware and IoT images (filesystems, kernels,
+bootloaders, archives, keys) and unpacks most of what it finds, without root. It reports each finding with a byte offset,
+a type, and a confidence score, and it speaks clean JSON so scripts and LLM agents can drive it as easily as people can.

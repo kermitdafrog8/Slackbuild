@@ -1,0 +1,3 @@
+IoT static scanner for secrets, SBOM, CVEs and more.
+
+mithril analyzes the contents of firmware and IoT software, whether a single file or an unpacked rootfs. It looks for embedded secrets and keys, a software bill of materials (SBOM), known CVEs affecting those components, open-source licenses, boot-security posture (U-Boot env, device tree, FIT/AVB/UEFI verified boot), and weak or leaked public keys (keys whose private half is public, ROCA, undersized RSA). It reports each finding with its evidence and a confidence, and it speaks clean JSON so scripts and LLM agents can drive it as easily as people can.
