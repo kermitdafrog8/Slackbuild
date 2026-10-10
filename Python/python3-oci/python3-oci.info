@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/7f/51/3b400abbfe14a91187d80e95
 MD5SUM="8c434c9e344dc538280ea9ffb7b24776"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="python3-build"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
