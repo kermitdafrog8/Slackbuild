@@ -29,6 +29,8 @@ VERSION=${VERSION:-0.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 PKGTYPE=${PKGTYPE:-tgz}
+# This is a fix for slackrepo to build.  The Makefile uses this variable.
+VERBOSE=
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
