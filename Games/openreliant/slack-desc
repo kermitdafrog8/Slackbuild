@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+           |-----handy-ruler------------------------------------------------------|
+openreliant: openreliant (an open-source reimplementation of StarLancer's engine)
+openreliant:
+openreliant: OpenReliant is an open-source, faithful engine reimplementation of
+openreliant: StarLancer, the space combat simulator developed by Warthog and
+openreliant: Digital Anvil and published by Microsoft in 2000.
+openreliant:
+openreliant: Written in Zig and built on SDL3, OpenReliant renders with Vulkan
+openreliant: (Metal on macOS) via SDL's GPU API. It runs natively on Linux, macOS,
+openreliant: and Windows using assets directly from your retail copy of the game.
+openreliant:
+openreliant:

@@ -1,0 +1,5 @@
+OpenReliant is an open-source, faithful engine reimplementation of StarLancer, the space combat simulator developed by Warthog
+ and Digital Anvil and published by Microsoft in 2000.
+
+Written in Zig and built on SDL3, OpenReliant renders with Vulkan (Metal on macOS) via SDL's GPU API. It runs natively on Linux,
+macOS, and Windows using assets directly from your retail copy of the game.
