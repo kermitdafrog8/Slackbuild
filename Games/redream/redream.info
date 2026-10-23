@@ -1,8 +1,10 @@
 PRGNAM="redream"
 VERSION="1.5.0"
 HOMEPAGE="https://redream.io/"
-DOWNLOAD="https://redream.io/download/redream.x86_64-linux-v1.5.0-1133-g03c2ae9.tar.gz"
-MD5SUM="41f6fbd7b904f021faab7dd90754f2c8"
+DOWNLOAD="https://redream.io/download/redream.x86_64-linux-v1.5.0.tar.gz \
+          https://redream.io/download/redream.universal-raspberry-linux-v1.5.0-1240-gc41f7f2.tar.gz"
+MD5SUM="cc757ece3decf4ff35f9483a8fb5dc3e \
+	4f2075cfd173aef955591a9bf10905e9"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
 REQUIRES=""

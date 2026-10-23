@@ -6,14 +6,14 @@
 # customary to leave one space after the ':' except on otherwise blank lines.
 
                   |-----handy-ruler------------------------------------------------------|
-dotnet-runtime-10.0: dotnet-runtime-10.0 (Runtime for .NET 9.0 applications)
-dotnet-runtime-10.0:
-dotnet-runtime-10.0: .NET Core is an open-source, general-purpose development platform
-dotnet-runtime-10.0: maintained by Microsoft and the .NET community on GitHub. It's
-dotnet-runtime-10.0: cross-platform (supporting Windows, macOS, and Linux) and can be used
-dotnet-runtime-10.0: to build device, cloud, and IoT applications. This package contains
-dotnet-runtime-10.0: everything you need to run a .NET 9.0 application. If you want to
-dotnet-runtime-10.0: build apps, install dotnet-sdk-9.0, which contains this runtime too.
-dotnet-runtime-10.0: Using the 10.x branch
-dotnet-runtime-10.0: https://dotnet.microsoft.com/
-dotnet-runtime-10.0:
+dotnet-runtime-10 : dotnet-runtime-10.0 (Runtime for .NET 10.0 applications)
+dotnet-runtime-10 :
+dotnet-runtime-10 : .NET Core is an open-source, general-purpose development platform
+dotnet-runtime-10 : maintained by Microsoft and the .NET community on GitHub. It's
+dotnet-runtime-10 : cross-platform (supporting Windows, macOS, and Linux) and can be used
+dotnet-runtime-10 : to build device, cloud, and IoT applications. This package contains
+dotnet-runtime-10 : everything you need to run a .NET 10.0 application. If you want to
+dotnet-runtime-10 : build apps, install dotnet-sdk-10.0, which contains this runtime too.
+dotnet-runtime-10 : Using the 10.x branch
+dotnet-runtime-10 : https://dotnet.microsoft.com/
+dotnet-runtime-10 :
