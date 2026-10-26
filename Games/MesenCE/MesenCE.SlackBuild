@@ -88,7 +88,7 @@ make
 
 mkdir -p $PKG/opt/$PRGNAM-$VERSION
 cp -a bin/linux-$ARCHITECTURE/Release/* $PKG/opt/$PRGNAM-$VERSION
-rm -R $PKG/opt/$PRGNAM-$VERSION/linux-x64
+rm -R $PKG/opt/$PRGNAM-$VERSION/linux-$ARCHITECTURE
 
 mkdir -p $PKG/usr/share/applications
 cp $CWD/MesenCE.desktop $PKG/usr/share/applications

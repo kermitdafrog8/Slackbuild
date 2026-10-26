@@ -1,7 +1,7 @@
 PRGNAM="erofs"
 VERSION="1.9.4"
 HOMEPAGE="https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git"
-DOWNLOAD="https://github.com/erofs/erofs-utils/archive/v1.9.4/erofs-1.9.4.tar.gz"
+DOWNLOAD="https://github.com/erofs/erofs-utils/archive/v1.9.4/erofs-utils-1.9.4.tar.gz"
 MD5SUM="fd240be1575882f531691fa1162bc4d3"
 DOWNLOAD_ARM64=""
 MD5SUM_ARM64=""
