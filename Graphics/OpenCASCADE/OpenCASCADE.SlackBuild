@@ -32,7 +32,7 @@ cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=OpenCASCADE
 SRCNAM=OCCT
-VERSION=${VERSION:-7.9.3}
+VERSION=${VERSION:-8.0.1}
 SRCV=7_9_3
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -97,14 +97,6 @@ sed -i -e '/#include <iostream>/a#include <limits>' src/ViewerTest/ViewerTest_Cm
 # Fix bogus install path
 sed -i -e 's|\${INSTALL_DIR}/\${INSTALL_DIR_CMAKE}/OpenCASCADECompile|${INSTALL_DIR_CMAKE}/OpenCASCADECompile|' \
   CMakeLists.txt
-
-# Strictly speaking VTK is optional, but the only user of OCC in SBo is FreeCAD,
-# and FreeCAD wants OCC's VTK support. :)
-
-#-DUSE_FREEIMAGE=${WITH_FREEIMAGE:-OFF} \
-#    -DUSE_GL2PS=${WITH_GL2PS:-OFF} \
-#    -DUSE_TBB=${WITH_TBB:-OFF} \
-
 
 mkdir -p build
 cd build
