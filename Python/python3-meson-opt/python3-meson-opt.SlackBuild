@@ -68,11 +68,13 @@ find -L . \
 PYVER=$(python3 -c 'import sys; print("%d.%d" % sys.version_info[:2])')
 
 python3 -m build --no-isolation
-python3 -m installer -d "$PKG" -p "opt/meson" dist/*.whl
+python3 -m installer -d "$PKG" -p "" dist/*.whl
 
 mkdir -p $PKG/opt/python$PYVER
-cp -R $PKG/tmp/SBo/meson-1.7.0/opt/meson/lib*/python$PYVER  $PKG/opt/
+cp -R $PKG/lib/python$PYVER $PKG/opt
 rm -R $PKG/tmp
+rm -R $PKG/lib
+rm -R $PKG/bin
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
