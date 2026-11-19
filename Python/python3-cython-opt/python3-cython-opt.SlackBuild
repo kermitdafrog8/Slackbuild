@@ -70,8 +70,10 @@ export PATH="/opt/cython/bin:$PATH"
 mkdir -p $PKG/opt
 python3 -m build --no-isolation
 python3 -m installer -d "$PKG" -p "opt/cython" dist/*.whl
-#mv $PKG/opt/cython/lib*/python$PYVER $PKG/opt/cython/
-#rmdir $PKG/opt/cython/lib*/
+
+mkdir -p $PKG/opt/python$PYVER
+cp -R $PKG/tmp/SBo/cython-3.3.0/opt/cython/lib64/python3.12/* $PKG/opt/python$PYVER
+rm -R $PKG/tmp
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
