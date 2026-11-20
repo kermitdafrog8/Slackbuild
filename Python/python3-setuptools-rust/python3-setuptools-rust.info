@@ -5,6 +5,6 @@ DOWNLOAD="https://files.pythonhosted.org/packages/bc/c4/8d3d282cee60d3ea0369fa15
 MD5SUM="6ecee3d9f3ac646a52d60155022fd0d0"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="python3-semantic-version"
 MAINTAINER="Christopher Luck"
 EMAIL="kermitdafrog8@gmail.com"
