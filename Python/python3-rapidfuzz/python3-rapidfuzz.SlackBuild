@@ -24,7 +24,7 @@
 cd $(dirname $0) ; CWD=$(pwd)
 
 PRGNAM=python3-rapidfuzz
-VERSION=${VERSION:-3.14.1}
+VERSION=${VERSION:-3.14.6}
 RAPIDCPPVER=${RAPIDCPPVER:-2440ffa}
 TASKVER=${TASKVER:-130f795}
 SRCNAM=${SRCNAM:-RapidFuzz}
@@ -71,10 +71,11 @@ find -L . \
 
 # Just allow any numpy, and newer Cython
 sed -i 's|oldest-supported-numpy|numpy|;s|, <3.1.0||' pyproject.toml
+sed -i 's|"Cython >=3\.1\.6, <3\.3\.0"|"Cython<=3.3.1"|' pyproject.toml
 
 PYVER=$(python3 -c 'import sys; print("%d.%d" % sys.version_info[:2])')
-export PYTHONPATH="/opt/python$PYVER/site-packages:/opt/cython/python$PYVER/site-packages"
-export PATH="/opt/cython/bin:$PATH"
+#export PYTHONPATH="/opt/python$PYVER/site-packages:/opt/cython/python$PYVER/site-packages"
+#export PATH="/opt/cython/bin:$PATH"
 
 python3 -m build --wheel --no-isolation
 python3 -m installer --destdir=$PKG dist/*.whl

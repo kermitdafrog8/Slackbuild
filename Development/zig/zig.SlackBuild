@@ -47,10 +47,10 @@ if [ ! -z "${PRINT_PACKAGE_NAME}" ]; then
   exit 0
 fi
 
-if [ "$ARCH" != "x86_64" ]; then
-  echo "This package only supports x86_64." >&2
-  exit 1
-fi
+#if [ "$ARCH" != "x86_64" ]; then
+#  echo "This package only supports x86_64." >&2
+#  exit 1
+#fi
 
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
@@ -58,7 +58,7 @@ OUTPUT=${OUTPUT:-/tmp}
 
 SRCNAM=zig-$VERSION
 BOOTSTRAPNAM=zig-bootstrap-$VERSION
-TARGET="x86_64-linux-gnu"
+TARGET="aarch64-linux-gnu"
 MCPU=${MCPU:-baseline}
 
 set -e
@@ -95,7 +95,7 @@ export CXXFLAGS="${CXXFLAGS//-Oz/-Os}"
 # supports -Os, but treats -Oz as an invalid -O argument.
 sed -i 's/\(-std=c99\) -Oz /\1 -Os /g' zig/CMakeLists.txt
 
-./build $TARGET $MCPU
+./build $TARGET $MCPU -j1
 
 install -Dm 755 out/zig-$TARGET-$MCPU/zig $PKG/usr/bin/zig
 install -d $PKG/usr/lib/zig
