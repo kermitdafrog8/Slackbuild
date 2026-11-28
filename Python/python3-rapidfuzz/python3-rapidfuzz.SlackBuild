@@ -71,7 +71,7 @@ find -L . \
 
 # Just allow any numpy, and newer Cython
 sed -i 's|oldest-supported-numpy|numpy|;s|, <3.1.0||' pyproject.toml
-sed -i 's|"Cython >=3\.1\.6, <3\.3\.0"|"Cython<=3.3.1"|' pyproject.toml
+sed -i 's|"Cython >=3\.1\.6, <3\.3\.0"|"Cython>=3.0.0"|' pyproject.toml
 
 PYVER=$(python3 -c 'import sys; print("%d.%d" % sys.version_info[:2])')
 #export PYTHONPATH="/opt/python$PYVER/site-packages:/opt/cython/python$PYVER/site-packages"
